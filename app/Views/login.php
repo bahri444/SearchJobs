@@ -10,7 +10,7 @@
   <title>Sign In / Universe Admin</title>
 
   
-    <link rel="stylesheet" href="fonts/open-sans/style.min.css"> <!-- common font  styles  -->
+<link rel="stylesheet" href="fonts/open-sans/style.min.css"> <!-- common font  styles  -->
 <link rel="stylesheet" href="fonts/universe-admin/style.css"> <!-- universeadmin icon font styles -->
 <link rel="stylesheet" href="fonts/mdi/css/materialdesignicons.min.css"> <!-- meterialdesignicons -->
 <link rel="stylesheet" href="fonts/iconfont/style.css"> <!-- DEPRECATED iconmonstr -->
