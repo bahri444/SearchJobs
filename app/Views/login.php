@@ -38,12 +38,13 @@
       </div>
       <div class="row">
         <div class="form-group col-md-12">
-          <label for="p-signin-set-password">Password</label>
-          <input type="email" class="form-control" id="p-signin-set-password" placeholder="Password">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="p-signin-set-password" placeholder="Password">
         </div>
       </div>
       <div>
-        <button type="button" class="btn btn-info btn-block btn-lg p-signin__form-submit">LOGIN</button>
+      </div>
+        <button type="submit" class="btn btn-info btn-block btn-lg p-signin__form-submit">LOGIN</button>
       </div>
       <div class="p-signin__form-links">
       </div>

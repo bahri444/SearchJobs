@@ -9,7 +9,8 @@ class Home extends BaseController
         // return view('index');
         // return view('login');
         // return view('register');
-        return view('pencaker');
-        
+        return view('dasboard');
+        // return view('welcome_massage');       
+        // return view('coba');       
     }
 }
