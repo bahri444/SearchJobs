@@ -13,6 +13,9 @@
   </div>
   <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Commodi tenetur dolore quis aut accusamus consequuntur vel optio harum doloribus laborum aliquam quisquam expedita enim non nam repellat assumenda officia culpa voluptatibus dolores fugit nulla, quo ullam eveniet. Vero dolor nam possimus similique dolores cupiditate vel et rerum dolorum illo aliquam delectus sint ipsa, ducimus non maxime eaque mollitia ullam harum molestias! Nulla soluta expedita maxime et odio, tenetur ex voluptas voluptates ullam odit ducimus exercitationem aliquid sunt. Dolore quisquam incidunt itaque rerum perferendis temporibus pariatur assumenda debitis officiis. Officia alias deserunt quas expedita facilis totam ratione sapiente aut laboriosam asperiores!</p>
 </div>
+<div class="container-controls">
+    <button type="button" class="btn btn-info">Verifikasi</button>
+  </div>
 
 </div>
 

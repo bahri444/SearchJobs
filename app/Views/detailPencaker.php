@@ -28,6 +28,9 @@
         </div>
     </div>
   </div>
+  <div class="container-controls">
+    <button type="button" class="btn btn-info">Cetak kartu kuning</button>
+  </div>
   </div>
 </div>
   <script src="vendor/jquery/jquery.min.js"></script>

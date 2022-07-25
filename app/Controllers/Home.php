@@ -12,7 +12,7 @@ class Home extends BaseController
         // return view('provilPencaker');
         // return view('welcome_massage');       
         // return view('coba');       
-        return view('detailLoker');       
-        // return view('detailPencaker');       
+        // return view('detailLoker');       
+        return view('detailPencaker');              
     }
 }

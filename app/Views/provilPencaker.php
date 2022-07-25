@@ -25,8 +25,9 @@
   
 
   <script src="js/ie.assign.fix.min.js"></script>
+  
 </head>
-<body class="js-loading "> <!-- add for rounded corners: form-controls-rounded -->
+<body class="js-loading "> 
 
 
 
@@ -51,15 +52,8 @@
     <span class="ua-icon-alert-close sidebar-toggler__close"></span>
   </button>
 
-  <span class="navbar-brand">
-    <a href="/"><img src="img/logo.png" alt="" class="navbar-brand__logo"></a>
-    <span class="ua-icon-menu slide-nav-toggle"></span>
-  </span>
 
-  <span class="navbar-brand-sm">
-    <a href="/"><img src="img/logo-sm.png" alt="" class="navbar-brand__logo"></a>
-    <span class="ua-icon-menu slide-nav-toggle"></span>
-  </span>
+  
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse">
     <span class="ua-icon-navbar-open navbar-toggler__open"></span>
@@ -218,12 +212,10 @@
       
     </div>
     
-      <a class="dropdown-toggle navbar-dropdown-toggle navbar-dropdown-toggle__user"  href="#">
-        <img src="img/users/user-3.png" alt="" class="navbar-dropdown">
-        
-      </a>
-      
     
+      <img src="img/users/user-15.png" alt="" class="m-social-profile__activity-item-avatar rounded-circle" width="50" height="50">
+      
+      
   </div>
 </div>
 
@@ -246,42 +238,34 @@
   <div class="row">
     <div class="col-6">
       <div class="main-container">
-        <h3>Hierarchy of Type</h3>
-        <h1>Charles Barkley trips over the lazy dog.
-          <span>24</span>
-        </h1>
-        <h2>Charles Barkley trips over the lazy dog.
-          <span>21</span>
+      <center><!--Tag untuk ke tengah gambarnya-->
+      <img src="img/users/user-15.png" alt="" class="m-social-profile__activity-item-avatar rounded-circle" width="75" height="75">
+        
+    </center>
+    <h2>Nama Lengkap:   
+      <span>saiful bah</span>
+    </h2>
+        <h2>Alamat:  
+          <span>Kopang</span>
         </h2>
-        <h3>Charles Barkley trips over the lazy dog.
-          <span>18</span>
-        </h3>
-        <h4>Charles Barkley trips over the lazy dog.
-          <span>16</span>
-        </h4>
-        <h5>Charles Barkley trips over the lazy dog.
-          <span>14</span>
-        </h5>
-        <h6>Charles Barkley trips over the lazy dog.
-          <span>12</span>
-        </h6>
+        <h2>tgl lahir.
+          <span>18,agustus,2001</span>
+        </h2>
+        <h2>No hp
+          <span>163456789067654</span>
+        </h2>
+        <h2>bidang keahlian
+          <span>rebahan</span>
+        </h2>
+        
       </div>
     </div>
  
 <div class="col-6">
     <div class="main-container">
-        <h3>Basic Paragraph
-            <span>14px</span>
-        </h3>
-        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-        <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
-        
-        <h5>Charles Barkley trips over the lazy dog.
-          <span>14</span>
-        </h5>
-        <h6>Charles Barkley trips over the lazy dog.
-          
-        </h6>
+        <h3>Pengalaman Kerja
+        </h3><br>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis aut consequatur eos cumque quo cum minus corporis assumenda fugiat iusto a iste modi ullam maxime, exercitationem nesciunt id necessitatibus sit aliquam et eveniet esse. Natus vel maiores animi vitae placeat et asperiores repellendus provident nisi aspernatur, aliquam voluptatem tenetur perspiciatis itaque dolorem. Aut inventore architecto omnis corporis modi dolorum culpa possimus voluptas, deleniti officiis eius illum quod odit tempora numquam exercitationem expedita pariatur ipsam quibusdam eligendi sequi tempore quaerat. Tempora, officia blanditiis. Enim, architecto quam! Nihil at quod, perferendis labore nisi iusto delectus voluptatibus quae fugiat, explicabo quo mollitia magni!</p>
       </div>
     </div>
   </div>
