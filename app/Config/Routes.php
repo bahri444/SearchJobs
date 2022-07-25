@@ -19,6 +19,10 @@ if (is_file(SYSTEMPATH . 'Config/Routes.php')) {
 $routes->setDefaultNamespace('App\Controllers');
 $routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');
+
+// $routes->setDefaultController('Lamaran');
+// $routes->setDefaultMethod('lamaran');
+
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
 // The Auto Routing (Legacy) is very dangerous. It is easy to create vulnerable apps
@@ -35,10 +39,22 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
+<<<<<<< HEAD
+$routes->get('/', 'Index::index');
+$routes->get('/dashboard', 'Dashboard::dashboard');
+$routes->get('/user', 'User::user');
+$routes->get('/lamaran', 'Lamaran::lamaran');
+$routes->get('/pencaker', 'Pencaker::pencaker');
+$routes->get('/disnakertrans', 'Disnakertrans::disnakertrans');
+$routes->get('/loker', 'Loker::loker');
+$routes->get('/perusahaan', 'Perusahaan::perusahaan');
+$routes->get('/kategori_loker', 'Kategori_loker::kategori_loker');
+=======
 $routes->get('/', 'Home::index');
 // $routes->get('/', 'Home::index');
 // $routes->get('/login', 'Login::login_action');
 // $routes->get('/user', 'Login::index');
+>>>>>>> ria
 /*
  * --------------------------------------------------------------------
  * Additional Routing

@@ -49,7 +49,7 @@
         <div class="page-preloader__copyright">ThemesAnytime, 2018</div>
     </div>
 
-    <!-- navbar Atas -->
+    <!-- navbar atau menu Atas -->
     <div class="navbar navbar-light navbar-expand-lg">
         <button class="sidebar-toggler" type="button">
             <span class="ua-icon-sidebar-open sidebar-toggler__open"></span>
@@ -236,88 +236,271 @@
         </div>
     </div>
 
-    <!-- kontent menu kiri atau dashboard -->
-    <div class="page-wrap">
-        <div class="sidebar-section">
-            <div class="sidebar-section__scroll">
+    <!-- sidebar atau dashboard -->
+    <div class="sidebar-section">
+        <div class="sidebar-section__scroll">
 
-                <!-- kop website -->
-                <div class="sidebar-user-a">
-                    <img src="img/users/user-19.png" alt="" class="sidebar-user-a__avatar rounded-circle">
-                    <div class="sidebar-user-a__name">Dinas Tenaga Kerja</div>
-                    <div class="sidebar-user-a__name">Dan Transmigrasi</div>
+            <!-- kop website -->
+            <div class="sidebar-user-a">
+                <img src="img/users/disnakerNTB.jpeg" alt="" class="sidebar-user-a__avatar rounded-circle">
+                <div class="sidebar-user-a__name">Dinas Tenaga Kerja</div>
+                <div class="sidebar-user-a__name">Dan Transmigrasi</div>
+            </div>
+            <ul class="sidebar-section-nav">
+
+                <!-- icon dashboard -->
+                <li class="sidebar-section-nav__item">
+                    <a class="sidebar-section-nav__link" href="<?= route_to('/'); ?>">
+                        <span class="sidebar-section-nav__item-icon ua-icon-home"></span>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <!-- icon dashboard -->
+                <li class="sidebar-section-nav__item">
+                    <a class="sidebar-section-nav__link" href="<?= route_to('dashboard'); ?>">
+                        <span class="sidebar-section-nav__item-icon ua-icon-home"></span>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="sidebar-section-nav__item">
+                    <a class="sidebar-section-nav__link" href="<?= route_to('kategori_loker'); ?>">
+                        <span class="sidebar-section-nav__item-icon ua-icon-blank-document"></span>
+                        <span>Kategori Loker</span>
+                    </a>
+                </li>
+                <li class="sidebar-section-nav__item">
+                    <a class="sidebar-section-nav__link" href="<?= route_to('loker'); ?>">
+                        <span class="sidebar-section-nav__item-icon ua-icon-widget-paper"></span>
+                        <span>Lowongan Kerja</span>
+                    </a>
+                </li>
+                <li class="sidebar-section-nav__item">
+                    <a class="sidebar-section-nav__link" href="<?= route_to('pencaker'); ?>">
+                        <span class="sidebar-section-nav__item-icon ua-icon-widget-user-group"></span>
+                        <span>Data Pencari Kerja</span>
+                    </a>
+                </li>
+                <li class="sidebar-section-nav__item">
+                    <a class="sidebar-section-nav__link" href="<?= route_to('lamaran'); ?>">
+                        <span class="sidebar-section-nav__item-icon ua-icon-widget-users"></span>
+                        <span>Data Lamaran</span>
+                    </a>
+                </li>
+                <li class="sidebar-section-nav__item">
+                    <a class="sidebar-section-nav__link" href="<?= route_to('perusahaan') ?>">
+                        <span class="sidebar-section-nav__item-icon ua-icon-company"></span>
+                        <span>Data Perusahaan</span>
+                    </a>
+                </li>
+                <li class="sidebar-section-nav__item">
+                    <a class="sidebar-section-nav__link" href="<?= route_to('perusahaan'); ?>">
+                        <span class="sidebar-section-nav__item-icon ua-icon-avatar-placeholder"></span>
+                        <span>Profile Perusahaan</span>
+                    </a>
+                </li>
+                <li class="sidebar-section-nav__item">
+                    <a class="sidebar-section-nav__link" href="<?= route_to('disnakertrans'); ?>">
+                        <span class="sidebar-section-nav__item-icon ua-icon-avatar-placeholder"></span>
+                        <span>Disnakertrans</span>
+                    </a>
+                </li>
+                <li class="sidebar-section-nav__item">
+                    <a class="sidebar-section-nav__link" href="<?= route_to('user'); ?>">
+                        <span class="sidebar-section-nav__item-icon ua-icon-user-solid"></span>
+                        <span>User</span>
+                    </a>
+                </li>
+                <li class="sidebar-section-nav__item">
+                    <a class="sidebar-section-nav__link" href="#">
+                        <span class="sidebar-section-nav__item-icon ua-icon-view-all"></span>
+                        <span>Logout</span>
+                    </a>
+                </li>
+            </ul>
+            <div>
+            </div>
+        </div>
+    </div>
+
+    <?= $this->renderSection('content') ?>
+
+    <script src="vendor/echarts/echarts.min.js"></script>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="vendor/select2/js/select2.full.min.js"></script>
+    <script src="vendor/simplebar/simplebar.js"></script>
+    <script src="vendor/text-avatar/jquery.textavatar.js"></script>
+    <script src="vendor/tippyjs/tippy.all.min.js"></script>
+    <script src="vendor/flatpickr/flatpickr.min.js"></script>
+    <script src="vendor/wnumb/wNumb.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- datatable javascript -->
+    <script src="vendor/datatables/datatables.min.js"></script>
+    <script src="js/preview/datatables.min.js"></script>
+
+    <!-- modal javascript -->
+    <script src="js/preview/settings-panel.min.js"></script>
+
+    <script src="vendor/jquery-circle-progress/circle-progress.min.js"></script>
+    <script src="js/preview/default-dashboard.min.js"></script>
+
+    <div class="sidebar-mobile-overlay"></div>
+
+    <div class="settings-panel">
+        <div class="settings-panel__header">
+            <span class="settings-panel__close ua-icon-modal-close"></span>
+
+            <h5 class="settings-panel__heading">Theme Customizer</h5>
+            <div class="settings-panel__desc">Customize & Preview In Real Time</div>
+        </div>
+        <div class="settings-panel__body">
+            <div class="settings-panel__layout-options">
+                <h6 class="settings-panel__block-heading">Layout Options</h6>
+                <div class="settings-panel__layout-option">
+                    <label class="switch-inline">
+                        <span class="switch">
+                            <input type="checkbox" id="collapse-sidebar">
+                            <span class="switch-slider"></span>
+                        </span>
+                        <span class="switch-inline__text">Collapse Sidebar</span>
+                    </label>
                 </div>
-                <ul class="sidebar-section-nav">
+                <div class="settings-panel__layout-option">
+                    <label class="switch-inline">
+                        <span class="switch">
+                            <input type="checkbox" id="hide-sidebar">
+                            <span class="switch-slider"></span>
+                        </span>
+                        <span class="switch-inline__text">Hide Sidebar</span>
+                    </label>
+                </div>
+                <div class="settings-panel__layout-option">
+                    <label class="switch-inline">
+                        <span class="switch">
+                            <input type="checkbox" id="full-height-sidebar">
+                            <span class="switch-slider"></span>
+                        </span>
+                        <span class="switch-inline__text">Full Height Sidebar</span>
+                    </label>
+                </div>
+                <div class="settings-panel__layout-option">
+                    <label class="switch-inline">
+                        <span class="switch">
+                            <input type="checkbox" id="rounded-form-controls">
+                            <span class="switch-slider"></span>
+                        </span>
+                        <span class="switch-inline__text">Rounded Form Controls</span>
+                    </label>
+                </div>
+            </div>
+            <div class="settings-panel__theme-colors">
+                <h6 class="settings-panel__block-heading">Theme Colors</h6>
 
-                    <!-- icon dashboard -->
-                    <li class="sidebar-section-nav__item">
-                        <a class="sidebar-section-nav__link" href="index.html">
-                            <span class="sidebar-section-nav__item-icon ua-icon-home"></span>
-                            <span>Dashboard</span>
-                        </a>
+                <ul class="list-unstyled">
+                    <li>
+                        <label class="color-radio js-settings-color">
+                            <input type="radio" name="settings_color" data-style="style-b">
+                            <span class="color-radio__color color-radio__color--deep-cerulean"></span>
+                            <span class="color-radio__text">#2</span>
+                        </label>
                     </li>
-                    <li class="sidebar-section-nav__item">
-                        <a class="sidebar-section-nav__link" href="index.html">
-                            <span class="sidebar-section-nav__item-icon ua-icon-widget-paper"></span>
-                            <span>Lowongan Kerja</span>
-                        </a>
+                    <li>
+                        <label class="color-radio js-settings-color is-checked">
+                            <input type="radio" name="settings_color" data-style="style" checked>
+                            <span class="color-radio__color color-radio__color--river-bad"></span>
+                            <span class="color-radio__text">#3</span>
+                        </label>
                     </li>
-                    <li class="sidebar-section-nav__item">
-                        <a class="sidebar-section-nav__link" href="index.html">
-                            <span class="sidebar-section-nav__item-icon ua-icon-widget-user-group"></span>
-                            <span>Data Pencari Kerja</span>
-                        </a>
+                    <li>
+                        <label class="color-radio js-settings-color">
+                            <input type="radio" name="settings_color" data-style="style-d">
+                            <span class="color-radio__color color-radio__color--sun-juan"></span>
+                            <span class="color-radio__text">#4</span>
+                        </label>
                     </li>
-                    <li class="sidebar-section-nav__item">
-                        <a class="sidebar-section-nav__link" href="index.html">
-                            <span class="sidebar-section-nav__item-icon ua-icon-widget-users"></span>
-                            <span>Data Pelamar</span>
-                        </a>
+                    <li>
+                        <label class="color-radio js-settings-color">
+                            <input type="radio" name="settings_color" data-style="style-e">
+                            <span class="color-radio__color color-radio__color--bermuda-gray"></span>
+                            <span class="color-radio__text">#5</span>
+                        </label>
                     </li>
-                    <li class="sidebar-section-nav__item">
-                        <a class="sidebar-section-nav__link" href="index.html">
-                            <span class="sidebar-section-nav__item-icon ua-icon-company"></span>
-                            <span>Data Perusahaan</span>
-                        </a>
+                    <li>
+                        <label class="color-radio js-settings-color">
+                            <input type="radio" name="settings_color" data-style="style-f">
+                            <span class="color-radio__color color-radio__color--deep-sea"></span>
+                            <span class="color-radio__text">#6</span>
+                        </label>
                     </li>
-                    <li class="sidebar-section-nav__item">
-                        <a class="sidebar-section-nav__link" href="index.html">
-                            <span class="sidebar-section-nav__item-icon ua-icon-avatar-placeholder"></span>
-                            <span>Profile</span>
-                        </a>
+                    <li>
+                        <label class="color-radio js-settings-color">
+                            <input type="radio" name="settings_color" data-style="style-i">
+                            <span class="color-radio__color color-radio__color--wine-berry"></span>
+                            <span class="color-radio__text">#7</span>
+                        </label>
                     </li>
-                    <li class="sidebar-section-nav__item">
-                        <a class="sidebar-section-nav__link" href="index.html">
-                            <span class="sidebar-section-nav__item-icon ua-icon-user-solid"></span>
-                            <span>User</span>
-                        </a>
+                    <li>
+                        <label class="color-radio js-settings-color">
+                            <input type="radio" name="settings_color" data-style="style-g">
+                            <span class="color-radio__color  color-radio__color--big-stone"></span>
+                            <span class="color-radio__text">#8</span>
+                        </label>
                     </li>
+                    <li>
+                        <label class="color-radio js-settings-color">
+                            <input type="radio" name="settings_color" data-style="style-j">
+                            <span class="color-radio__color color-radio__color--killarney"></span>
+                            <span class="color-radio__text">#9</span>
+                        </label>
                     </li>
-                    <li class="sidebar-section-nav__item">
-                        <a class="sidebar-section-nav__link" href="index.html">
-                            <span class="sidebar-section-nav__item-icon ua-icon-view-all"></span>
-                            <span>Logout</span>
-                        </a>
+                    <li>
+                        <label class="color-radio js-settings-color">
+                            <input type="radio" name="settings_color" data-style="style-h">
+                            <span class="color-radio__color color-radio__color--kabul"></span>
+                            <span class="color-radio__text">#10</span>
+                        </label>
                     </li>
                 </ul>
-                <div>
+            </div>
+        </div>
+    </div>
+
+    <span class="settings-panel-control">
+        <span class="settings-panel-control__icon ua-icon-settings"></span>
+    </span>
+    <script src="js/preview/settings-panel.min.js"></script>
+
+
+    <div class="slide-nav">
+        <div class="slide-nav__header">
+            <a href="#" class="slide-nav__back ua-icon-step-arrow-left"></a>
+            <img src="img/logo.png" alt="" class="slide-nav__logo">
+        </div>
+        <div class="slide-nav__body">
+            <div class="slide-nav__scrollpane js-scrollable">
+                <div class="slide-nav__items">
+                    <a href="#" class="slide-nav__item">
+                        <img src="img/slidenav/30.png" alt="" class="slide-nav__item-image">
+                        <span class="slide-nav__item-text">Storage</span>
+                    </a>
                 </div>
             </div>
         </div>
-        <?= $this->renderSection('content') ?>
+    </div>
+    <script src="<?= base_url() ?>/js/preview/slide-nav.min.js"></script>
 
-        <script src="vendor/echarts/echarts.min.js"></script>
-        <script src="vendor/jquery/jquery.min.js"></script>
-        <script src="vendor/popper/popper.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-        <script src="vendor/select2/js/select2.full.min.js"></script>
-        <script src="vendor/simplebar/simplebar.js"></script>
-        <script src="vendor/text-avatar/jquery.textavatar.js"></script>
-        <script src="vendor/tippyjs/tippy.all.min.js"></script>
-        <script src="vendor/flatpickr/flatpickr.min.js"></script>
-        <script src="vendor/wnumb/wNumb.js"></script>
-        <script src="js/main.js"></script>
+    <!-- datatable javasript -->
+    <script src="<?= base_url('/js/jquery-3.5.1.js') ?>"></script>
+    <script src="<?= base_url('/js/dataTables.bootstrap4.min.js') ?>"></script>
+    <script src="<?= base_url('/js/jquery.dataTables.min.js') ?>"></script>
 
+<<<<<<< HEAD
+    <!-- modals -->
+    <script src="<?= base_url() ?>/js/preview/modal.min.js"></script>
+
+=======
         <!-- datatable javascript -->
         <script src="vendor/datatables/datatables.min.js"></script>
         <script src="js/preview/datatables.min.js"></script>
@@ -477,6 +660,7 @@
         <script src="<?= base_url('/js/jquery-3.5.1.js') ?>"></script>
         <script src="<?= base_url('/js/dataTables.bootstrap4.min.js') ?>"></script>
         <script src="<?= base_url('/js/jquery.dataTables.min.js') ?>"></script>
+>>>>>>> ria
 </body>
 
 </html>
