@@ -6,6 +6,11 @@ class Index extends BaseController
 {
     public function index()
     {
-        return view('index');
+        // return view('index');
+        // return view('login');
+        // return view('register');
+        return view('provilPencaker');
+        // return view('welcome_massage');       
+        // return view('coba');       
     }
 }
