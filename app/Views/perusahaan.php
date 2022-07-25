@@ -184,7 +184,7 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>1</td>
+                            <td><?=foreach($variable as $key => $value) :?></td>
                             <td><a href="#" class="link-info">Tiger Nixon</a></td>
                             <td>System Architect</td>
                             <td>Edinburgh</td>
