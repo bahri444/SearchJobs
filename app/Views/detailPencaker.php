@@ -93,13 +93,7 @@
     <div class="settings-panel__theme-colors">
       <h6 class="settings-panel__block-heading">Theme Colors</h6>
       <ul class="list-unstyled">
-        <!--<li>
-          <label class="color-radio js-settings-color">
-            <input type="radio" name="settings_color" data-style="style-a">
-            <span class="color-radio__color"></span>
-            <span class="color-radio__text">#1</span>
-          </label>
-        </li>-->
+        
         <li>
           <label class="color-radio js-settings-color">
             <input type="radio" name="settings_color" data-style="style-b">
