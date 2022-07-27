@@ -35,7 +35,7 @@ class Database extends Config
         'hostname' => 'localhost',
         'username' => 'root',
         'password' => '',
-        'database' => 'praktikum10',
+        'database' => 'jobs',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,
