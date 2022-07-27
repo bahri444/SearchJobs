@@ -23,11 +23,24 @@ class PerusahaanModel extends Model
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
-    protected $deletedField  = 'deleted_at';
 
-    // Validation
-    protected $validationRules      = [];
-    protected $validationMessages   = [];
-    protected $skipValidation       = false;
-    protected $cleanValidationRules = true;
+    public function getPerusahaan(){
+        $builder = $this->db->table('perusahaan');
+        $builder->select('*');
+        return $builder->get();
+    }
+
+    public function savePerusahaan($dataPerusahaan){
+        $query = $this->db->table('perusahaan')->insert($dataPerusahaan);
+            return $query;
+
+    }
+    public function updatePerusahaan($dataPerusahaan,$idPrshn){
+        $query=$this->db->table('perusahaan')->update($dataPerusahaan, array('id_prshn'=>$idPrshn));
+        return $query;
+    }
+    public function deletePerusahaan($idPrshn){
+        $query = $this->db->table('perusahaan')->delete(array('id_prshn'=>$idPrshn));
+        return $query;
+    }
 }

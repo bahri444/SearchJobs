@@ -496,14 +496,12 @@
     <script src="<?= base_url('/js/dataTables.bootstrap4.min.js') ?>"></script>
     <script src="<?= base_url('/js/jquery.dataTables.min.js') ?>"></script>
 
-<<<<<<< HEAD
     <!-- modals -->
     <script src="<?= base_url() ?>/js/preview/modal.min.js"></script>
 
-=======
         <!-- datatable javascript -->
-        <script src="vendor/datatables/datatables.min.js"></script>
-        <script src="js/preview/datatables.min.js"></script>
+        <!-- <script src="vendor/datatables/datatables.min.js"></script>
+        <script src="js/preview/datatables.min.js"></script> -->
 
         <!-- modal javascript -->
         <script src="js/preview/settings-panel.min.js"></script>
@@ -660,7 +658,6 @@
         <script src="<?= base_url('/js/jquery-3.5.1.js') ?>"></script>
         <script src="<?= base_url('/js/dataTables.bootstrap4.min.js') ?>"></script>
         <script src="<?= base_url('/js/jquery.dataTables.min.js') ?>"></script>
->>>>>>> ria
 </body>
 
 </html>

@@ -6,7 +6,9 @@
         <div class="page-content__header">
             <div>
                 <h2 class="page-content__header-heading">Data Perusahaan</h2>
-            </div> <!-- modal-tambah data-->
+            </div> 
+            
+            <!-- modal-tambah data-->
             <div class="row">
                 <div class="col-sm">
                     <button type="button" class="btn btn-success py-2 btn-block mt-3" data-toggle="modal" data-target="#exampleModal">
