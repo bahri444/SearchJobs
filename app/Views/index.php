@@ -5,11 +5,6 @@
 
 <!-- content ISI -->
 <div class="page-content">
-  <div class="page-header__content">
-    <h2 class="text-center mt-3">Halaman Index</h2>
-  </div>
-</div>
-<!-- <div class="page-content">
   <div class="container-fluid">
     <div class="page-content__header">
       <div>
@@ -57,5 +52,5 @@
       </div>
     </div>
   </div>
-</div> -->
+</div>
 <?= $this->endSection(); ?>
