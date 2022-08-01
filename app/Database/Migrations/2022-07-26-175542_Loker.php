@@ -18,10 +18,12 @@ class Loker extends Migration
             ],
             'id_ktgr'=>[
                 'type'=>'INT',
+                'unsigned'=>true,
                 'constraint'=>11,
             ],
             'id_prshn'=>[
                 'type'=>'INT',
+                'unsigned'=>true,
                 'constraint'=>11,
             ],
             'judul_loker'=>[
@@ -50,16 +52,18 @@ class Loker extends Migration
                 'constraint'=>100,
             ],
             'created_at'=>[
-                'type'=>'TIMESTAMP'
+                'type'=>'DATETIME'
 
             ],
             'updated_at'=>[
-                'type'=>'TIMESTAMP'
+                'type'=>'DATETIME'
 
             ]
         ]);
         // create primary key
         $this->forge->addKey('id_loker',TRUE);
+        $this->forge->addForeignKey('id_ktgr',"ktgr_loker","id_ktgr","cascade","cascade");
+        $this->forge->addForeignKey('id_prshn',"perusahaan","id_prshn","cascade","cascade");
 
         // create table perusahaan
         $this->forge->createTable('loker');

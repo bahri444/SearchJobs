@@ -41,16 +41,37 @@ $routes->set404Override();
 // route since we don't have to scan directories.
 $routes->get('/', 'Index::index');
 $routes->get('/dashboard', 'Dashboard::dashboard');
+
 $routes->get('/user', 'User::user');
+$routes->post('/user/tambah', 'User::tambah');
+$routes->post('/user/edit/(:num)', 'User::edit/$1');
+$routes->add('/user/hapus/(:num)', 'User::hapus/$1');
+
 $routes->get('/lamaran', 'Lamaran::lamaran');
+$routes->post('/lamaran/tambah', 'Lamaran::tambah');
+$routes->post('/lamaran/edit/(:num)', 'Lamaran::edit/$1');
+$routes->add('/lamaran/hapus/(:num)', 'Lamaran::hapus/$1');
+
 $routes->get('/pencaker', 'Pencaker::pencaker');
-$routes->get('/disnakertrans', 'Disnakertrans::disnakertrans');
+$routes->post('/pencaker/tambah', 'Pencaker::tambah');
+$routes->post('/pencaker/edit/(:num)', 'Pencaker::edit/$1');
+$routes->add('/pencaker/hapus/(:num)', 'Pencaker::hapus/$1');
+
 $routes->get('/loker', 'Loker::loker');
+$routes->post('/loker/tambah', 'Loker::tambah');
+$routes->post('/loker/edit/(:num)', 'Loker::edit/$1');
+$routes->get('/loker/hapus/(:num)', 'Loker::hapus/$1');
+
 $routes->get('/perusahaan', 'Perusahaan::perusahaan');
-$routes->get('/kategori_loker', 'Kategori_loker::kategori_loker');
-// $routes->get('/', 'Home::index');
-// $routes->get('/login', 'Login::login_action');
-// $routes->get('/user', 'Login::index');
+$routes->post('/perusahaan/tambah', 'Perusahaan::tambah');
+$routes->post('/perusahaan/edit/(:num)', 'Perusahaan::edit/$1');
+$routes->add('/perusahaan/hapus/(:num)', 'Perusahaan::hapus/$1');
+
+
+$routes->get('/ktgrLoker', 'KtgrLoker::ktgrLoker');
+$routes->post('/ktgrLoker/tambah', 'KtgrLoker::tambah');
+$routes->post('/ktgrLoker/edit/(:num)', 'KtgrLoker::edit/$1');
+$routes->add('/ktgrLoker/hapus/(:num)', 'KtgrLoker::hapus/$1');
 
 /*
  * --------------------------------------------------------------------

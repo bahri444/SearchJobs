@@ -22,11 +22,11 @@ class KtgrLoker extends Migration
                 'constraint'=>25
             ],
             'created_at'=>[
-                'type'=>'TIMESTAMP'
+                'type'=>'DATETIME'
             ],
-            'level'=>[
-                'type'=>'TIMESTAMP'
-            ],
+            'updated_at'=>[
+                'type'=>'DATETIME'
+            ]
         ]);
         // create primary key
         $this->forge->addKey('id_ktgr',TRUE);

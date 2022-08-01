@@ -24,23 +24,43 @@ class PerusahaanModel extends Model
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
 
-    public function getPerusahaan(){
+    // func for read data
+    public function getPerusahaan()
+    {
+        $query = $this->db->table('perusahaan');
+        return $query->get();
+    }
+
+    // func for insert data
+    public function tambah($data)
+    {
+        return $this->db->table('perusahaan')->insert($data);
+    }
+
+    // info
+    public function getInfo($id_prshn = false)
+    {
+        if ($id_prshn = false) {
+            $builder = $this->db->table('perusahaan');
+            $query = $builder->get();
+            return $query->getResultArray();
+        }
         $builder = $this->db->table('perusahaan');
-        $builder->select('*');
-        return $builder->get();
+        $builder->where('id_prshn', $id_prshn);
+        $query = $builder->get();
+        return $query->getResultArray();
     }
 
-    public function savePerusahaan($dataPerusahaan){
-        $query = $this->db->table('perusahaan')->insert($dataPerusahaan);
-            return $query;
+    // func edit
+    public function edit($data, $id_prshn)
+    {
+        return $this->db->table('perusahaan')->update($data, array('id_prshn' => $id_prshn));
+    }
 
-    }
-    public function updatePerusahaan($dataPerusahaan,$idPrshn){
-        $query=$this->db->table('perusahaan')->update($dataPerusahaan, array('id_prshn'=>$idPrshn));
-        return $query;
-    }
-    public function deletePerusahaan($idPrshn){
-        $query = $this->db->table('perusahaan')->delete(array('id_prshn'=>$idPrshn));
-        return $query;
+    // func hapus
+    public function hapus($id_prshn)
+    {
+        return $this->db->table('perusahaan')->delete(array('id_prshn' => $id_prshn));
+        // return $this->db->table('perusahaan')->update(array('id_prshn' => $id_prshn));
     }
 }

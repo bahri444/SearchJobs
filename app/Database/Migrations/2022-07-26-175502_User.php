@@ -31,10 +31,10 @@ class User extends Migration
                 'constraint'=>['admin','perusahaan','pencaker'],
             ],
             'created_at'=>[
-                'type'=>'TIMESTAMP'
+                'type'=>'DATETIME'
             ],
             'updated_at'=>[
-                'type'=>'TIMESTAMP'
+                'type'=>'DATETIME'
             ],
         ]);
 

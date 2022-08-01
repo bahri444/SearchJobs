@@ -48,11 +48,11 @@ class Perusahaan extends Migration
                 'constraint'=>20,
             ],
             'created_at'=>[
-                'type'=>'TIMESTAMP'
+                'type'=>'DATETIME'
 
             ],
             'updated_at'=>[
-                'type'=>'TIMESTAMP'
+                'type'=>'DATETIME'
 
             ],
         ]);
