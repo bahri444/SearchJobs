@@ -30,8 +30,12 @@ class User extends Migration
                 'type'=>'ENUM',
                 'constraint'=>['admin','perusahaan','pencaker'],
             ],
-            'created_at datetime default current_timestamp',
-            'updated_at datetime default current_timestamp',
+            'created_at'=>[
+                'type'=>'DATETIME'
+            ],
+            'updated_at'=>[
+                'type'=>'DATETIME'
+            ],
         ]);
 
         // create primary key

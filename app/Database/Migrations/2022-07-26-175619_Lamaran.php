@@ -14,15 +14,17 @@ class Lamaran extends Migration
             'id_lamaran'=>[
                 'type'=>'INT',
                 'constraint'=>11,
-                'unsigned'=>TRUE,
-                'auto_increment'=>TRUE
+                'unsigned'=>true,
+                'auto_increment'=>true
             ],
             'id_pencaker'=>[
                 'type'=>'INT',
+                'unsigned'=>true,
                 'constraint'=>11,                
             ],
             'id_loker'=>[
                 'type'=>'INT',
+                'unsigned'=>true,
                 'constraint'=>11,
             ],
             'berkas'=>[
@@ -33,11 +35,17 @@ class Lamaran extends Migration
             'tgl_lamar'=>[
                 'type'=>'DATE',
             ],
-            'created_at datetime default current_timestamp',
-            'updated_at datetime default current_timestamp',
+            'created_at'=>[
+                'type'=>'DATETIME',
+            ],
+            'updated_at'=>[
+                'type'=>'DATETIME',
+            ]
         ]);
         // create primary key
-        $this->forge->addKey('id_lamaran',TRUE);
+        $this->forge->addKey('id_lamaran',true);
+        $this->forge->addForeignKey('id_pencaker','pencaker','id_pencaker','cascade','cascade');
+        $this->forge->addForeignKey('id_loker','loker','id_loker','cascade','cascade');
 
         // create table perusahaan
         $this->forge->createTable('lamaran');

@@ -41,12 +41,10 @@
         <div class="page-preloader__desc">Disnakertrans</div>
         <div class="page-preloader__loader">
             <div class="page-preloader__loader-heading">System Loading</div>
-            <div class="page-preloader__loader-desc">Widgets update</div>
             <div class="progress progress-rounded page-preloader__loader-progress">
                 <div id="page-loader-progress-bar" class="progress-bar bg-info" role="progressbar" style="width: 10%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
             </div>
         </div>
-        <div class="page-preloader__copyright">ThemesAnytime, 2018</div>
     </div>
 
     <!-- navbar atau menu Atas -->
@@ -263,7 +261,7 @@
                     </a>
                 </li>
                 <li class="sidebar-section-nav__item">
-                    <a class="sidebar-section-nav__link" href="<?= route_to('kategori_loker'); ?>">
+                    <a class="sidebar-section-nav__link" href="<?= route_to('ktgrLoker'); ?>">
                         <span class="sidebar-section-nav__item-icon ua-icon-blank-document"></span>
                         <span>Kategori Loker</span>
                     </a>
@@ -290,18 +288,6 @@
                     <a class="sidebar-section-nav__link" href="<?= route_to('perusahaan') ?>">
                         <span class="sidebar-section-nav__item-icon ua-icon-company"></span>
                         <span>Data Perusahaan</span>
-                    </a>
-                </li>
-                <li class="sidebar-section-nav__item">
-                    <a class="sidebar-section-nav__link" href="<?= route_to('perusahaan'); ?>">
-                        <span class="sidebar-section-nav__item-icon ua-icon-avatar-placeholder"></span>
-                        <span>Profile Perusahaan</span>
-                    </a>
-                </li>
-                <li class="sidebar-section-nav__item">
-                    <a class="sidebar-section-nav__link" href="<?= route_to('disnakertrans'); ?>">
-                        <span class="sidebar-section-nav__item-icon ua-icon-avatar-placeholder"></span>
-                        <span>Disnakertrans</span>
                     </a>
                 </li>
                 <li class="sidebar-section-nav__item">
@@ -348,7 +334,7 @@
 
     <div class="sidebar-mobile-overlay"></div>
 
-    <div class="settings-panel">
+    <!-- <div class="settings-panel">
         <div class="settings-panel__header">
             <span class="settings-panel__close ua-icon-modal-close"></span>
 
@@ -470,7 +456,7 @@
     <span class="settings-panel-control">
         <span class="settings-panel-control__icon ua-icon-settings"></span>
     </span>
-    <script src="js/preview/settings-panel.min.js"></script>
+    <script src="js/preview/settings-panel.min.js"></script> -->
 
 
     <div class="slide-nav">
@@ -489,6 +475,7 @@
             </div>
         </div>
     </div>
+
     <script src="<?= base_url() ?>/js/preview/slide-nav.min.js"></script>
 
     <!-- datatable javasript -->
@@ -498,7 +485,6 @@
 
     <!-- modals -->
     <script src="<?= base_url() ?>/js/preview/modal.min.js"></script>
-
 </body>
 
 </html>

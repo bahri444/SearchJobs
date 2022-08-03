@@ -46,8 +46,14 @@ class Perusahaan extends Migration
                 'type'=>'VARCHAR',
                 'constraint'=>20,
             ],
-            'created_at datetime default current_timestamp',
-            'updated_at datetime default current_timestamp',
+            'created_at'=>[
+                'type'=>'DATETIME'
+
+            ],
+            'updated_at'=>[
+                'type'=>'DATETIME'
+
+            ],
         ]);
 
         // create primary key

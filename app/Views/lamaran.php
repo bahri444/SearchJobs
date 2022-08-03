@@ -21,6 +21,8 @@
                             <button type="button" class="close custom-modal__close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true" class="ua-icon-modal-close"></span>
                             </button>
+                            <form action="<?= base_url('lamaran/tambah'); ?>" method="post">
+
                             <div class="modal-content">
                                 <div class="mt-2">
                                     <div class="container">
@@ -29,41 +31,38 @@
                                                 <h2 class="page-content__header-heading text-center">Tambah lamaran</h2>
                                             </div>
                                             <div class="form-group mt-3">
-                                                <select class="form-select form-control form-control-md" aria-label="Default select example">
+                                                <select name="id_pencaker" id="id_pencaker" class="form-select form-control form-control-md" aria-label="Default select example">
                                                     <label for="id_pencaker">Nama Pelamar Kerja</label>
                                                     <option selected>---pilih pencari kerja---</option>
-                                                    <option value="1">One</option>
+                                                    <?php foreach($dataPencaker as $pencaker):?>
+                                                    <option value="<?=$pencaker['id_pencaker']?>"><?= $pencaker['nm_lkp'] ?></option>
+                                                    <?php endforeach;?>
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <select class="form-select form-control form-control-md" aria-label="Default select example">
+                                                <select name="id_loker" id="id_loker" class="form-select form-control form-control-md" aria-label="Default select example">
                                                     <label for="id_loker">Judul Loker</label>
                                                     <option selected>---pilih lowongan kerja---</option>
-                                                    <option value="1">One</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <select class="form-select form-control form-control-md" aria-label="Default select example">
-                                                    <label for="id_perusahaan">Nama Perusahaan</label>
-                                                    <option selected>---pilih perusahaan---</option>
-                                                    <option value="1">One</option>
+                                                    <?php foreach($dataLoker as $loker):?>
+                                                    <option value="<?= $loker['id_loker'] ?>"><?= $loker['judul_loker'] ?></option>
+                                                    <?php endforeach;?>
                                                 </select>
                                             </div>
                                             <div class="form-group">
                                                 <label for="berkas">Berkas Persyaratan</label>
-                                                <input type="file" placeholder="" class="form-control form-control-md">
+                                                <input type="file" name="berkas" placeholder="" class="form-control form-control-md">
                                             </div>
                                             <div class="form-group">
-                                                <label for="tgl_lmr">Tgl Melamar</label>
-                                                <input type="date" placeholder="passwords" class="form-control form-control-md">
+                                                <label for="tgl_lamar">Tgl Melamar</label>
+                                                <input type="date" name="tgl_lamar" placeholder="passwords" class="form-control form-control-md">
                                             </div>
                                             <div class="form-group">
                                                 <div class="d-flex justify-content-center">
                                                     <div class="justify-content-end mr-5">
-                                                        <button type="button" class="btn btn-warning">Cancel</button>
+                                                        <button type="submit" class="btn btn-warning">Cancel</button>
                                                     </div>
                                                     <div class="justify-content-start ml-5">
-                                                        <button type="button" class="btn btn-info">Simpan</button>
+                                                        <button type="submit" class="btn btn-info">Simpan</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -72,17 +71,21 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
+        </div>
+    </div>
             <!-- end-modal tambah data -->
 
             <!-- modal-edit -->
-            <div id="modalEdit" class="modal fade custom-modal custom-modal-verify-account">
+            <?php foreach ($lamaran as $row) : ?>
+            <div id="modalEdit <?= $row->id_lamaran ?> " class="modal fade custom-modal custom-modal-verify-account">
                 <div class="modal-dialog" role="document">
                     <button type="button" class="close custom-modal__close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true" class="ua-icon-modal-close"></span>
                     </button>
+                    <form action="<?= base_url('/lamaran/edit/' . $row->id_lamaran) ?>" method="post">
                     <div class="modal-content">
                         <div class="mt-2">
                             <div class="container">
@@ -91,41 +94,41 @@
                                         <h2 class="page-content__header-heading text-center">Edit lamaran</h2>
                                     </div>
                                     <div class="form-group mt-3">
-                                        <select class="form-select form-control form-control-md" aria-label="Default select example">
+                                        <select name="id_pencaker" class="form-select form-control form-control-md" aria-label="Default select example">
                                             <label for="id_pencaker">Nama Pelamar Kerja</label>
-                                            <option selected>---pilih pencari kerja---</option>
+                                            <option selected value="<?=$row->id_pencaker?>">---pilih pencari kerja---</option>
                                             <option value="1">One</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <select class="form-select form-control form-control-md" aria-label="Default select example">
+                                        <select name="id_loker" class="form-select form-control form-control-md" aria-label="Default select example">
                                             <label for="id_loker">Judul Loker</label>
-                                            <option selected>---pilih lowongan kerja---</option>
+                                            <option selected value="<?=$row->id_loker?>">---pilih lowongan kerja---</option>
                                             <option value="1">One</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
-                                        <select class="form-select form-control form-control-md" aria-label="Default select example">
+                                        <select name="id_perusahaan" class="form-select form-control form-control-md" aria-label="Default select example">
                                             <label for="id_perusahaan">Nama Perusahaan</label>
-                                            <option selected>---pilih perusahaan---</option>
+                                            <option selected value="<?=$row->id_lamaran?>">---pilih perusahaan---</option>
                                             <option value="1">One</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="berkas">Berkas Persyaratan</label>
-                                        <input type="file" placeholder="" class="form-control form-control-md">
+                                        <input name="berkas" type="file" placeholder="" value="<?=$row->berkas?>" class="form-control form-control-md">
                                     </div>
                                     <div class="form-group">
-                                        <label for="tgl_lmr">Tgl Melamar</label>
-                                        <input type="date" placeholder="passwords" class="form-control form-control-md">
+                                        <label for="tgl_lamar">Tgl Melamar</label>
+                                        <input name="tgl_lamar" type="date" placeholder="passwords" value="<?=$row->tgl_lamar?>" class="form-control form-control-md">
                                     </div>
                                     <div class="form-group">
                                         <div class="d-flex justify-content-center">
                                             <div class="justify-content-end mr-5">
-                                                <button type="button" class="btn btn-warning">Cancel</button>
+                                                <button type="submit" class="btn btn-warning">Cancel</button>
                                             </div>
                                             <div class="justify-content-start ml-5">
-                                                <button type="button" class="btn btn-info">Simpan</button>
+                                                <button type="submit" class="btn btn-info">Simpan</button>
                                             </div>
                                         </div>
                                     </div>
@@ -133,12 +136,15 @@
                             </div>
                         </div>
                     </div>
+                    </form>
                 </div>
             </div>
+            <?php endforeach; ?>
             <!-- end-modal-edit -->
 
             <!-- modal-hapus -->
-            <div id="modalHapus" class="modal fade custom-modal custom-modal-verify-account">
+            <?php foreach ($lamaran as $row) : ?>
+            <div id="modalHapus <?= $row->id_lamaran ?> " class="modal fade custom-modal custom-modal-verify-account">
                 <div class="modal-dialog" role="document">
                     <button type="button" class="close custom-modal__close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true" class="ua-icon-modal-close"></span>
@@ -156,7 +162,7 @@
                                                 <button type="button" class="btn btn-warning">Tidak</button>
                                             </div>
                                             <div class="justify-content-start ml-5">
-                                                <button type="button" class="btn btn-info">Ya</button>
+                                            <a href="<?= base_url('lamaran/hapus/' . $row->id_pencaker) ?>" class="btn btn-info">Ya</a>
                                             </div>
                                         </div>
                                     </div>
@@ -166,6 +172,7 @@
                     </div>
                 </div>
             </div>
+            <?php endforeach; ?>
             <!-- end-modal-hapus -->
 
         </div>
@@ -176,46 +183,55 @@
                         <tr>
                             <th scope="col">No</th>
                             <th scope="col">Nama Pencaker</th>
-                            <th scope="col">Nama Perusahaan</th>
-                            <th scope="col">Nama Loker</th>
                             <th scope="col">Berkas Persyaratan</th>
                             <th scope="col">Tgl Melamar</th>
                             <th scope="col">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td><a href="#" class="link-info">Tiger Nixon</a></td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>61</td>
-                            <td>2011/04/25</td>
-                            <td class="d-flex justify-content-center ">
-                                <!-- tombol-edit data-->
-                                <div class="row">
-                                    <div class="col-sm mr-1">
-                                        <button type="button" class="btn btn-info btn-sm-2" data-toggle="modal" data-target="#modalEdit">
-                                            <i class="ua-icon-activity-edit"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <!-- tombol edit data -->
+                    <?php $i = 1; ?>
+                        <?php foreach ($lamaran as $row) : ?>
+                            <tr>
+                                <td><?= $i++; ?></td>
+                                <td><?= $row->berkas?></td>
+                                <td><?= $row->nm_lkp?></td>
+                                <td><?= $row->tgl_lamar?></td>
+                               
+                                <td class="d-flex justify-content-center">
 
-                                <!-- tombol-hapus data-->
-                                <div class="row">
-                                    <div class="col-sm ml-1">
-                                        <button type="button" class="btn btn-warning btn-sm-2" data-toggle="modal" data-target="#modalHapus">
-                                            <i class="ua-icon-trash"></i>
-                                        </button>
+                                    <!-- tombol-info data-->
+                                    <div class="row">
+                                        <div class="col-sm mr-1">
+                                            <button type="button" class="btn btn-warning btn-sm-2" data-toggle="modal" data-target="#modalInfo<?= $row->id_lamaran?>">
+                                                <i class="ua-icon-alert-info"></i>
+                                            </button>
+                                        </div>
                                     </div>
-                                </div>
-                                <!-- end-tombol hapus data -->
+                                    <!-- end-tombol info data -->
+                                    <!-- tombol-edit data-->
+                                    <div class="row">
+                                        <div class="col-sm mr-1 ml-1">
+                                            <button type="button" class="btn btn-info btn-sm-2" data-toggle="modal" data-target="#modalEdit<?= $row->id_lamaran ?>">
+                                                <i class="ua-icon-activity-edit"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- end-tombol edit data -->
 
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+                                    <!-- tombol-hapus data-->
+                                    <div class="row">
+                                        <div class="col-sm ml-1">
+                                            <button type="button" class="btn btn-danger btn-sm-2" data-toggle="modal" data-target="#modalHapus<?= $row->id_lamaran?>">
+                                                <i class="ua-icon-trash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- end-tombol hapus data -->
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                        </tbody>
+                    </table>
             </div>
         </div>
     </div>
@@ -227,3 +243,4 @@
 </script>
 
 <?= $this->endSection(); ?>
+                   

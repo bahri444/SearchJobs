@@ -21,8 +21,12 @@ class KtgrLoker extends Migration
                 'type'=>'VARCHAR',
                 'constraint'=>25
             ],
-            'created_at datetime default current_timestamp',
-            'updated_at datetime default current_timestamp',
+            'created_at'=>[
+                'type'=>'DATETIME'
+            ],
+            'updated_at'=>[
+                'type'=>'DATETIME'
+            ]
         ]);
         // create primary key
         $this->forge->addKey('id_ktgr',TRUE);

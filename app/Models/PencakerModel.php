@@ -4,18 +4,18 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class PerusahaanModel extends Model
+class PencakerModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'perusahaan';
-    protected $primaryKey       = 'id_prshn';
+    protected $table            = 'pencaker';
+    protected $primaryKey       = 'id_pencaker';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        "nm_prshn",    "alamat",    "email",    "no_tlp	logo",    "srt_izin",    "strk_organis",    "created_at",    "updated_at"
+        	"nm_lkp","tgl_lhr","jk","usia","alamat","email","pend_ter","peng_ker","bid_keahlian","sertifikat","created_at","updated_at"	
     ];
 
     // Dates
@@ -25,42 +25,42 @@ class PerusahaanModel extends Model
     protected $updatedField  = 'updated_at';
 
     // func for read data
-    public function getPerusahaan()
+    public function getPencaker()
     {
-        $query = $this->db->table('perusahaan');
+        $query = $this->db->table('pencaker');
         return $query->get();
     }
 
     // func for insert data
     public function tambah($data)
     {
-        return $this->db->table('perusahaan')->insert($data);
+        return $this->db->table('pencaker')->insert($data);
     }
 
     // info
-    public function getInfo($id_prshn = false)
+    public function getInfo($id_pencaker = false)
     {
-        if ($id_prshn = false) {
-            $builder = $this->db->table('perusahaan');
+        if ($id_pencaker = false) {
+            $builder = $this->db->table('pencaker');
             $query = $builder->get();
             return $query->getResultArray();
         }
-        $builder = $this->db->table('perusahaan');
-        $builder->where('id_prshn', $id_prshn);
+        $builder = $this->db->table('pencaker');
+        $builder->where('id_pencaker', $id_pencaker);
         $query = $builder->get();
         return $query->getResultArray();
     }
 
     // func edit
-    public function edit($data, $id_prshn)
+    public function edit($data, $id_pencaker)
     {
-        return $this->db->table('perusahaan')->update($data, array('id_prshn' => $id_prshn));
+        return $this->db->table('pencaker')->update($data, array('id_pencaker' => $id_pencaker));
     }
 
     // func hapus
-    public function hapus($id_prshn)
+    public function hapus($id_pencaker)
     {
-        return $this->db->table('perusahaan')->delete(array('id_prshn' => $id_prshn));
+        return $this->db->table('pencaker')->delete(array('id_pencaker' => $id_pencaker));
         // return $this->db->table('perusahaan')->update(array('id_prshn' => $id_prshn));
     }
 }

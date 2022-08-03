@@ -6,8 +6,8 @@
         <div class="page-content__header">
             <div>
                 <h2 class="page-content__header-heading">Data Perusahaan</h2>
-            </div> 
-            
+            </div>
+
             <!-- modal-tambah data-->
             <div class="row">
                 <div class="col-sm">
@@ -20,50 +20,106 @@
                             <button type="button" class="close custom-modal__close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true" class="ua-icon-modal-close"></span>
                             </button>
-                            <div class="modal-content">
-                                <div class="mt-2">
-                                    <div class="container">
-                                        <div class="col-sm-50">
+                            <form action="<?= base_url('perusahaan/tambah'); ?>" method="post">
+                                <div class="modal-content">
+                                    <div class="mt-2">
+                                        <div class="container">
+                                            <div class="col-sm-50">
 
+                                                <div>
+                                                    <h2 class="page-content__header-heading text-center">Tambah Data Perusahaan</h2>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="nm_prshn">Nama Perusahaan</label>
+                                                    <input type="text" name="nm_prshn" placeholder="nama perusahaan" class="form-control form-control-md">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="alamat">Alamat</label>
+                                                    <input type="text" name="alamat" placeholder="alamat" class="form-control form-control-md">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="email">E-mail</label><br>
+                                                    <input type="email" name="email" placeholder="email@gmail.com" class="form-control form-control-md">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="tlp">Telepon</label>
+                                                    <input type="text" name="tlp" placeholder="nomor telepon" class="form-control form-control-md">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="logo">Logo</label>
+                                                    <input type="file" name="logo" placeholder="" class="form-control form-control-md">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="srt_izin">Surat Izin</label>
+                                                    <input type="file" name="srt_izin" placeholder="" class="form-control form-control-md">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="strk_organis">Struktur Organisasi</label>
+                                                    <input type="file" name="strk_organis" placeholder="struktur orgsnisasi" class="form-control form-control-md">
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="d-flex justify-content-center">
+                                                        <div class="justify-content-end mr-5">
+                                                            <button type="button" class="btn btn-warning">Cancel</button>
+                                                        </div>
+                                                        <div class="justify-content-start ml-5">
+                                                            <button type="submit" class="btn btn-info">Simpan</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end-modal tambah data -->
+
+            <!-- modal-info -->
+            <?php foreach ($info as $k => $value) : ?>
+                <div id="modalInfo<?= $value['id_prshn'] ?>" class="modal fade custom-modal custom-modal-verify-account">
+                    <div class="modal-dialog" role="document">
+                        <button type="button" class="close custom-modal__close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true" class="ua-icon-modal-close"></span>
+                        </button>
+                        <div class="modal-content">
+                            <div class="mt-2">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col">
                                             <div>
-                                                <h2 class="page-content__header-heading text-center">Tambah Data Perusahaan</h2>
+                                                <h2 class="page-content__header-heading text-center">Detail Perusahaan</h2>
                                             </div>
-                                            <div class="form-group">
-                                                <label for="nm_prshn">Nama Perusahaan</label>
-                                                <input type="text" placeholder="nama perusahaan" class="form-control form-control-md">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="mt-2 d-flex justify-content-center">
+                                                <img width="400px" height="200px" src="https://1.bp.blogspot.com/-jxHZn7c53HE/YR0U0gu2X5I/AAAAAAAAJ44/FdiIsS42njA0shcWATXiGyOURJaz-9argCLcBGAsYHQ/w1200-h630-p-k-no-nu/IMG-20210818-WA0033.jpg" alt="">
                                             </div>
-                                            <div class="form-group">
-                                                <label for="alamat">Alamat</label>
-                                                <input type="text" placeholder="alamat" class="form-control form-control-md">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="email">E-mail</label><br>
-                                                <input type="email" placeholder="email@gmail.com" class="form-control form-control-md">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="tlp">Telepon</label>
-                                                <input type="text" placeholder="nomor telepon" class="form-control form-control-md">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="logo">Logo</label>
-                                                <input type="file" placeholder="" class="form-control form-control-md">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="srt_izin">Surat Izin</label>
-                                                <input type="file" placeholder="" class="form-control form-control-md">
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="strk_organis">Struktur Organisasi</label>
-                                                <input type="file" placeholder="" class="form-control form-control-md">
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="d-flex justify-content-center">
-                                                    <div class="justify-content-end mr-5">
-                                                        <button type="button" class="btn btn-warning">Cancel</button>
-                                                    </div>
-                                                    <div class="justify-content-start ml-5">
-                                                        <button type="button" class="btn btn-info">Simpan</button>
-                                                    </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-5 mb-2">
+                                        <div class="col">
+                                            <p><b>Nama Perusahaan</b> : <?= $value['nm_prshn'] ?> </p>
+                                            <p><b>Alamat</b> : <?= $value['alamat'] ?> </p>
+                                            <p><b>Kontak</b> : <?= $value['tlp'] ?> </p>
+                                        </div>
+                                    </div>
+                                    <!-- <div class="text-center mb-4">
+                                        <a href="mailto:bahrysaipul266@gmail.com?subject=Susd&body=dasda"><?= $value['email'] ?></a>
+                                    </div> -->
+                                    <div class="row mb-3 mt-3">
+                                        <div class="col">
+                                            <div class="d-flex justify-content-center">
+                                                <div class="justify-content-end mr-5">
+                                                    <button type="button" class="btn btn-warning">Cancel</button>
+                                                </div>
+                                                <div class="justify-content-start ml-5">
+                                                    <button type="button" class="btn btn-info">Simpan</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -73,71 +129,77 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- end-modal tambah data -->
+            <?php endforeach; ?>
+        </div>
+        <!-- end-modal-info -->
 
-            <!-- modal-edit -->
-            <div id="modalEdit" class="modal fade custom-modal custom-modal-verify-account">
+        <!-- modal-edit -->
+        <?php foreach ($perusahaan as $row) : ?>
+            <div id="modalEdit<?= $row->id_prshn ?>" class="modal fade custom-modal custom-modal-verify-account">
                 <div class="modal-dialog" role="document">
                     <button type="button" class="close custom-modal__close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true" class="ua-icon-modal-close"></span>
                     </button>
-                    <div class="modal-content">
-                        <div class="mt-2">
-                            <div class="container">
-                                <div class="col-sm-50">
-
-                                    <div>
-                                        <h2 class="page-content__header-heading text-center">Edit Data Perusahaan</h2>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="nm_prshn">Nama Perusahaan</label>
-                                        <input type="text" placeholder="nama perusahaan" class="form-control form-control-md">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="alamat">Alamat</label>
-                                        <input type="text" placeholder="alamat" class="form-control form-control-md">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="email">E-mail</label><br>
-                                        <input type="email" placeholder="email@gmail.com" class="form-control form-control-md">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="tlp">Telepon</label>
-                                        <input type="text" placeholder="nomor telepon" class="form-control form-control-md">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="logo">Logo</label>
-                                        <input type="file" placeholder="" class="form-control form-control-md">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="srt_izin">Surat Izin</label>
-                                        <input type="file" placeholder="" class="form-control form-control-md">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="strk_organis">Struktur Organisasi</label>
-                                        <input type="file" placeholder="" class="form-control form-control-md">
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="d-flex justify-content-center">
-                                            <div class="justify-content-end mr-5">
-                                                <button type="button" class="btn btn-warning">Cancel</button>
-                                            </div>
-                                            <div class="justify-content-start ml-5">
-                                                <button type="button" class="btn btn-info">Simpan</button>
+                    <form action="<?= base_url('/perusahaan/edit/' . $row->id_prshn) ?>" method="post">
+                        <div class="modal-content">
+                            <div class="mt-2">
+                                <div class="container">
+                                    <div class="col-sm-50">
+                                        <div>
+                                            <h2 class="page-content__header-heading text-center">Edit Data Perusahaan</h2>
+                                        </div>
+                                        <input type="hidden" name="id_prshn" value="<?= $row->id_prshn ?>">
+                                        <div class="form-group">
+                                            <label for="nm_prshn">Nama Perusahaan</label>
+                                            <input type="text" name="nm_prshn" value="<?= $row->nm_prshn ?>" class="form-control form-control-md">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="alamat">Alamat</label>
+                                            <input type="text" name="alamat" value="<?= $row->alamat ?>" class="form-control form-control-md">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email">E-mail</label>
+                                            <input type="email" name="email" value="<?= $row->email ?>" class="form-control form-control-md">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="tlp">Telepon</label>
+                                            <input type="text" name="tlp" value="<?= $row->tlp ?>" class="form-control form-control-md">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="logo">Logo</label>
+                                            <input type="file" name="logo" value="<?= $row->logo ?>" class=" form-control form-control-md">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="srt_izin">Surat Izin</label>
+                                            <input type="file" name="srt_izin" value="<?= $row->srt_izin ?>" class=" form-control form-control-md">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="strk_organis">Struktur Organisasi</label>
+                                            <input type="file" name="strk_organis" value="<?= $row->strk_organis ?>" class=" form-control form-control-md">
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="d-flex justify-content-center">
+                                                <div class="justify-content-end mr-5">
+                                                    <button type="button" class="btn btn-warning">Cancel</button>
+                                                </div>
+                                                <div class="justify-content-start ml-5">
+                                                    <button type="submit" class="btn btn-info">Simpan</button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
-            <!-- end-modal-edit -->
+        <?php endforeach; ?>
+        <!-- end-modal-edit -->
 
-            <!-- modal-edit -->
-            <div id="modalHapus" class="modal fade custom-modal custom-modal-verify-account">
+        <!-- modal-hapus -->
+        <?php foreach ($perusahaan as $row) : ?>
+            <div id="modalHapus<?= $row->id_prshn ?>" class="modal fade custom-modal custom-modal-verify-account">
                 <div class="modal-dialog" role="document">
                     <button type="button" class="close custom-modal__close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true" class="ua-icon-modal-close"></span>
@@ -155,7 +217,7 @@
                                                 <button type="button" class="btn btn-warning">Tidak</button>
                                             </div>
                                             <div class="justify-content-start ml-5">
-                                                <button type="button" class="btn btn-info">Ya</button>
+                                                <a href="<?= base_url('perusahaan/hapus/' . $row->id_prshn) ?>" class="btn btn-info">Ya</a>
                                             </div>
                                         </div>
                                     </div>
@@ -165,13 +227,13 @@
                     </div>
                 </div>
             </div>
-            <!-- end-modal-edit -->
+        <?php endforeach; ?>
+        <!-- end-modal-hapus -->
 
-        </div>
         <div class="table-responsive">
             <div class="m-datatable">
                 <table id="datatable" class="table table-striped">
-                    <thead>
+                    <thead class="text-center">
                         <tr>
                             <th scope="col">No</th>
                             <th scope="col">Nama Perusahaan</th>
@@ -185,39 +247,51 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td><?php foreach($variable as $key => $value) :?></td>
-                            <td><a href="#" class="link-info">Tiger Nixon</a></td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>61</td>
-                            <td>61</td>
-                            <td>61</td>
-                            <td>61</td>
-                            <td class="d-flex justify-content-center">
+                        <?php $i = 1; ?>
+                        <?php foreach ($perusahaan as $row) : ?>
+                            <tr>
+                                <td><?= $i++; ?></td>
+                                <td><?= $row->nm_prshn ?></td>
+                                <td><?= $row->alamat ?></td>
+                                <td><?= $row->email ?></td>
+                                <td><?= $row->tlp ?></td>
+                                <td><img src="/img/assetsPerusahaan/<?= $row->logo ?>" alt="404"></td>
+                                <td><?= $row->srt_izin ?></td>
+                                <td><?= $row->strk_organis ?></td>
+                                <td class="d-flex justify-content-center">
 
-                                <!-- tombol-edit data-->
-                                <div class="row">
-                                    <div class="col-sm mr-1">
-                                        <button type="button" class="btn btn-info btn-sm-2" data-toggle="modal" data-target="#modalEdit">
-                                            <i class="ua-icon-activity-edit"></i>
-                                        </button>
+                                    <!-- tombol-info data-->
+                                    <div class="row">
+                                        <div class="col-sm mr-1">
+                                            <button type="button" class="btn btn-warning btn-sm-2" data-toggle="modal" data-target="#modalInfo<?= $row->id_prshn ?>">
+                                                <i class="ua-icon-alert-info"></i>
+                                            </button>
+                                        </div>
                                     </div>
-                                </div>
-                                <!-- end-tombol edit data -->
-
-                                <!-- tombol-hapus data-->
-                                <div class="row">
-                                    <div class="col-sm ml-1">
-                                        <button type="button" class="btn btn-warning btn-sm-2" data-toggle="modal" data-target="#modalHapus">
-                                            <i class="ua-icon-trash"></i>
-                                        </button>
+                                    <!-- end-tombol info data -->
+                                    <!-- tombol-edit data-->
+                                    <div class="row">
+                                        <div class="col-sm mr-1 ml-1">
+                                            <button type="button" class="btn btn-info btn-sm-2" data-toggle="modal" data-target="#modalEdit<?= $row->id_prshn ?>">
+                                                <i class="ua-icon-activity-edit"></i>
+                                            </button>
+                                        </div>
                                     </div>
-                                </div>
-                                <!-- end-tombol hapus data -->
+                                    <!-- end-tombol edit data -->
 
-                            </td>
-                        </tr>
+                                    <!-- tombol-hapus data-->
+                                    <div class="row">
+                                        <div class="col-sm ml-1">
+                                            <button type="button" class="btn btn-danger btn-sm-2" data-toggle="modal" data-target="#modalHapus<?= $row->id_prshn ?>">
+                                                <i class="ua-icon-trash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- end-tombol hapus data -->
+
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
                     </tbody>
                 </table>
             </div>

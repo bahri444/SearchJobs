@@ -16,7 +16,7 @@
             <div class="col-xl-3 col-lg-3 col-md-6">
                 <div class="widget widget-alpha widget-alpha--color-amaranth">
                     <div>
-                        <div class="widget-alpha__amount">278</div>
+                        <div class="widget-alpha__amount">23</div>
                         <div class="widget-alpha__description">Data Lowongan Kerja</div>
                     </div>
                     <span class="widget-alpha__icon ua-icon-document-solid"></span>
