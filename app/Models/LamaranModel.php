@@ -37,6 +37,8 @@ class LamaranModel extends Model
     {
         $query = $this->db->table('lamaran');
         $query->join('pencaker', 'lamaran.id_pencaker = pencaker.id_pencaker');
+        $query->join('loker','lamaran.id_loker=loker.id_loker');
+        $query->join('perusahaan','loker.id_prshn=perusahaan.id_prshn');
         return $query->get();
     }
     

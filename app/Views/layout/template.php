@@ -11,11 +11,10 @@
     <link rel="shortcut icon" href="img/favicon.png">
 
     <!-- datatable -->
-    <link rel="stylesheet" href="<?= base_url() ?>/vendor/datatables/datatables.min.css">
-
+    
     <!-- modal css -->
     <link rel="stylesheet" href="vendor/nouislider/nouislider.min.css">
-
+    
     <!-- link data dashboard dan header -->
     <link rel="stylesheet" href="<?= base_url() ?>/fonts/open-sans/style.min.css"> <!-- common font  styles  -->
     <link rel="stylesheet" href="<?= base_url() ?>/fonts/universe-admin/style.css"> <!-- universeadmin icon font styles -->
@@ -23,11 +22,13 @@
     <link rel="stylesheet" href="<?= base_url() ?>/fonts/iconfont/style.css"> <!-- DEPRECATED iconmonstr -->
     <link rel="stylesheet" href="<?= base_url() ?>/vendor/flatpickr/flatpickr.min.css"> <!-- original flatpickr plugin (datepicker) styles -->
     <link rel="stylesheet" href="<?= base_url() ?>/vendor/simplebar/simplebar.css"> <!-- original simplebar plugin (scrollbar) styles  -->
-    <link rel="stylesheet" href="<?= base_url() ?>/vendor/tagify/tagify.css"> <!-- styles for tags -->
+    <!-- <link rel="stylesheet" href="<?= base_url() ?>/vendor/tagify/tagify.css"> -->
     <link rel="stylesheet" href="<?= base_url() ?>/vendor/tippyjs/tippy.css"> <!-- original tippy plugin (tooltip) styles -->
     <link rel="stylesheet" href="<?= base_url() ?>/vendor/select2/css/select2.min.css"> <!-- original select2 plugin styles -->
     <link rel="stylesheet" href="<?= base_url() ?>/vendor/bootstrap/css/bootstrap.min.css"> <!-- original bootstrap styles -->
     <link rel="stylesheet" href="<?= base_url() ?>/css/style.min.css" id="stylesheet"> <!-- universeadmin styles -->
+    <link rel="stylesheet" href="<?= base_url() ?>/vendor/datatables/datatables.min.css">
+    <script src="<?= base_url('/js/jquery-3.5.1.js') ?>"></script>
 
     <script src="<?php echo base_url('js/ie.assign.fix.min.js'); ?>"></script>
 </head>
@@ -479,7 +480,7 @@
     <script src="<?= base_url() ?>/js/preview/slide-nav.min.js"></script>
 
     <!-- datatable javasript -->
-    <script src="<?= base_url('/js/jquery-3.5.1.js') ?>"></script>
+    
     <script src="<?= base_url('/js/dataTables.bootstrap4.min.js') ?>"></script>
     <script src="<?= base_url('/js/jquery.dataTables.min.js') ?>"></script>
 

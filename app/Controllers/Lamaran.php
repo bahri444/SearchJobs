@@ -41,23 +41,13 @@ class Lamaran extends BaseController
         }catch(Exception $e){
             dd($e);
         }
-        // $success = $this->lamaranModel->tambah($data);
-        // if ($success) {
-        //     return redirect()->to(base_url('lamaran'));
-        // }
     }
 
     // func edit
     public function edit($id_lamaran)
     {
         try{
-
-            $this->lamaranModel->save([
-                'id_lamaran' => $id_lamaran,
-                'berkas' => $this->request->getVar('berkas'),
-                'tgl_lamar' => $this->request->getVar('tgl_lamar'),
-    
-            ]);
+            $this->lamaranModel->save($this->request->getPost());
             return redirect()->to(base_url('lamaran'));
         }catch(Exception $e){
             dd($e);
@@ -68,9 +58,8 @@ class Lamaran extends BaseController
     public function hapus($id_lamaran)
     {
         try{
-            $this->perusahaanModel->delete($id_lamaran);
+            $this->lamaranModel->delete($id_lamaran);
             return redirect()->to(base_url('lamaran'));
-
         }catch(Exception $e){
             dd($e);
         }

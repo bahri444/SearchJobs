@@ -59,7 +59,7 @@
                                             <div class="form-group">
                                                 <div class="d-flex justify-content-center">
                                                     <div class="justify-content-end mr-5">
-                                                        <button type="submit" class="btn btn-warning">Cancel</button>
+                                                        <button type="button" class="btn btn-warning" data-dismiss="modal">Cancel</button>
                                                     </div>
                                                     <div class="justify-content-start ml-5">
                                                         <button type="submit" class="btn btn-info">Simpan</button>
@@ -80,7 +80,7 @@
 
             <!-- modal-edit -->
             <?php foreach ($lamaran as $row) : ?>
-            <div id="modalEdit <?= $row->id_lamaran ?> " class="modal fade custom-modal custom-modal-verify-account">
+            <div id="modalEdit<?= $row->id_lamaran ?>" class="modal fade custom-modal custom-modal-verify-account">
                 <div class="modal-dialog" role="document">
                     <button type="button" class="close custom-modal__close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true" class="ua-icon-modal-close"></span>
@@ -107,25 +107,19 @@
                                             <option value="1">One</option>
                                         </select>
                                     </div>
-                                    <div class="form-group">
-                                        <select name="id_perusahaan" class="form-select form-control form-control-md" aria-label="Default select example">
-                                            <label for="id_perusahaan">Nama Perusahaan</label>
-                                            <option selected value="<?=$row->id_lamaran?>">---pilih perusahaan---</option>
-                                            <option value="1">One</option>
-                                        </select>
-                                    </div>
+                                   
                                     <div class="form-group">
                                         <label for="berkas">Berkas Persyaratan</label>
-                                        <input name="berkas" type="file" placeholder="" value="<?=$row->berkas?>" class="form-control form-control-md">
+                                        <input type="text" name="berkas" value="<?= $row->berkas ?> type="file" placeholder="" value="<?=$row->berkas?>" class="form-control form-control-md">
                                     </div>
                                     <div class="form-group">
                                         <label for="tgl_lamar">Tgl Melamar</label>
-                                        <input name="tgl_lamar" type="date" placeholder="passwords" value="<?=$row->tgl_lamar?>" class="form-control form-control-md">
+                                        <input type="date" name="tgl_lamar" value="<?= $row->tgl_lamar ?> type="date" placeholder="passwords" value="<?=$row->tgl_lamar?>" class="form-control form-control-md">
                                     </div>
                                     <div class="form-group">
                                         <div class="d-flex justify-content-center">
                                             <div class="justify-content-end mr-5">
-                                                <button type="submit" class="btn btn-warning">Cancel</button>
+                                                <button type="button" class="btn btn-warning" data-dismiss="modal">Cancel</button>
                                             </div>
                                             <div class="justify-content-start ml-5">
                                                 <button type="submit" class="btn btn-info">Simpan</button>
@@ -144,7 +138,7 @@
 
             <!-- modal-hapus -->
             <?php foreach ($lamaran as $row) : ?>
-            <div id="modalHapus <?= $row->id_lamaran ?> " class="modal fade custom-modal custom-modal-verify-account">
+            <div id="modalHapus<?= $row->id_lamaran ?>" class="modal fade custom-modal custom-modal-verify-account">
                 <div class="modal-dialog" role="document">
                     <button type="button" class="close custom-modal__close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true" class="ua-icon-modal-close"></span>
@@ -159,10 +153,10 @@
                                     <div class="form-group">
                                         <div class="d-flex justify-content-center">
                                             <div class="justify-content-end mr-5">
-                                                <button type="button" class="btn btn-warning">Tidak</button>
+                                                <button type="button" class="btn btn-warning" data-dismiss="modal">Tidak</button>
                                             </div>
                                             <div class="justify-content-start ml-5">
-                                            <a href="<?= base_url('lamaran/hapus/' . $row->id_pencaker) ?>" class="btn btn-info">Ya</a>
+                                            <a href="<?= base_url('lamaran/hapus/' . $row->id_lamaran)?>" class="btn btn-info">Ya</a>
                                             </div>
                                         </div>
                                     </div>
@@ -184,6 +178,8 @@
                             <th scope="col">No</th>
                             <th scope="col">Nama Pencaker</th>
                             <th scope="col">Berkas Persyaratan</th>
+                            <th scope="col">Lowongan</th>
+                            <th scope="col">Usia</th>
                             <th scope="col">Tgl Melamar</th>
                             <th scope="col">Aksi</th>
                         </tr>
@@ -193,9 +189,16 @@
                         <?php foreach ($lamaran as $row) : ?>
                             <tr>
                                 <td><?= $i++; ?></td>
-                                <td><?= $row->berkas?></td>
                                 <td><?= $row->nm_lkp?></td>
-                                <td><?= $row->tgl_lamar?></td>
+                                <td><?= $row->berkas?></td>
+                                <td><?= $row->judul_loker ?></td>
+                                <td><?php
+                                 $lahir    =new DateTime($row->tgl_lhr);
+                                 $today     =new DateTime();
+                                 $umur = $today->diff($lahir);
+                                 echo $umur->y;
+                                ?></td>
+                                <td><?= date("d-m-Y",strtotime($row->tgl_lamar))?></td>
                                
                                 <td class="d-flex justify-content-center">
 
