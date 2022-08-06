@@ -30,11 +30,11 @@
                                                 </div>
                                                 <div class="form-group mt-3">
                                                     <label for="nm_lkp">Nama</label>
-                                                    <input type="text" name="nm_lkp" placeholder="nama lengkap" class="form-control form-control-md">
+                                                    <input type="text" name="nm_lkp" placeholder="nama lengkap" class="form-control form-control-md" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="tgl_lhr">Tgl Lahir</label>
-                                                    <input type="date" name="tgl_lhr" placeholder="judul lowongan kerja" class="form-control form-control-md">
+                                                    <input type="date" name="tgl_lhr" placeholder="judul lowongan kerja" class="form-control form-control-md" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="jk">Jenis Kelamin</label><br>
@@ -49,23 +49,23 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="usia">Usia</label>
-                                                    <input type="number" name="usia" placeholder="usia" class="form-control form-control-md">
+                                                    <input type="number" name="usia" placeholder="usia" class="form-control form-control-md" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="alamat">Alamat</label>
-                                                    <input type="text" name="alamat" placeholder="alamat" class="form-control form-control-md">
+                                                    <input type="text" name="alamat" placeholder="alamat" class="form-control form-control-md" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="tlp">Telepon</label>
-                                                    <input type="text" name="tlp" placeholder="telepon" class="form-control form-control-md">
+                                                    <input type="text" name="tlp" placeholder="telepon" class="form-control form-control-md" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="email">Email</label>
-                                                    <input type="email" name="email" placeholder="email@gmail.com" class="form-control form-control-md">
+                                                    <input type="email" name="email" placeholder="email@gmail.com" class="form-control form-control-md" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="pengker">Pengalaman Kerja</label>
-                                                    <input type="text" name="peng_ker" placeholder="pengalaman kerja" class="form-control form-control-md">
+                                                    <input type="text" name="peng_ker" placeholder="pengalaman kerja" class="form-control form-control-md" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="pend_ter">Pendidikan Terakhir</label>
@@ -83,16 +83,16 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="bid_keahlian">Bidang Keahlian</label>
-                                                    <input type="text" name="bid_keahlian" placeholder="bidang keahlian" class="form-control form-control-md">
+                                                    <input type="text" name="bid_keahlian" placeholder="bidang keahlian" class="form-control form-control-md" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="sertifikat">Sertifikat Keahlian</label>
-                                                    <input type="file" name="sertifikat" placeholder="posisi atau kedudukan" class="form-control form-control-md">
+                                                    <input type="file" name="sertifikat" placeholder="posisi atau kedudukan" class="form-control form-control-md" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <div class="d-flex justify-content-center">
                                                         <div class="justify-content-end mr-5">
-                                                            <button type="submit" class="btn btn-warning">Cancel</button>
+                                                            <button type="button" class="btn btn-warning" data-dismiss="modal">Cancel</button>
                                                         </div>
                                                         <div class="justify-content-start ml-5">
                                                             <button type="submit" class="btn btn-info">Tambah</button>
@@ -128,42 +128,42 @@
                                 </div>
                                 <div class="form-group mt-3">
                                     <label for="nm_lkp">Nama</label>
-                                    <input type="text" name="nm_lkp" placeholder="nama lengkap" value="<?=$row->nm_lkp?>" class="form-control form-control-md">
+                                    <input type="text" name="nm_lkp" placeholder="nama lengkap" value="<?=$row->nm_lkp?>" class="form-control form-control-md" required autofocus>
                                 </div>
                                 <div class="form-group">
                                     <label for="tgl_lhr">Tgl Lahir</label>
-                                    <input name="tgl_lhr" type="date" placeholder="tanggal lahir" value="<?= date("Y-m-d",strtotime($row->tgl_lhr)) ?>" class="form-control form-control-md">
+                                    <input name="tgl_lhr" type="date" placeholder="tanggal lahir" value="<?= date("Y-m-d",strtotime($row->tgl_lhr)) ?>" class="form-control form-control-md" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="jk">Jenis Kelamin</label><br>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="jk" id="inlineRadio1" value="L">
+                                        <input class="form-check-input" type="radio" name="jk" id="inlineRadio1" value="<?=$row->jk ?> ">
                                         <label class="form-check-label" for="inlineRadio1">Pria</label>
                                     </div>
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="jk" id="inlineRadio2" value="P">
+                                        <input class="form-check-input" type="radio" name="jk" id="inlineRadio2"  value="<?=$row-> jk ?>">
                                         <label class="form-check-label" for="inlineRadio2">Wanita</label>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="usia">Usia</label>
-                                    <input name="usia" type="text" placeholder="usia" value="<?=$row->usia?>" class="form-control form-control-md">
+                                    <input name="usia" type="text" placeholder="usia" value="<?=$row->usia ?>" class="form-control form-control-md" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="alamat">Alamat</label>
-                                    <input name="alamat" type="text" placeholder="alamat" value="<?=$row->alamat?>" class="form-control form-control-md">
+                                    <input name="alamat" type="text" placeholder="alamat" value="<?=$row->alamat ?> " class="form-control form-control-md" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="tlp">Telepon</label>
-                                    <input name="tlp" type="text" placeholder="tlp" value="<?=$row->tlp?>" class="form-control form-control-md">
+                                    <input name="tlp" type="text" placeholder="tlp" value="<?=$row->tlp ?> " class="form-control form-control-md" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Email</label>
-                                    <input name="email" type="email" placeholder="email@gmail.com" value="<?=$row->email?>" class="form-control form-control-md">
+                                    <input name="email" type="email" placeholder="email@gmail.com" value="<?=$row->email ?> " class="form-control form-control-md">
                                 </div>
                                 <div class="form-group">
                                     <label for="peng_ker">Pengalaman Kerja</label>
-                                    <input name="peng_ker" type="text" placeholder="pengalaman kerja" value="<?=$row->peng_ker?>" class="form-control form-control-md">
+                                    <input name="peng_ker" type="text" placeholder="pengalaman kerja" value="<?=$row->peng_ker ?>" class="form-control form-control-md">
                                 </div>
                                 <div class="form-group">
                                     <label for="pend_ter">Pendidikan Terakhir</label>
@@ -181,16 +181,16 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="bid_keahlian">Bidang Keahlian</label>
-                                    <input name="bid_keahlian" type="text" placeholder="bidang keahlian" value="<?=$row->bid_keahlian?>" class="form-control form-control-md">
+                                    <input name="bid_keahlian" type="text" placeholder="bidang keahlian" value="<?=$row->bid_keahlian?>" class="form-control form-control-md" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="sertifikat">Sertifikat Keahlian</label>
-                                    <input name="sertifikat" type="file" placeholder="posisi atau kedudukan" value="<?=$row->sertifikat?>" class="form-control form-control-md">
+                                    <input name="sertifikat" type="file" placeholder="posisi atau kedudukan" value="<?=$row->sertifikat?>" class="form-control form-control-md" required>
                                 </div>
                                 <div class="form-group">
                                     <div class="d-flex justify-content-center">
                                         <div class="justify-content-end mr-5">
-                                            <button type="submit" class="btn btn-warning">Cancel</button>
+                                            <button type="button" class="btn btn-warning" data-dismiss="modal">Cancel</button>
                                         </div>
                                         <div class="justify-content-start ml-5">
                                             <button type="submit" class="btn btn-info">Simpan</button>
@@ -223,8 +223,8 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="d-flex justify-content-center">
-                                            <div class="justify-content-end mr-5">
-                                            <a href="<?= base_url('Pencaker/hapus/'. $row->id_pencaker) ?>" class="btn btn-warning">Tidak</a>
+                                        <div class="justify-content-end mr-5">
+                                                <button type="button" class="btn btn-warning" data-dismiss="modal">Tidak</button>
                                             </div>
                                             <div class="justify-content-start ml-5">
                                                 <a href="<?= base_url('pencaker/hapus/' . $row->id_pencaker) ?>" class="btn btn-info">Ya</a>
@@ -278,6 +278,7 @@
                                 <td><?= $row->peng_ker ?></td>
                                 <td><?= $row->usia ?></td>
                                 <td class="d-flex justify-content-center">
+
 
                                     <!-- tombol-info data-->
                                     <div class="row">

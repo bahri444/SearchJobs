@@ -41,7 +41,7 @@
                                                 <div class="form-group">
                                                     <div class="d-flex justify-content-center">
                                                         <div class="justify-content-end mr-5">
-                                                            <button type="button" class="btn btn-warning">Cancel</button>
+                                                            <button type="button" class="btn btn-warning" data-dismiss="modal">Cancel</button>
                                                         </div>
                                                         <div class="justify-content-start ml-5">
                                                             <button type="submit" class="btn btn-info">Simpan</button>
@@ -113,7 +113,7 @@
                                         <div class="form-group">
                                             <div class="d-flex justify-content-center">
                                                 <div class="justify-content-end mr-5">
-                                                    <button type="button" class="btn btn-warning">Tidak</button>
+                                                    <button type="button" class="btn btn-warning" data-dismiss="modal">Tidak</button>
                                                 </div>
                                                 <div class="justify-content-start ml-5">
                                                     <a href="<?= base_url('ktgrLoker/hapus/' . $value->id_ktgr) ?>" class="btn btn-info">Ya</a>

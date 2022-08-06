@@ -51,7 +51,7 @@
                                             <div class="form-group">
                                                 <div class="d-flex justify-content-center">
                                                     <div class="justify-content-end mr-5">
-                                                        <button type="button" class="btn btn-warning">Cancel</button>
+                                                        <button type="button" class="btn btn-warning" data-dismiss="modal">Cancel</button>
                                                     </div>
                                                     <div class="justify-content-start ml-5">
                                                         <button type="button" class="btn btn-info">Daftar</button>

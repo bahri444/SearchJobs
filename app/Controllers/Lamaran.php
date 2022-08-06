@@ -47,7 +47,7 @@ class Lamaran extends BaseController
     public function edit($id_lamaran)
     {
         try{
-            $this->lamaranModel->save($this->request->getPost());
+            $this->lamaranModel->update($id_lamaran,$this->request->getPost());
             return redirect()->to(base_url('lamaran'));
         }catch(Exception $e){
             dd($e);

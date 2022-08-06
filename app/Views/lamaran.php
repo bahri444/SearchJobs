@@ -50,11 +50,11 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="berkas">Berkas Persyaratan</label>
-                                                <input type="file" name="berkas" placeholder="" class="form-control form-control-md">
+                                                <input type="file" name="berkas" placeholder="" class="form-control form-control-md" required>
                                             </div>
                                             <div class="form-group">
                                                 <label for="tgl_lamar">Tgl Melamar</label>
-                                                <input type="date" name="tgl_lamar" placeholder="passwords" class="form-control form-control-md">
+                                                <input type="date" name="tgl_lamar" placeholder="passwords" class="form-control form-control-md" required>
                                             </div>
                                             <div class="form-group">
                                                 <div class="d-flex justify-content-center">
@@ -85,7 +85,7 @@
                     <button type="button" class="close custom-modal__close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true" class="ua-icon-modal-close"></span>
                     </button>
-                    <form action="<?= base_url('/lamaran/edit/' . $row->id_lamaran) ?>" method="post">
+                    <form action="<?= base_url('/lamaran/edit/'. $row->id_lamaran) ?>" method="post">
                     <div class="modal-content">
                         <div class="mt-2">
                             <div class="container">
@@ -96,25 +96,29 @@
                                     <div class="form-group mt-3">
                                         <select name="id_pencaker" class="form-select form-control form-control-md" aria-label="Default select example">
                                             <label for="id_pencaker">Nama Pelamar Kerja</label>
-                                            <option selected value="<?=$row->id_pencaker?>">---pilih pencari kerja---</option>
-                                            <option value="1">One</option>
+                                            <option selected value="<?=$row->id_pencaker?>"><?= $row->nm_lkp ?></option>
+                                            <?php foreach($dataPencaker as $pencaker):?>
+                                                    <option value="<?=$pencaker['id_pencaker']?>"><?= $pencaker['nm_lkp'] ?></option>
+                                                    <?php endforeach;?>
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <select name="id_loker" class="form-select form-control form-control-md" aria-label="Default select example">
                                             <label for="id_loker">Judul Loker</label>
-                                            <option selected value="<?=$row->id_loker?>">---pilih lowongan kerja---</option>
-                                            <option value="1">One</option>
+                                            <option selected value="<?=$row->id_loker?>"><?= $row->judul_loker ?></option>
+                                            <?php foreach($dataLoker as $loker):?>
+                                                    <option value="<?= $loker['id_loker'] ?>"><?= $loker['judul_loker'] ?></option>
+                                                    <?php endforeach;?>
                                         </select>
                                     </div>
                                    
                                     <div class="form-group">
                                         <label for="berkas">Berkas Persyaratan</label>
-                                        <input type="text" name="berkas" value="<?= $row->berkas ?> type="file" placeholder="" value="<?=$row->berkas?>" class="form-control form-control-md">
+                                        <input type="file" name="berkas" value="<?= $row->berkas ?> type="file" placeholder="" value="<?=$row->berkas?>" class="form-control form-control-md" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="tgl_lamar">Tgl Melamar</label>
-                                        <input type="date" name="tgl_lamar" value="<?= $row->tgl_lamar ?> type="date" placeholder="passwords" value="<?=$row->tgl_lamar?>" class="form-control form-control-md">
+                                        <input type="date" name="tgl_lamar" value="<?= date("Y-m-d",strtotime($row->tgl_lamar)) ?>" placeholder="passwords" class="form-control form-control-md" required>
                                     </div>
                                     <div class="form-group">
                                         <div class="d-flex justify-content-center">
@@ -192,13 +196,14 @@
                                 <td><?= $row->nm_lkp?></td>
                                 <td><?= $row->berkas?></td>
                                 <td><?= $row->judul_loker ?></td>
-                                <td><?php
-                                 $lahir    =new DateTime($row->tgl_lhr);
-                                 $today     =new DateTime();
-                                 $umur = $today->diff($lahir);
-                                 echo $umur->y;
-                                ?></td>
-                                <td><?= date("d-m-Y",strtotime($row->tgl_lamar))?></td>
+                                <td><?= $row->tgl_lamar ?></td>
+                                <!-- <td>//<//?php
+                                // $lahir    =new DateTime($row->tgl_lhr);
+                                 //$today     =new DateTime();
+                                 //$umur = $today->diff($lahir);
+                                 //echo $umur->y;
+                                // ?//></td>
+                                // <td>//<//?= //date("d-m-Y",strtotime($row->tgl_lamar))//?//></td> -->
                                
                                 <td class="d-flex justify-content-center">
 
