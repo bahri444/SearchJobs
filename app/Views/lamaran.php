@@ -183,7 +183,6 @@
                             <th scope="col">Nama Pencaker</th>
                             <th scope="col">Berkas Persyaratan</th>
                             <th scope="col">Lowongan</th>
-                            <th scope="col">Usia</th>
                             <th scope="col">Tgl Melamar</th>
                             <th scope="col">Aksi</th>
                         </tr>

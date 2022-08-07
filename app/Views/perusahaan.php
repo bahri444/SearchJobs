@@ -31,31 +31,31 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="nm_prshn">Nama Perusahaan</label>
-                                                    <input type="text" name="nm_prshn" placeholder="nama perusahaan" class="form-control form-control-md">
+                                                    <input type="text" name="nm_prshn" placeholder="nama perusahaan" class="form-control form-control-md" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="alamat">Alamat</label>
-                                                    <input type="text" name="alamat" placeholder="alamat" class="form-control form-control-md">
+                                                    <input type="text" name="alamat" placeholder="alamat" class="form-control form-control-md" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="email">E-mail</label><br>
-                                                    <input type="email" name="email" placeholder="email@gmail.com" class="form-control form-control-md">
+                                                    <input type="email" name="email" placeholder="email@gmail.com" class="form-control form-control-md" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="tlp">Telepon</label>
-                                                    <input type="text" name="tlp" placeholder="nomor telepon" class="form-control form-control-md">
+                                                    <input type="text" name="tlp" placeholder="nomor telepon" class="form-control form-control-md" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="logo">Logo</label>
-                                                    <input type="file" name="logo" placeholder="" class="form-control form-control-md">
+                                                    <input type="file" name="logo" placeholder="" class="form-control form-control-md" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="srt_izin">Surat Izin</label>
-                                                    <input type="file" name="srt_izin" placeholder="" class="form-control form-control-md">
+                                                    <input type="file" name="srt_izin" placeholder="" class="form-control form-control-md" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="strk_organis">Struktur Organisasi</label>
-                                                    <input type="file" name="strk_organis" placeholder="struktur orgsnisasi" class="form-control form-control-md">
+                                                    <input type="file" name="strk_organis" placeholder="struktur orgsnisasi" class="form-control form-control-md" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <div class="d-flex justify-content-center">

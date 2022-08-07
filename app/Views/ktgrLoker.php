@@ -36,7 +36,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="nm_ktgr">Nama Kategori</label>
-                                                    <input type="text" name="nm_ktgr" placeholder="maskkan kategori" class="form-control form-control-md">
+                                                    <input type="text" name="nm_ktgr" placeholder="maskkan kategori" class="form-control form-control-md" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <div class="d-flex justify-content-center">
