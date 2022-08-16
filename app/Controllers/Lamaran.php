@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\LamaranModel;
 use App\Models\LokerModel;
 use App\Models\PencakerModel;
+use CodeIgniter\HTTP\Files\UploadedFile;
 use Exception;
 
 class Lamaran extends BaseController
@@ -24,7 +25,8 @@ class Lamaran extends BaseController
             "dataLoker"=> $this->lokerModel->findAll(),
             "dataPencaker"=>$this->pencakerModel->findAll(),
             "title" => "lamaran",
-            'info' => $this->lamaranModel->findAll()
+            'info' => $this->lamaranModel->findAll(),
+            'validation'=> \config\Services::validation()
         ];
         return view('lamaran', $data);
         // dd($pr);
@@ -34,12 +36,41 @@ class Lamaran extends BaseController
 
     public function tambah()
     {
-        try{
-            $data = $this->request->getPost();
-            $this->lamaranModel->tambah($data);
+        if(!$this->validate([
+            'berkas'=>[
+                'rules'=>'uploaded[berkas]|mime_in[berkas,application/pdf,application/mword]',
+                'errors' =>[
+                    'uploaded'=>'pilih File terlebih dahulu',
+                    'mime_in'=>'yang anda masukkan bukan file'
+                ]
+            ],
+            'tgl_lamar'=>[
+                'rules'=>'required',
+                'errors'=>[
+                    'required'=>'Nama perusahaan harus di isi '
+                    ]
+                ], 
+        ])){
+            session()->setFlashdata('pesan', 'Data Belum Lengkap !');
+            return redirect()->to(base_url('lamaran'))->withInput();
+        }
+        // ambil gambar
+        $fileBerkas=$this->request->getFile('berkas');
+
+        // pindahkan file
+        $fileBerkas->move('berkas');
+
+        // ambil nama file
+        $namaberkas = $fileBerkas->getName();
+        $data = [
+            'tgl_lmr' =>$this->request->getPost('tgl_lmr'),
+            'berkas' => $namaberkas,
+        ];
+        $success = $this->perusahaanModel->tambah($data);
+        if ($success) {
+            session()->setFlashdata('pesan2', 'Data Berhasil Ditambah !');
             return redirect()->to(base_url('lamaran'));
-        }catch(Exception $e){
-            dd($e);
+            // dd($data);
         }
     }
 

@@ -52,40 +52,40 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="judul_loker">Judul Loker</label>
-                                                    <input type="text" name="judul_loker" placeholder="judul lowongan kerja" class="form-control form-control-md">
+                                                    <input type="text" name="judul_loker" placeholder="judul lowongan kerja" class="form-control form-control-md" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="posisi">Posisi</label>
-                                                    <input type="text" name="posisi" placeholder="posisi atau kedudukan" class="form-control form-control-md">
+                                                    <input type="text" name="posisi" placeholder="posisi atau kedudukan" class="form-control form-control-md" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="tgl_buka">Tgl Buka</label>
-                                                    <input type="date" name="tgl_buka" placeholder="tanggal upload" class="form-control form-control-md">
+                                                    <input type="date" name="tgl_buka" placeholder="tanggal upload" class="form-control form-control-md" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="tgl_tutup">Tgl Upload</label>
-                                                    <input type="date" name="tgl_tutup" placeholder="tanggal upload" class="form-control form-control-md">
+                                                    <input type="date" name="tgl_tutup" placeholder="tanggal upload" class="form-control form-control-md" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="syrt_pend">Syarat Pendidikan</label>
-                                                    <input type="text" name="syrt_pend" placeholder="syarat pendidikan" class="form-control form-control-md">
+                                                    <input type="text" name="syrt_pend" placeholder="syarat pendidikan" class="form-control form-control-md" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="detail_loker">Detail Loker</label>
-                                                    <input type="text" name="detail_loker" placeholder="detail lowongan kerja" class="form-control form-control-md">
+                                                    <input type="text" name="detail_loker" placeholder="detail lowongan kerja" class="form-control form-control-md" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="gaji">Gaji</label>
-                                                    <input type="text" name="gaji" placeholder="gaji" class="form-control form-control-md">
+                                                    <input type="text" name="gaji" placeholder="gaji" class="form-control form-control-md" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="bts_wktu">Batas Waktu</label>
-                                                    <input type="date" name="bts_wktu" placeholder="batas waktu" class="form-control form-control-md">
+                                                    <input type="date" name="bts_wktu" placeholder="batas waktu" class="form-control form-control-md" required>
                                                 </div>
                                                 <div class="form-group">
                                                     <div class="d-flex justify-content-center">
                                                         <div class="justify-content-end mr-5">
-                                                            <button type="button" class="btn btn-warning">Cancel</button>
+                                                            <button type="button" class="btn btn-warning" data-dismiss="model">Cancel</button>
                                                         </div>
                                                         <div class="justify-content-start ml-5">
                                                             <button type="submit" class="btn btn-info">Tambah</button>
@@ -130,7 +130,7 @@
                                         <div class="form-group">
                                             <div class="d-flex justify-content-center">
                                                 <div class="justify-content-end mr-5">
-                                                    <button type="button" class="btn btn-warning">Cancel</button>
+                                                    <button type="button" class="btn btn-warning" data-dismiss="model">Cancel</button>
                                                 </div>
                                                 <div class="justify-content-start ml-5">
                                                     <button type="button" class="btn btn-info">Simpan</button>
@@ -211,7 +211,7 @@
                                             <div class="form-group">
                                                 <div class="d-flex justify-content-center">
                                                     <div class="justify-content-end mr-5">
-                                                        <button type="button" class="btn btn-warning">Cancel</button>
+                                                        <button type="button" class="btn btn-warning" data-dismiss="model">Cancel</button>
                                                     </div>
                                                     <div class="justify-content-start ml-5">
                                                         <button type="submit" class="btn btn-info">Simpan</button>

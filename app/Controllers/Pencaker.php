@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\PencakerModel;
+use CodeIgniter\HTTP\Files\UploadedFile;
 use Exception;
 
 class Pencaker extends BaseController
@@ -16,10 +17,12 @@ class Pencaker extends BaseController
         $datapencaker = $this->PencakerModel->getPencaker()->getResult();
         // $pr = $this->perusahaanModel->findAll();
         // dd($datapencaker);
+        session();
         $data = [
             "pencaker" => $datapencaker,
             "title" => "pencaker",
-            'info' => $this->PencakerModel->findAll()
+            'info' => $this->PencakerModel->findAll(),
+            'validation'=> \config\Services::validation()
         ];
         return view('pencaker', $data);
         // dd($pr);
@@ -29,6 +32,74 @@ class Pencaker extends BaseController
 
     public function tambah()
     {
+        if(!$this->validate([
+            'nm_lkp'=>[
+                'rules'=>'required',
+                'errors'=>[
+                    'required'=>'nama lengkap harus di isi'
+                ]
+                ],
+                'tgl_lhr'=>[
+                    'rules'=>'required',
+                    'errors'=>[
+                        'required'=>'tanggal lahir harus di isi'
+                    ]
+                    ],   
+                'usia'=>[
+                    'rules'=>'required',
+                    'errors'=>[
+                        'required'=>'umur harus di isi'
+                    ]
+                    ],  
+                'alamat'=>[
+                    'rules'=>'required',
+                    'errors'=>[
+                        'required'=>'alamat harus di isi'
+                    ]
+                    ],  
+                'email'=>[
+                    'rules'=>'required',
+                    'errors'=>[
+                        'required'=>'email harus di isi'
+                    ]
+                    ],  
+                'tlp'=>[
+                    'rules'=>'required',
+                    'errors'=>[
+                        'required'=>'No telpon harus di isi'
+                    ]
+                    ],  
+                'peng_ker'=>[
+                    'rules'=>'required',
+                    'errors'=>[
+                        'required'=>'pengalaman kerja harus di isi'
+                    ]
+                    ],   
+                'bid_keahlian'=>[
+                    'rules'=>'required',
+                    'errors'=>[
+                        'required'=>'bidang keahlian harus di isi'
+                    ]
+                    ], 
+                'sertifikat'=>[
+                        'rules'=>'uploaded[sertifikat]|mime_in[sertifikat,application/pdf,application/mword]',
+                        'errors' =>[
+                            'uploaded'=>'pilih FIle terlebih dahulu',
+                            'mime_in'=>'yang anda masukkan bukan file'
+                        ]
+                ], 
+        ])){
+            session()->setFlashdata('pesan', 'Data Belum Lengkap !');
+                return redirect()->to(base_url('pencaker'))->withInput();
+        }
+        // ambil gambar
+        $Sertifikat=$this->request->getFile('sertifikat');
+
+        // pindahkan file
+        $Sertifikat->move('sertifikat1');
+
+        // ambil nama file
+        $namaSertifikat=$Sertifikat->getName();
         $data = [
             'nm_lkp' => $this->request->getPost('nm_lkp'),
             'tgl_lhr' => $this->request->getPost('tgl_lhr'),
@@ -40,16 +111,23 @@ class Pencaker extends BaseController
             'pend_ter' => $this->request->getPost('pend_ter'),
             'peng_ker' => $this->request->getPost('peng_ker'),
             'bid_keahlian' => $this->request->getPost('bid_keahlian'),
-            'sertifikat' => $this->request->getPost('sertifikat'),
+            'sertifikat' => $namaSertifikat,
             // 'id_prshn' =>$this->request->getPost()
         ];
-        
-        try{
-            $this->PencakerModel->tambah($data);
-                return redirect()->to(base_url('pencaker'));
-        }catch(Exception $e){
-            dd($e);
+
+        $success = $this->PencakerModel->tambah($data);
+        if ($success) {
+            session()->setFlashdata('pesan2', 'Data Berhasil Ditambah !');
+            return redirect()->to(base_url('pencaker'));
+            // dd($data);
         }
+        // print_r($data);
+        // try{
+        //     $this->PencakerModel->tambah($data);
+        //         return redirect()->to(base_url('pencaker'));
+        // }catch(Exception $e){
+        //     dd($e);
+        // }
     }
 
     // func edit

@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="<?= base_url() ?>/fonts/iconfont/style.css"> <!-- DEPRECATED iconmonstr -->
     <link rel="stylesheet" href="<?= base_url() ?>/vendor/flatpickr/flatpickr.min.css"> <!-- original flatpickr plugin (datepicker) styles -->
     <link rel="stylesheet" href="<?= base_url() ?>/vendor/simplebar/simplebar.css"> <!-- original simplebar plugin (scrollbar) styles  -->
-    <!-- <link rel="stylesheet" href="<?= base_url() ?>/vendor/tagify/tagify.css"> -->
+    <link rel="stylesheet" href="<?= base_url() ?>/vendor/tagify/tagify.css">
     <link rel="stylesheet" href="<?= base_url() ?>/vendor/tippyjs/tippy.css"> <!-- original tippy plugin (tooltip) styles -->
     <link rel="stylesheet" href="<?= base_url() ?>/vendor/select2/css/select2.min.css"> <!-- original select2 plugin styles -->
     <link rel="stylesheet" href="<?= base_url() ?>/vendor/bootstrap/css/bootstrap.min.css"> <!-- original bootstrap styles -->
@@ -335,7 +335,7 @@
 
     <div class="sidebar-mobile-overlay"></div>
 
-    <!-- <div class="settings-panel">
+    <div class="settings-panel">
         <div class="settings-panel__header">
             <span class="settings-panel__close ua-icon-modal-close"></span>
 

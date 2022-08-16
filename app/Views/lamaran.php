@@ -44,17 +44,23 @@
                                                     <label for="id_loker">Judul Loker</label>
                                                     <option selected>---pilih lowongan kerja---</option>
                                                     <?php foreach($dataLoker as $loker):?>
-                                                    <option value="<?= $loker['id_loker'] ?>"><?= $loker['judul_loker'] ?></option>
+                                                    <option value="<?= $loker['id_loker'] ?>"><?= $loker['judul_loker'] ?>one</option>
                                                     <?php endforeach;?>
                                                 </select>
                                             </div>
                                             <div class="form-group">
                                                 <label for="berkas">Berkas Persyaratan</label>
-                                                <input type="file" name="berkas" placeholder="" class="form-control form-control-md" required>
+                                                <input type="file" name="berkas" class="form-control form-control-md <?= ($validation->hasError('berkas')) ? 'is-invalid' : '';?>" >
+                                                <div class="invalid-feedback">
+                                                     <?= $validation->getError('berkas');?>
+                                                </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="tgl_lamar">Tgl Melamar</label>
-                                                <input type="date" name="tgl_lamar" placeholder="passwords" class="form-control form-control-md" required>
+                                                <input type="date" name="tgl_lamar" placeholder="passwords" value="<?= old('tgl_lamar');?>" class="form-control form-control-md <?= ($validation->hasError('tgl_lamar')) ? 'is-invalid' : '';?>" >
+                                                <div class="invalid-feedback">
+                                                     <?= $validation->getError('tgl_lamar');?>
+                                                </div>
                                             </div>
                                             <div class="form-group">
                                                 <div class="d-flex justify-content-center">

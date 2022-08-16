@@ -1,6 +1,21 @@
 <?= $this->extend('layout/template'); ?>
 <?= $this->section('content'); ?>
 <div class="page-content">
+    <div class="mt-3 ml-3 mr-3 mb-0">
+        <!-- session gagal simpan -->
+            <?php if(session()->getFlashdata('pesan')): ?>
+            <div class="alert alert-danger" role="alert">
+               <?= session()->getFlashdata('pesan')?>
+            </div>
+    <?php endif; ?>
+
+            <!-- session berhasil simpan -->
+     <?php if(session()->getFlashdata('pesan2')): ?>
+            <div class="alert alert-success" role="alert">
+               <?= session()->getFlashdata('pesan2')?>
+            </div>
+    <?php endif; ?>
+    </div>
     <div class="container-fluid">
         <div class="page-content__header">
             <div>
@@ -19,7 +34,7 @@
                             <button type="button" class="close custom-modal__close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true" class="ua-icon-modal-close"></span>
                             </button>
-                            <form action="<?= base_url('pencaker/tambah'); ?>" method="post">
+                            <form action="<?= base_url('pencaker/tambah'); ?>" method="post" enctype="multipart/form-data">
                                 <div class="modal-content">
                                     <div class="mt-2">
                                         <div class="container-fluid">
@@ -30,42 +45,63 @@
                                                 </div>
                                                 <div class="form-group mt-3">
                                                     <label for="nm_lkp">Nama</label>
-                                                    <input type="text" name="nm_lkp" placeholder="nama lengkap" class="form-control form-control-md" required>
+                                                    <input type="text" name="nm_lkp" placeholder="nama lengkap" value="<?= old('nm_lkp');?>" class="form-control form-control-md <?= ($validation->hasError('nm_lkp')) ? 'is-invalid' : '';?>">
+                                                    <div class="invalid-feedback">
+                                                <?= $validation->getError('nm_lkp');?>
+                                               </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="tgl_lhr">Tgl Lahir</label>
-                                                    <input type="date" name="tgl_lhr" placeholder="judul lowongan kerja" class="form-control form-control-md" required>
+                                                    <input type="date" name="tgl_lhr" placeholder="judul lowongan kerja" value="<?= old('tgl_lhr');?>" class="form-control form-control-md <?= ($validation->hasError('tgl_lhr')) ? 'is-invalid' : '';?>" >
+                                                    <div class="invalid-feedback">
+                                                <?= $validation->getError('tgl_lhr');?>
+                                               </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="jk">Jenis Kelamin</label><br>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio" name="jk" id="inlineRadio1" value="L">
+                                                        <input class="form-check-input" type="radio" name="jk" id="inlineRadio1" value="Laki-Laki">
                                                         <label class="form-check-label" for="inlineRadio1">Pria</label>
                                                     </div>
                                                     <div class="form-check form-check-inline">
-                                                        <input class="form-check-input" type="radio" name="jk" id="inlineRadio2" value="P">
+                                                        <input class="form-check-input" type="radio" name="jk" id="inlineRadio2" value="Perempuan">
                                                         <label class="form-check-label" for="inlineRadio2">Wanita</label>
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="usia">Usia</label>
-                                                    <input type="number" name="usia" placeholder="usia" class="form-control form-control-md" required>
+                                                    <input type="number" name="usia" placeholder="usia" value="<?= old('usia');?>" class="form-control form-control-md <?= ($validation->hasError('usia')) ? 'is-invalid' : '';?>" >
+                                                    <div class="invalid-feedback">
+                                                     <?= $validation->getError('usia');?>
+                                               </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="alamat">Alamat</label>
-                                                    <input type="text" name="alamat" placeholder="alamat" class="form-control form-control-md" required>
+                                                    <input type="text" name="alamat" placeholder="alamat" value="<?= old('alamat');?>" class="form-control form-control-md <?= ($validation->hasError('alamat')) ? 'is-invalid' : '';?>" >
+                                                    <div class="invalid-feedback">
+                                                     <?= $validation->getError('alamat');?>
+                                               </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="tlp">Telepon</label>
-                                                    <input type="text" name="tlp" placeholder="telepon" class="form-control form-control-md" required>
+                                                    <input type="text" name="tlp" placeholder="telepon" value="<?= old('tlp');?>" class="form-control form-control-md <?= ($validation->hasError('tlp')) ? 'is-invalid' : '';?>" >
+                                                    <div class="invalid-feedback">
+                                                     <?= $validation->getError('tlp');?>
+                                               </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="email">Email</label>
-                                                    <input type="email" name="email" placeholder="email@gmail.com" class="form-control form-control-md" required>
+                                                    <input type="email" name="email" placeholder="email@gmail.com" value="<?= old('email');?>" class="form-control form-control-md <?= ($validation->hasError('email')) ? 'is-invalid' : '';?>" >
+                                                    <div class="invalid-feedback">
+                                                     <?= $validation->getError('email');?>
+                                               </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="pengker">Pengalaman Kerja</label>
-                                                    <input type="text" name="peng_ker" placeholder="pengalaman kerja" class="form-control form-control-md" required>
+                                                    <input type="text" name="peng_ker" placeholder="pengalaman kerja" value="<?= old('peng_ker');?>" class="form-control form-control-md <?= ($validation->hasError('peng_ker')) ? 'is-invalid' : '';?>" >
+                                                    <div class="invalid-feedback">
+                                                     <?= $validation->getError('peng_ker');?>
+                                               </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="pend_ter">Pendidikan Terakhir</label>
@@ -83,11 +119,17 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="bid_keahlian">Bidang Keahlian</label>
-                                                    <input type="text" name="bid_keahlian" placeholder="bidang keahlian" class="form-control form-control-md" required>
+                                                    <input type="text" name="bid_keahlian" placeholder="bidang keahlian" value="<?= old('bid_keahlian');?>" class="form-control form-control-md <?= ($validation->hasError('bid_keahlian')) ? 'is-invalid' : '';?>" >
+                                                    <div class="invalid-feedback">
+                                                     <?= $validation->getError('bid_keahlian');?>
+                                               </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="sertifikat">Sertifikat Keahlian</label>
-                                                    <input type="file" name="sertifikat" placeholder="posisi atau kedudukan" class="form-control form-control-md" required>
+                                                    <input type="file" name="sertifikat" class="form-control form-control-md <?= ($validation->hasError('sertifikat')) ? 'is-invalid' : '';?>" >
+                                                    <div class="invalid-feedback">
+                                                     <?= $validation->getError('sertifikat');?>
+                                               </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <div class="d-flex justify-content-center">
@@ -128,11 +170,11 @@
                                 </div>
                                 <div class="form-group mt-3">
                                     <label for="nm_lkp">Nama</label>
-                                    <input type="text" name="nm_lkp" placeholder="nama lengkap" value="<?=$row->nm_lkp?>" class="form-control form-control-md" required autofocus>
+                                    <input type="text" name="nm_lkp" placeholder="nama lengkap" value="<?=$row->nm_lkp?>" class="form-control form-control-md"  autofocus>
                                 </div>
                                 <div class="form-group">
                                     <label for="tgl_lhr">Tgl Lahir</label>
-                                    <input name="tgl_lhr" type="date" placeholder="tanggal lahir" value="<?= date("Y-m-d",strtotime($row->tgl_lhr)) ?>" class="form-control form-control-md" required>
+                                    <input name="tgl_lhr" type="date" placeholder="tanggal lahir" value="<?= date("Y-m-d",strtotime($row->tgl_lhr)) ?>" class="form-control form-control-md" >
                                 </div>
                                 <div class="form-group">
                                     <label for="jk">Jenis Kelamin</label><br>
@@ -147,23 +189,23 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="usia">Usia</label>
-                                    <input name="usia" type="text" placeholder="usia" value="<?=$row->usia ?>" class="form-control form-control-md" required>
+                                    <input name="usia" type="text" placeholder="usia" value="<?=$row->usia ?>" class="form-control form-control-md" >
                                 </div>
                                 <div class="form-group">
                                     <label for="alamat">Alamat</label>
-                                    <input name="alamat" type="text" placeholder="alamat" value="<?=$row->alamat ?> " class="form-control form-control-md" required>
+                                    <input name="alamat" type="text" placeholder="alamat" value="<?=$row->alamat ?> " class="form-control form-control-md" >
                                 </div>
                                 <div class="form-group">
                                     <label for="tlp">Telepon</label>
-                                    <input name="tlp" type="text" placeholder="tlp" value="<?=$row->tlp ?> " class="form-control form-control-md" required>
+                                    <input name="tlp" type="text" placeholder="tlp" value="<?=$row->tlp ?> " class="form-control form-control-md" >
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Email</label>
-                                    <input name="email" type="email" placeholder="email@gmail.com" value="<?=$row->email ?> " class="form-control form-control-md">
+                                    <input name="email" type="email" placeholder="email@gmail.com" value="<?=$row->email ?> " class="form-control form-control-md" >
                                 </div>
                                 <div class="form-group">
                                     <label for="peng_ker">Pengalaman Kerja</label>
-                                    <input name="peng_ker" type="text" placeholder="pengalaman kerja" value="<?=$row->peng_ker ?>" class="form-control form-control-md">
+                                    <input name="peng_ker" type="text" placeholder="pengalaman kerja" value="<?=$row->peng_ker ?>" class="form-control form-control-md" >
                                 </div>
                                 <div class="form-group">
                                     <label for="pend_ter">Pendidikan Terakhir</label>
@@ -181,11 +223,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="bid_keahlian">Bidang Keahlian</label>
-                                    <input name="bid_keahlian" type="text" placeholder="bidang keahlian" value="<?=$row->bid_keahlian?>" class="form-control form-control-md" required>
+                                    <input name="bid_keahlian" type="text" placeholder="bidang keahlian" value="<?=$row->bid_keahlian?>" class="form-control form-control-md" >
                                 </div>
                                 <div class="form-group">
                                     <label for="sertifikat">Sertifikat Keahlian</label>
-                                    <input name="sertifikat" type="file" placeholder="posisi atau kedudukan" value="<?=$row->sertifikat?>" class="form-control form-control-md" required>
+                                    <input name="sertifikat" type="file" placeholder="posisi atau kedudukan" value="<?=$row->sertifikat?>" class="form-control form-control-md" >
                                 </div>
                                 <div class="form-group">
                                     <div class="d-flex justify-content-center">
