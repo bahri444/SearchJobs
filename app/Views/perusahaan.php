@@ -133,7 +133,7 @@
                                     <div class="row">
                                         <div class="col">
                                             <div class="mt-2 d-flex justify-content-center">
-                                                <img width="400px" height="200px" src="https://1.bp.blogspot.com/-jxHZn7c53HE/YR0U0gu2X5I/AAAAAAAAJ44/FdiIsS42njA0shcWATXiGyOURJaz-9argCLcBGAsYHQ/w1200-h630-p-k-no-nu/IMG-20210818-WA0033.jpg" alt="">
+                                                <img src="<?=base_url('/img2/'.$value['logo']);?>" width="400px" height="200px" alt="404">
                                             </div>
                                         </div>
                                     </div>
@@ -151,7 +151,7 @@
                                         <div class="col">
                                             <div class="d-flex justify-content-center">
                                                 <div class="justify-content-end mr-5">
-                                                    <button type="button" class="btn btn-warning" data-dismiss="model">Cancel</button>
+                                                    <button type="button" class="btn btn-warning" data-dismiss="modal">Cancel</button>
                                                 </div>
                                                 <div class="justify-content-start ml-5">
                                                     <button type="submit" class="btn btn-info">Simpan</button>

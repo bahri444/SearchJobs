@@ -3,6 +3,21 @@
 <?= $this->section('content'); ?>
 
 <div class="page-content">
+<div class="mt-3 ml-3 mr-3 mb-0">
+        <!-- session gagal simpan -->
+            <?php if(session()->getFlashdata('pesan')): ?>
+            <div class="alert alert-danger" role="alert">
+               <?= session()->getFlashdata('pesan')?>
+            </div>
+    <?php endif; ?>
+
+            <!-- session berhasil simpan -->
+     <?php if(session()->getFlashdata('pesan2')): ?>
+            <div class="alert alert-success" role="alert">
+               <?= session()->getFlashdata('pesan2')?>
+            </div>
+    <?php endif; ?>
+    </div>
     <div class="container-fluid">
         <div class="page-content__header">
             <div>
@@ -21,7 +36,7 @@
                             <button type="button" class="close custom-modal__close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true" class="ua-icon-modal-close"></span>
                             </button>
-                            <form action="<?= base_url('lamaran/tambah'); ?>" method="post">
+                            <form action="<?= base_url('lamaran/tambah'); ?>" method="post" enctype="multipart/form-data">
 
                             <div class="modal-content">
                                 <div class="mt-2">
@@ -40,7 +55,7 @@
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <select name="id_loker" id="id_loker" class="form-select form-control form-control-md" aria-label="Default select example">
+                                                <select name="id_loker" id="id_loker" class="form-select form-control form-control-md" value="<?= old('id_loker');?>" aria-label="Default select example">
                                                     <label for="id_loker">Judul Loker</label>
                                                     <option selected>---pilih lowongan kerja---</option>
                                                     <?php foreach($dataLoker as $loker):?>
@@ -50,7 +65,7 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="berkas">Berkas Persyaratan</label>
-                                                <input type="file" name="berkas" class="form-control form-control-md <?= ($validation->hasError('berkas')) ? 'is-invalid' : '';?>" >
+                                                <input type="file" name="berkas" id="berkas" class="form-control form-control-md <?= ($validation->hasError('berkas')) ? 'is-invalid' : '' ;?>" >
                                                 <div class="invalid-feedback">
                                                      <?= $validation->getError('berkas');?>
                                                 </div>
@@ -198,8 +213,8 @@
                         <?php foreach ($lamaran as $row) : ?>
                             <tr>
                                 <td><?= $i++; ?></td>
-                                <td><?= $row->nm_lkp?></td>
-                                <td><?= $row->berkas?></td>
+                                <td><?= $row->nm_lkp ?></td>
+                                <td><?= $row->berkas ?></td>
                                 <td><?= $row->judul_loker ?></td>
                                 <td><?= $row->tgl_lamar ?></td>
                                 <!-- <td>//<//?php

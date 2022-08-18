@@ -20,6 +20,7 @@ class Lamaran extends BaseController
     {
         $datalamaran = $this->lamaranModel->getlamaran()->getResult();
         // $pr = $this->perusahaanModel->findAll();
+        session();
         $data = [
             "lamaran" => $datalamaran,
             "dataLoker"=> $this->lokerModel->findAll(),
@@ -36,6 +37,7 @@ class Lamaran extends BaseController
 
     public function tambah()
     {
+
         if(!$this->validate([
             'berkas'=>[
                 'rules'=>'uploaded[berkas]|mime_in[berkas,application/pdf,application/mword]',
@@ -62,16 +64,22 @@ class Lamaran extends BaseController
 
         // ambil nama file
         $namaberkas = $fileBerkas->getName();
+        
         $data = [
-            'tgl_lmr' =>$this->request->getPost('tgl_lmr'),
+            'id_lamaran'=>$this->request->getPost('id_lamaran'),
+            'id_pencaker'=>$this->request->getPost('id_pencaker'),
+            'id_loker'=>$this->request->getPost('id_loker'),
+            'tgl_lamar' =>$this->request->getPost('tgl_lamar'),
             'berkas' => $namaberkas,
-        ];
-        $success = $this->perusahaanModel->tambah($data);
+        ]; 
+        // dd($data);
+
+        $success = $this->lamaranModel->tambah($data);
         if ($success) {
             session()->setFlashdata('pesan2', 'Data Berhasil Ditambah !');
-            return redirect()->to(base_url('lamaran'));
-            // dd($data);
+            return redirect()->to(base_url('/lamaran'));
         }
+        
     }
 
     // func edit

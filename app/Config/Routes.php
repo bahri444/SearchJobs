@@ -49,6 +49,7 @@ $routes->add('/user/hapus/(:num)', 'User::hapus/$1');
 
 $routes->get('/lamaran', 'Lamaran::lamaran');
 $routes->post('/lamaran/tambah', 'Lamaran::tambah');
+$routes->get('/lamaran/tambah', 'Lamaran::tambah');
 $routes->post('/lamaran/edit/(:num)', 'Lamaran::edit/$1');
 $routes->add('/lamaran/hapus/(:num)', 'Lamaran::hapus/$1');
 
