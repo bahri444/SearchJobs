@@ -19,10 +19,6 @@ if (is_file(SYSTEMPATH . 'Config/Routes.php')) {
 $routes->setDefaultNamespace('App\Controllers');
 $routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');
-
-// $routes->setDefaultController('Lamaran');
-// $routes->setDefaultMethod('lamaran');
-
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
 // The Auto Routing (Legacy) is very dangerous. It is easy to create vulnerable apps
@@ -39,8 +35,90 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Index::index');
-$routes->get('/dashboard', 'Dashboard::dashboard');
+$routes->get('/', 'Home::index');
+$routes->get('/tentang', 'Home::tentang');
+$routes->get('/login', 'UserController::login');
+$routes->post('/login', 'UserController::login');
+$routes->post('/register', 'UserController::register');
+$routes->get('/register', 'UserController::register');
+
+// routes for admin
+// $routes->get("admin/dashboard", "AdminController::index", ['filter' => 'admin']);
+$routes->get("admin/dashboard", "AdminController::index");
+
+$routes->get('/admin/ktgrLoker', 'KtgrLoker::ktgrLoker');
+$routes->post('/admin/ktgrLoker/tambah', 'KtgrLoker::tambah');
+$routes->post('/admin/ktgrLoker/edit/(:num)', 'KtgrLoker::edit/$1');
+$routes->add('/admin/ktgrLoker/hapus/(:num)', 'KtgrLoker::hapus/$1');
+
+$routes->get('/admin/loker', 'Loker::loker');
+$routes->post('/admin/loker/tambah', 'Loker::tambah');
+$routes->post('/admin/loker/edit/(:num)', 'Loker::edit/$1');
+$routes->get('/admin/loker/hapus/(:num)', 'Loker::hapus/$1');
+
+$routes->get('/admin/pencaker', 'Pencaker::pencaker');
+$routes->post('/admin/pencaker/tambah', 'Pencaker::tambah');
+$routes->post('/admin/pencaker/edit/(:num)', 'Pencaker::edit/$1');
+$routes->add('/admin/pencaker/hapus/(:num)', 'Pencaker::hapus/$1');
+
+$routes->get('/admin/lamaran', 'Lamaran::lamaran');
+$routes->post('/admin/lamaran/tambah', 'Lamaran::tambah');
+$routes->post('/admin/lamaran/edit/(:num)', 'Lamaran::edit/$1');
+$routes->add('/admin/lamaran/hapus/(:num)', 'Lamaran::hapus/$1');
+
+$routes->get('/admin/perusahaan', 'Perusahaan::perusahaan');
+$routes->post('/admin/perusahaan/tambah', 'Perusahaan::tambah');
+$routes->post('/admin/perusahaan/edit/(:num)', 'Perusahaan::edit/$1');
+$routes->add('/admin/perusahaan/hapus/(:num)', 'Perusahaan::hapus/$1');
+
+$routes->get('/admin/user', 'User::user');
+$routes->add('/admin/user/hapus/(:num)', 'User::hapus/$1');
+// $routes->get('/admin/users', 'Users::users');
+// end-routes for admin
+
+
+//routes for instansi
+$routes->get('/instansi/dashboard', 'InstansiController::index');
+
+$routes->get('/instansi/loker', 'Loker::loker');
+
+$routes->get('/instansi/perusahaan', 'Perusahaan::perusahaan');
+$routes->post('/instansi/perusahaan/tambah', 'Perusahaan::tambah');
+$routes->post('/instansi/perusahaan/edit/(:num)', 'Perusahaan::edit/$1');
+
+$routes->get('/instansi/loker', 'Loker::loker');
+$routes->post('/instansi/loker/tambah', 'Loker::tambah');
+$routes->post('/instansi/loker/edit/(:num)', 'Loker::edit/$1');
+$routes->get('/instansi/loker/hapus/(:num)', 'Loker::hapus/$1');
+
+
+$routes->get('/instansi/lamaran', 'Lamaran::lamaran');
+$routes->post('/instansi/lamaran/tambah', 'Lamaran::tambah');
+$routes->post('/instansi/lamaran/edit/(:num)', 'Lamaran::edit/$1');
+$routes->add('/instansi/lamaran/hapus/(:num)', 'Lamaran::hapus/$1');
+//end-routes for instansi
+
+
+// routes for pencaker
+$routes->get('pencaker/dashboard', 'PencakerController::index');
+
+// end-routes for pencaker
+
+// $routes->match(['get', 'post'], 'login', 'UserController::login', ["filter" => "noauth"]);
+// // Admin routes
+// $routes->group("admin", ["filter" => "auth"], function ($routes) {
+//     $routes->get("admin/dashboard", "AdminController::index");
+// });
+// // Editor routes
+// $routes->group("/instansi", ["filter" => "auth"], function ($routes) {
+//     $routes->get("instansi/dashboard", "InstansiController::index");
+// });
+// $routes->group("/pencaker", ["filter" => "auth"], function ($routes) {
+//     $routes->get("pencaker/dashboard", "PencakerController::index");
+// });
+$routes->get('logout', 'UserController::logout');
+
+
 
 $routes->get('/user', 'User::user');
 $routes->post('/user/tambah', 'User::tambah');
@@ -72,6 +150,7 @@ $routes->get('/ktgrLoker', 'KtgrLoker::ktgrLoker');
 $routes->post('/ktgrLoker/tambah', 'KtgrLoker::tambah');
 $routes->post('/ktgrLoker/edit/(:num)', 'KtgrLoker::edit/$1');
 $routes->add('/ktgrLoker/hapus/(:num)', 'KtgrLoker::hapus/$1');
+//...
 
 /*
  * --------------------------------------------------------------------

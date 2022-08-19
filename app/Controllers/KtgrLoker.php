@@ -19,7 +19,7 @@ class KtgrLoker extends BaseController
             "title" => "KtgrLoker",
             "ktgr_loker" => $dataKtgrLoker
         );
-        return view('ktgrLoker', $dataKtgr);
+        return view('admin/ktgrLoker', $dataKtgr);
     }
 
     // func for insert data
@@ -30,7 +30,7 @@ class KtgrLoker extends BaseController
             'nm_ktgr' => 'required|is_unique[ktgr_loker.nm_ktgr]'
         ])) {
             $valid_msg = \Config\Services::validation();
-            return redirect()->to('/ktgrLoker')->withInput()->with('validation', $valid_msg);
+            return redirect()->to('/admin/ktgrLoker')->withInput()->with('validation', $valid_msg);
         }
 
         $data = [
@@ -43,7 +43,7 @@ class KtgrLoker extends BaseController
 
         $succes = $this->ktgrLokerModel->tambah($data);
         if ($succes) {
-            return redirect()->to(base_url('ktgrLoker'));
+            return redirect()->to(base_url('admin/ktgrLoker'));
         }
     }
 
@@ -54,13 +54,13 @@ class KtgrLoker extends BaseController
             'id_ktgr' => $id_ktgr,
             'nm_ktgr' => $this->request->getVar('nm_ktgr')
         ]);
-        return redirect()->to(base_url('/ktgrLoker'));
+        return redirect()->to(base_url('/admin/ktgrLoker'));
     }
 
     public function hapus($id_ktgr)
     {
         // $id_ktgr = $this->request->getPost('id_ktgr');
         $this->ktgrLokerModel->delete($id_ktgr);
-        return redirect()->to(base_url('/ktgrLoker'));
+        return redirect()->to(base_url('/admin/ktgrLoker'));
     }
 }

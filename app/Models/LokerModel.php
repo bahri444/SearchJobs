@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
+use Countable;
 
 class LokerModel extends Model
 {
@@ -49,9 +50,9 @@ class LokerModel extends Model
         return $this->db->table('loker')->insert($data);
     }
 
-    public function info($id_loker = false)
+    public function info($id_loker)
     {
-        if ($id_loker = false) {
+        if ($id_loker) {
             $builder = $this->db->table('loker');
             $query = $builder->get();
             return $query->getResultArray();
@@ -72,4 +73,11 @@ class LokerModel extends Model
     {
         return $this->table('loker')->delete(array('id_loker' => $id_loker));
     }
+
+    // public function countLoker(){
+    //     $builder = $this->db->table('loker');
+    //     $query = count('$builder');
+    //     // $this->db->select('*');
+    //     // $this->db->from('loker');
+    // }
 }

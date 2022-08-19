@@ -35,6 +35,7 @@ class PerusahaanModel extends Model
     public function tambah($data)
     {
         return $this->db->table('perusahaan')->insert($data);
+        
     }
 
     // info
