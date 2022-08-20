@@ -16,7 +16,7 @@ class LamaranModel extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        "id_lamaran","id_pencaker","id_loker","berkas","tgl_lamar","created_at","updated_at"	
+        "id_lamaran", "id_pencaker", "id_loker", "berkas", "tgl_lamar", "created_at", "updated_at"
 
     ];
 
@@ -37,11 +37,11 @@ class LamaranModel extends Model
     {
         $query = $this->db->table('lamaran');
         $query->join('pencaker', 'lamaran.id_pencaker = pencaker.id_pencaker');
-        $query->join('loker','lamaran.id_loker=loker.id_loker');
-        $query->join('perusahaan','loker.id_prshn=perusahaan.id_prshn');
+        $query->join('loker', 'lamaran.id_loker=loker.id_loker');
+        $query->join('perusahaan', 'loker.id_prshn=perusahaan.id_prshn');
         return $query->get();
     }
-    
+
 
     // func for insert data
     public function tambah($data)
@@ -66,9 +66,9 @@ class LamaranModel extends Model
     // func edit
     public function edit($data, $id_lamaran)
     {
-        try{   
-            return $this->db->table('lamaran')->update($id_lamaran,$data);
-        }catch(Exception $error){
+        try {
+            return $this->db->table('lamaran')->update($id_lamaran, $data);
+        } catch (Exception $error) {
             dd($error);
         }
     }
@@ -76,11 +76,18 @@ class LamaranModel extends Model
     // func hapus
     public function hapus($id_lamaran)
     {
-        try{
+        try {
             return $this->db->table('lamaran')->delete($id_lamaran);
-        }catch(Exception $error){
+        } catch (Exception $error) {
             dd($error);
         }
         // return $this->db->table('perusahaan')->update(array('id_prshn' => $id_prshn));
+    }
+
+    // function for count data to dashboard
+    public function countData()
+    {
+        $data = $this->db->table('lamaran')->countAllResults();
+        return $data;
     }
 }

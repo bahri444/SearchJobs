@@ -2,11 +2,7 @@
 
 <?= $this->section('content'); ?>
 <?php
-
-use Config\App;
-
-// $this->$db = \App\Helpers\CountData::connect();
-// dd($table('loker'));
+$jumlah = \App\Controllers\AdminController::class;
 ?>
 // content ISI
 <div class="page-content">
@@ -21,7 +17,7 @@ use Config\App;
             <div class="col-xl-3 col-lg-3 col-md-6">
                 <div class="widget widget-alpha widget-alpha--color-amaranth">
                     <div>
-                        <div class="widget-alpha__amount">123</div>
+                        <div class="widget-alpha__amount"><?= $count ?></div>
                         <div class="widget-alpha__description">Data Lowongan Kerja</div>
                     </div>
                     <span class="widget-alpha__icon ua-icon-document-solid"></span>
@@ -30,7 +26,7 @@ use Config\App;
             <div class="col-xl-3 col-lg-3 col-md-6">
                 <div class="widget widget-alpha widget-alpha--color-green-jungle">
                     <div>
-                        <div class="widget-alpha__amount">156</div>
+                        <div class="widget-alpha__amount"><?= $jmlPencaker ?></div>
                         <div class="widget-alpha__description">Data Pencari Kerja</div>
                     </div>
                     <span class="widget-alpha__icon ua-icon-widget-user-group"></span>
@@ -39,7 +35,7 @@ use Config\App;
             <div class="col-xl-3 col-lg-3 col-md-6">
                 <div class="widget widget-alpha widget-alpha--color-orange widget-alpha--donut">
                     <div>
-                        <div class="widget-alpha__amount">64,87%</div>
+                        <div class="widget-alpha__amount"><?= $jmlPrshn ?></div>
                         <div class="widget-alpha__description">Data Perusahaan</div>
                     </div>
                     <span class="widget-alpha__icon ua-icon-company"></span>
@@ -48,7 +44,7 @@ use Config\App;
             <div class="col-xl-3 col-lg-3 col-md-6">
                 <div class="widget widget-alpha widget-alpha--color-java widget-alpha--help">
                     <div>
-                        <div class="widget-alpha__amount">425</div>
+                        <div class="widget-alpha__amount"><?= $jmlLamaran ?></div>
                         <div class="widget-alpha__description">Data Pelamar</div>
                     </div>
                     <span class="widget-alpha__icon ua-icon-widget-user-group"></span>

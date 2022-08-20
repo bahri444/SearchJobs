@@ -35,16 +35,19 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
+
+// route for view before login to system
 $routes->get('/', 'Home::index');
 $routes->get('/tentang', 'Home::tentang');
 $routes->get('/login', 'UserController::login');
 $routes->post('/login', 'UserController::login');
 $routes->post('/register', 'UserController::register');
 $routes->get('/register', 'UserController::register');
+// end route for view before login to system
 
 // routes for admin
-// $routes->get("admin/dashboard", "AdminController::index", ['filter' => 'admin']);
 $routes->get("admin/dashboard", "AdminController::index");
+$routes->get("admin/dashboard/countPrs", "AdminController::countPrs");
 
 $routes->get('/admin/ktgrLoker', 'KtgrLoker::ktgrLoker');
 $routes->post('/admin/ktgrLoker/tambah', 'KtgrLoker::tambah');
@@ -73,9 +76,7 @@ $routes->add('/admin/perusahaan/hapus/(:num)', 'Perusahaan::hapus/$1');
 
 $routes->get('/admin/user', 'User::user');
 $routes->add('/admin/user/hapus/(:num)', 'User::hapus/$1');
-// $routes->get('/admin/users', 'Users::users');
 // end-routes for admin
-
 
 //routes for instansi
 $routes->get('/instansi/dashboard', 'InstansiController::index');

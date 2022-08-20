@@ -15,7 +15,7 @@
             <div class="col-xl-3 col-lg-3 col-md-6">
                 <div class="widget widget-alpha widget-alpha--color-amaranth">
                     <div>
-                        <div class="widget-alpha__amount">324</div>
+                        <div class="widget-alpha__amount"><?= $jmlLoker ?></div>
                         <div class="widget-alpha__description">Data Lowongan Kerja</div>
                     </div>
                     <span class="widget-alpha__icon ua-icon-document-solid"></span>
@@ -24,7 +24,7 @@
             <div class="col-xl-3 col-lg-3 col-md-6">
                 <div class="widget widget-alpha widget-alpha--color-java widget-alpha--help">
                     <div>
-                        <div class="widget-alpha__amount">425</div>
+                        <div class="widget-alpha__amount"><?= $jmlLamaran ?></div>
                         <div class="widget-alpha__description">Data Pelamar</div>
                     </div>
                     <span class="widget-alpha__icon ua-icon-widget-user-group"></span>

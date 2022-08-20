@@ -42,6 +42,9 @@ class LokerModel extends Model
         $builder->join('ktgr_loker', 'ktgr_loker.id_ktgr = loker.id_ktgr');
         $query = $builder->get();
         return $query->getResultArray();
+
+        // 
+        // return $query->getFieldCount();
     }
 
     // function tambah data
@@ -74,10 +77,9 @@ class LokerModel extends Model
         return $this->table('loker')->delete(array('id_loker' => $id_loker));
     }
 
-    // public function countLoker(){
-    //     $builder = $this->db->table('loker');
-    //     $query = count('$builder');
-    //     // $this->db->select('*');
-    //     // $this->db->from('loker');
-    // }
+    public function countData()
+    {
+        $data = $this->db->table('loker')->countAllResults();
+        return $data;
+    }
 }

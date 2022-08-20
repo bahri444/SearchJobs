@@ -52,11 +52,12 @@ $session = \Config\Services::session();
     </div>
 
     <!-- navbar atau menu Atas -->
+    <!-- tombol hidden sidebar -->
     <div class="navbar navbar-light navbar-expand-lg">
-        <!-- <button class="sidebar-toggler" type="button">
+        <button class="sidebar-toggler" type="button">
             <span class="ua-icon-sidebar-open sidebar-toggler__open"></span>
             <span class="ua-icon-alert-close sidebar-toggler__close"></span>
-        </button> -->
+        </button>
 
         <span class="navbar-brand">
             <a href="/">SISFO LOKER</a>

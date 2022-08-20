@@ -15,7 +15,7 @@ class PencakerModel extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        	"nm_lkp","tgl_lhr","jk","usia","alamat","email","pend_ter","peng_ker","bid_keahlian","sertifikat","created_at","updated_at"	
+        "nm_lkp", "tgl_lhr", "jk", "usia", "alamat", "email", "pend_ter", "peng_ker", "bid_keahlian", "sertifikat", "created_at", "updated_at"
     ];
 
     // Dates
@@ -62,5 +62,12 @@ class PencakerModel extends Model
     {
         return $this->db->table('pencaker')->delete(array('id_pencaker' => $id_pencaker));
         // return $this->db->table('perusahaan')->update(array('id_prshn' => $id_prshn));
+    }
+
+    // function for count data to dashboard
+    public function countData()
+    {
+        $data = $this->db->table('pencaker')->countAllResults();
+        return $data;
     }
 }
