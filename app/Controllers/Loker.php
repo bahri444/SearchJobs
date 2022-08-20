@@ -14,6 +14,7 @@ class Loker extends BaseController
         $this->lokerModel = new LokerModel();
         $this->perusahaanModel = new PerusahaanModel();
         $this->ktgrLokerModel = new KtgrLokerModel();
+        $this->session = \Config\Services::session();
     }
 
     public function loker()
@@ -27,7 +28,14 @@ class Loker extends BaseController
             "title" => "Loker",
             "joinAll" => $Data1
         ];
-        return view('loker', $data);
+        // return view('admin/loker', $data);
+        if (session()->get('role') == 'admin') {
+            return view('/admin/loker', $data);
+        } elseif (session()->get('role') == 'instansi') {
+            return view('/instansi/loker', $data);
+        } elseif (session()->get('role') == 'pencaker') {
+            return view('/pencaker/loker', $data);
+        }
     }
     public function tambah()
     {
@@ -46,7 +54,14 @@ class Loker extends BaseController
         ];
         $success = $this->lokerModel->tambah($data);
         if ($success) {
-            return redirect()->to(base_url('loker'));
+            if (session()->get('role') == 'admin') {
+                return redirect()->to(base_url('/admin/loker',));
+            } elseif (session()->get('role') == 'instansi') {
+                return redirect()->to(base_url('/instansi/loker'));
+            } elseif (session()->get('role') == 'pencaker') {
+                return redirect()->to(base_url('/pencaker/loker'));
+            }
+            // return redirect()->to(base_url('admin/loker'));
         }
     }
 
@@ -64,35 +79,26 @@ class Loker extends BaseController
             'gaji' => $this->request->getVar('gaji'),
             'detail_loker' => $this->request->getVar('detail_loker'),
         ]);
-        // $id_loker = $this->request->getVar('$id_loker');
-        // $data = [
-        //     'id_ktgr' => $this->request->getVar('id_ktgr'),
-        //     'id_prshn' => $this->request->getVar('id_prshn'),
-        //     'judul_loker' => $this->request->getVar('judul_loker'),
-        //     'posisi' => $this->request->getVar('posisi'),
-        //     'tgl_buka' => $this->request->getVar('tgl_buka'),
-        //     'tgl_tutup' => $this->request->getVar('tgl_tutup'),
-        //     'syrt_pend' => $this->request->getVar('syrt_pend'),
-        //     'gaji' => $this->request->getVar('gaji'),
-        //     'detail_loker' => $this->request->getVar('detail_loker')
-        // ];
-        // $success = $this->lokerModel->update($id_loker);
-        // if ($success) {
-
-        //     $id = $this->request->getVar('product_id');
-        // $data = array(
-        //     'product_name'        => $this->request->getPost('product_name'),
-        //     'product_price'       => $this->request->getPost('product_price'),
-        //     'product_category_id' => $this->request->getPost('product_category'),
-        // );
-        // $this->lokerModel->edit($data, $id_loker);
-        return redirect()->to(base_url('/loker'));
-        // }
+        if (session()->get('role') == 'admin') {
+            return redirect()->to(base_url('/admin/loker',));
+        } elseif (session()->get('role') == 'instansi') {
+            return redirect()->to(base_url('/instansi/loker'));
+        } elseif (session()->get('role') == 'pencaker') {
+            return redirect()->to(base_url('/pencaker/loker'));
+        }
+        // return redirect()->to(base_url('admin/loker'));
     }
 
     public function hapus($id_loker)
     {
         $this->lokerModel->delete($id_loker);
-        return redirect()->to(base_url('/loker'));
+        if (session()->get('role') == 'admin') {
+            return redirect()->to(base_url('/admin/loker',));
+        } elseif (session()->get('role') == 'instansi') {
+            return redirect()->to(base_url('/instansi/loker'));
+        } elseif (session()->get('role') == 'pencaker') {
+            return redirect()->to(base_url('/pencaker/loker'));
+        }
+        // return redirect()->to(base_url('admin/loker'));
     }
 }

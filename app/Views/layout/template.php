@@ -1,3 +1,7 @@
+<?php
+$session = \Config\Services::session();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,8 +17,13 @@
     <!-- datatable -->
     
     <!-- modal css -->
+<<<<<<< HEAD
     <link rel="stylesheet" href="vendor/nouislider/nouislider.min.css">
     
+=======
+    <link rel="stylesheet" href="<?= base_url() ?>/vendor/nouislider/nouislider.min.css">
+
+>>>>>>> bahri
     <!-- link data dashboard dan header -->
     <link rel="stylesheet" href="<?= base_url() ?>/fonts/open-sans/style.min.css"> <!-- common font  styles  -->
     <link rel="stylesheet" href="<?= base_url() ?>/fonts/universe-admin/style.css"> <!-- universeadmin icon font styles -->
@@ -50,10 +59,10 @@
 
     <!-- navbar atau menu Atas -->
     <div class="navbar navbar-light navbar-expand-lg">
-        <button class="sidebar-toggler" type="button">
+        <!-- <button class="sidebar-toggler" type="button">
             <span class="ua-icon-sidebar-open sidebar-toggler__open"></span>
             <span class="ua-icon-alert-close sidebar-toggler__close"></span>
-        </button>
+        </button> -->
 
         <span class="navbar-brand">
             <a href="/">SISFO LOKER</a>
@@ -79,15 +88,6 @@
                     <li class="nav-item navbar__menu-item">
                     </li>
                 </ul>
-
-                <!-- menu Pencarian -->
-                <div class="navbar__menu-side">
-                    <div class="navbar-search navbar__menu-search">
-                        <div class="input-group input-group-icon iconfont icon-right">
-                            <input class="form-control navbar-search__input navbar__menu-search-input" type="text" placeholder="Search" /><span class="input-icon ua-icon-search"></span>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <!-- menu Notifikasi -->
@@ -119,39 +119,6 @@
                             </div>
                             <span class="navbar-dropdown-notification__date">9:49 AM</span>
                         </div>
-                        <div class="navbar-dropdown-notification">
-                            <div class="navbar-dropdown-notification__user">
-                                <img class="navbar-dropdown-notification__avatar rounded-circle" src="img/users/user-5.png" alt="" width="40" height="40">
-                                <div class="ua-icon-letter-alt navbar-dropdown-notification__icon color-danger navbar-dropdown-notification__icon--letter"></div>
-                            </div>
-                            <div class="navbar-dropdown-notification__content">
-                                <a href="#" class="navbar-dropdown-notification__action-name">Antonius in Project X </a>
-                                <div class="navbar-dropdown-notification__action-desc">Added a <strong>Task</strong> to you in <strong>Designer Candidates</strong></div>
-                            </div>
-                            <span class="navbar-dropdown-notification__date">9:49 AM</span>
-                        </div>
-                        <div class="navbar-dropdown-notification">
-                            <div class="navbar-dropdown-notification__user">
-                                <img class="navbar-dropdown-notification__avatar rounded-circle" src="img/users/user-6.png" alt="" width="40" height="40">
-                                <div class="ua-icon-warning navbar-dropdown-notification__icon color-warning navbar-dropdown-notification__icon--warning"></div>
-                            </div>
-                            <div class="navbar-dropdown-notification__content">
-                                <a href="#" class="navbar-dropdown-notification__action-name">Antonius in Project X </a>
-                                <div class="navbar-dropdown-notification__action-desc">Added a <strong>Task</strong> to you in <strong>Designer Candidates</strong></div>
-                            </div>
-                            <span class="navbar-dropdown-notification__date">9:49 AM</span>
-                        </div>
-                        <div class="navbar-dropdown-notification">
-                            <div class="navbar-dropdown-notification__user">
-                                <img class="navbar-dropdown-notification__avatar rounded-circle" src="img/users/user-7.png" alt="" width="40" height="40">
-                                <div class="ua-icon-circle-check navbar-dropdown-notification__icon color-success"></div>
-                            </div>
-                            <div class="navbar-dropdown-notification__content">
-                                <a href="#" class="navbar-dropdown-notification__action-name">Antonius in Project X </a>
-                                <div class="navbar-dropdown-notification__action-desc">Added a <strong>Task</strong> to you in <strong>Designer Candidates</strong></div>
-                            </div>
-                            <span class="navbar-dropdown-notification__date">9:49 AM</span>
-                        </div>
                         <div class="navbar-dropdown-notification__date-separator">Yesterday</div>
                         <div class="navbar-dropdown-notification">
                             <div class="navbar-dropdown-notification__user">
@@ -164,177 +131,202 @@
                             </div>
                             <span class="navbar-dropdown-notification__date">9:49 AM</span>
                         </div>
-                        <div class="navbar-dropdown-notification">
-                            <div class="navbar-dropdown-notification__user">
-                                <img class="navbar-dropdown-notification__avatar rounded-circle" src="img/users/user-9.png" alt="" width="40" height="40">
-                                <div class="ua-icon-warning navbar-dropdown-notification__icon color-warning navbar-dropdown-notification__icon--warning"></div>
-                            </div>
-                            <div class="navbar-dropdown-notification__content">
-                                <a href="#" class="navbar-dropdown-notification__action-name">Antonius in Project X </a>
-                                <div class="navbar-dropdown-notification__action-desc">Added a <strong>Task</strong> to you in <strong>Designer Candidates</strong></div>
-                            </div>
-                            <span class="navbar-dropdown-notification__date">9:49 AM</span>
-                        </div>
-                        <div class="navbar-dropdown-notification">
-                            <div class="navbar-dropdown-notification__user">
-                                <img class="navbar-dropdown-notification__avatar rounded-circle" src="img/users/user-10.png" alt="" width="40" height="40">
-                                <div class="ua-icon-circle-check navbar-dropdown-notification__icon color-success"></div>
-                            </div>
-                            <div class="navbar-dropdown-notification__content">
-                                <a href="#" class="navbar-dropdown-notification__action-name">Antonius in Project X </a>
-                                <div class="navbar-dropdown-notification__action-desc">Added a <strong>Task</strong> to you in <strong>Designer Candidates</strong></div>
-                            </div>
-                            <span class="navbar-dropdown-notification__date">9:49 AM</span>
-                        </div>
                     </div>
-                    <a class="navbar-dropdown-notifications__view-all" href="#"><span class="icon ua-icon-view-all"></span><span>View all</span></a>
+                    <a class="navbar-dropdown-notifications__view-all" href="#">
+                        <span class="icon ua-icon-view-all"></span>
+                        <span>View all</span>
+                    </a>
                 </div>
             </div>
 
-            <!-- menu pesan -->
-            <div class="dropdown navbar-dropdown no-arrow navbar-notify-dropdown navbar-notify-dropdown--messages">
-                <a class="dropdown-toggle navbar-dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                    <span class="navbar-notify">
-                        <span>
-                            <span class="navbar-notify__icon mdi mdi-email"></span>
-                            <span class="navbar-notify__text">Messages</span>
-                        </span>
-                        <span class="navbar-notify__indicator"></span>
-                        <!--<span class="navbar-notify__amount">5</span>-->
-                    </span>
+            <!-- menu navbar profile -->
+            <div class="dropdown navbar-dropdown">
+                <a class="dropdown-toggle navbar-dropdown-toggle navbar-dropdown-toggle__user" data-toggle="dropdown" href="#">
+                    <img src="<?= base_url() ?>/img/users/<?= $session->get('user_image') ?>" alt="" class="navbar-dropdown-toggle__user-avatar">
+                    <span class="navbar-dropdown__user-name"><?= $session->get('username') ?></span>
                 </a>
-                <div class="dropdown-menu dropdown-menu-right navbar-dropdown-menu navbar-dropdown-notifications navbar-dropdown-messages">
-                    <div class="navbar-dropdown-notifications__header"><span>MESSAGES</span>
-                        <a href="#" class="navbar-dropdown-notifications__mark-read">
-                            Mark all as read <span class="navbar-dropdown-notifications__mark-read-icon ua-icon-arrow-circle-down"></span>
-                        </a>
-                    </div>
-                    <div class="navbar-dropdown-notifications__body navbar-dropdown-notifications__body-messages js-scrollable">
-
-                        <!-- notifikasi pesan dari personal -->
-                        <div class="navbar-dropdown-notifications__item">
-                            <img class="navbar-dropdown-notifications__item-avatar rounded-circle" src="img/users/user-5.png" alt="" width="40" height="40" />
-                            <div class="navbar-dropdown-notifications__item-notify">
-                                <div>
-                                    <span class="icon ua-icon-comments"></span>
-                                    <strong>Gabriel Saunders</strong> replied to <strong>your comment</strong> to <strong>The secret weapon of lebound marketing...</strong>
-                                </div>
-                                <div class="navbar-dropdown-notifications__item-datetime">5 minute ago</div>
-                            </div>
-                            <div class="navbar-dropdown-notifications__item-actions">
-                                <span class="icon ua-icon-circle-check navbar-dropdown-notifications__item-mark-as-read" data-toggle="tooltip" data-placement="top" title="Mark as read"></span>
-                                <span class="icon ua-icon-circle-close navbar-dropdown-notifications__item-remove" data-toggle="tooltip" data-placement="top" title="Delete notification"></span>
+                <div class="dropdown-menu navbar-dropdown-menu navbar-dropdown-menu__user">
+                    <div class="navbar-dropdown-user-content">
+                        <div class="dropdown-user__avatar"><img src="<?= base_url() ?>/img/users/<?= $session->get('user_image') ?>" alt="" /></div>
+                        <div class="dropdown-info">
+                            <div class="dropdown-info__name"></div>
+                            <div class="dropdown-info__job"></div>
+                            <div class="dropdown-info-buttons">
+                                <a class="dropdown-info__viewprofile" href="#">View Profile</a>
+                                <a class="dropdown-info__addaccount" href="#">Add account</a>
                             </div>
                         </div>
-
-                        <!-- tombol view all -->
-                    </div><a class="navbar-dropdown-notifications__view-all" href="#"><span class="icon ua-icon-view-all"></span><span>View all</span></a>
+                    </div>
+                    <a class="dropdown-item navbar-dropdown__item" href="#">
+                        <span class="ua-icon-view-all"></span>
+                        <span>Logout</span>
+                    </a>
                 </div>
             </div>
-
         </div>
     </div>
 
     <!-- sidebar atau dashboard -->
     <div class="sidebar-section">
         <div class="sidebar-section__scroll">
+            <?php if ($session->get('role') == 'admin') : ?>
+                <div class="sidebar-user-a">
+                    <img src="<?= base_url() ?>/img/users/disnakerNTB.jpeg" alt="" class="sidebar-user-a__avatar rounded-circle">
+                    <div class="sidebar-user-a__name">Dinas Tenaga Kerja</div>
+                    <div class="sidebar-user-a__name">Dan Transmigrasi</div>
+                </div>
+                <ul class="sidebar-section-nav">
+                    <!-- icon dashboard -->
+                    <li class="sidebar-section-nav__item">
+                        <a class="sidebar-section-nav__link" href="<?= route_to('admin/dashboard'); ?>">
+                            <span class="sidebar-section-nav__item-icon ua-icon-home"></span>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-section-nav__item">
+                        <a class="sidebar-section-nav__link" href="<?= route_to('admin/ktgrLoker'); ?>">
+                            <span class="sidebar-section-nav__item-icon ua-icon-blank-document"></span>
+                            <span>Kategori Loker</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-section-nav__item">
+                        <a class="sidebar-section-nav__link" href="<?= route_to('admin/loker'); ?>">
+                            <span class="sidebar-section-nav__item-icon ua-icon-widget-paper"></span>
+                            <span>Lowongan Kerja</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-section-nav__item">
+                        <a class="sidebar-section-nav__link" href="<?= route_to('admin/pencaker'); ?>">
+                            <span class="sidebar-section-nav__item-icon ua-icon-widget-user-group"></span>
+                            <span>Pencari Kerja</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-section-nav__item">
+                        <a class="sidebar-section-nav__link" href="<?= route_to('admin/lamaran'); ?>">
+                            <span class="sidebar-section-nav__item-icon ua-icon-widget-users"></span>
+                            <span>Lamaran</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-section-nav__item">
+                        <a class="sidebar-section-nav__link" href="<?= route_to('admin/perusahaan') ?>">
+                            <span class="sidebar-section-nav__item-icon ua-icon-company"></span>
+                            <span>Perusahaan</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-section-nav__item">
+                        <a class="sidebar-section-nav__link" href="<?= route_to('admin/user'); ?>">
+                            <span class="sidebar-section-nav__item-icon ua-icon-user-solid"></span>
+                            <span>User</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-section-nav__item">
+                        <a class="sidebar-section-nav__link" href="<?= route_to('logout'); ?>">
+                            <span class="sidebar-section-nav__item-icon ua-icon-view-all"></span>
+                            <span>Logout</span>
+                        </a>
+                    </li>
+                </ul>
 
-            <!-- kop website -->
-            <div class="sidebar-user-a">
-                <img src="img/users/disnakerNTB.jpeg" alt="" class="sidebar-user-a__avatar rounded-circle">
-                <div class="sidebar-user-a__name">Dinas Tenaga Kerja</div>
-                <div class="sidebar-user-a__name">Dan Transmigrasi</div>
-            </div>
-            <ul class="sidebar-section-nav">
-
-                <!-- icon dashboard -->
-                <li class="sidebar-section-nav__item">
-                    <a class="sidebar-section-nav__link" href="<?= route_to('/'); ?>">
-                        <span class="sidebar-section-nav__item-icon ua-icon-home"></span>
-                        <span>Home</span>
-                    </a>
-                </li>
-                <!-- icon dashboard -->
-                <li class="sidebar-section-nav__item">
-                    <a class="sidebar-section-nav__link" href="<?= route_to('dashboard'); ?>">
-                        <span class="sidebar-section-nav__item-icon ua-icon-home"></span>
-                        <span>Dashboard</span>
-                    </a>
-                </li>
-                <li class="sidebar-section-nav__item">
-                    <a class="sidebar-section-nav__link" href="<?= route_to('ktgrLoker'); ?>">
-                        <span class="sidebar-section-nav__item-icon ua-icon-blank-document"></span>
-                        <span>Kategori Loker</span>
-                    </a>
-                </li>
-                <li class="sidebar-section-nav__item">
-                    <a class="sidebar-section-nav__link" href="<?= route_to('loker'); ?>">
-                        <span class="sidebar-section-nav__item-icon ua-icon-widget-paper"></span>
-                        <span>Lowongan Kerja</span>
-                    </a>
-                </li>
-                <li class="sidebar-section-nav__item">
-                    <a class="sidebar-section-nav__link" href="<?= route_to('pencaker'); ?>">
-                        <span class="sidebar-section-nav__item-icon ua-icon-widget-user-group"></span>
-                        <span>Data Pencari Kerja</span>
-                    </a>
-                </li>
-                <li class="sidebar-section-nav__item">
-                    <a class="sidebar-section-nav__link" href="<?= route_to('lamaran'); ?>">
-                        <span class="sidebar-section-nav__item-icon ua-icon-widget-users"></span>
-                        <span>Data Lamaran</span>
-                    </a>
-                </li>
-                <li class="sidebar-section-nav__item">
-                    <a class="sidebar-section-nav__link" href="<?= route_to('perusahaan') ?>">
-                        <span class="sidebar-section-nav__item-icon ua-icon-company"></span>
-                        <span>Data Perusahaan</span>
-                    </a>
-                </li>
-                <li class="sidebar-section-nav__item">
-                    <a class="sidebar-section-nav__link" href="<?= route_to('user'); ?>">
-                        <span class="sidebar-section-nav__item-icon ua-icon-user-solid"></span>
-                        <span>User</span>
-                    </a>
-                </li>
-                <li class="sidebar-section-nav__item">
-                    <a class="sidebar-section-nav__link" href="#">
-                        <span class="sidebar-section-nav__item-icon ua-icon-view-all"></span>
-                        <span>Logout</span>
-                    </a>
-                </li>
-            </ul>
-            <div>
-            </div>
+            <?php elseif ($session->get('role') == 'instansi') : ?>
+                <div class="sidebar-user-a">
+                    <img src="<?= base_url() ?>/img/users/<?= $session->get('user_image') ?>" alt="" class="sidebar-user-a__avatar rounded-circle">
+                    <div class="sidebar-user-a__name"><?= $session->get('username') ?></div>
+                </div>
+                <ul class="sidebar-section-nav">
+                    <li class="sidebar-section-nav__item mb-2">
+                        <a class="sidebar-section-nav__link" href="<?= route_to('instansi/dashboard'); ?>">
+                            <span class="sidebar-section-nav__item-icon ua-icon-home"></span>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-section-nav__item mb-2">
+                        <a class="sidebar-section-nav__link" href="<?= route_to('instansi/loker'); ?>">
+                            <span class="sidebar-section-nav__item-icon ua-icon-widget-paper"></span>
+                            <span>Lowongan Kerja</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-section-nav__item mb-2">
+                        <a class="sidebar-section-nav__link" href="<?= route_to('instansi/lamaran'); ?>">
+                            <span class="sidebar-section-nav__item-icon ua-icon-widget-users"></span>
+                            <span>Data Lamaran</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-section-nav__item mb-2">
+                        <a class="sidebar-section-nav__link" href="<?= route_to('instansi/perusahaan'); ?>">
+                            <span class="sidebar-section-nav__item-icon ua-icon-user-solid"></span>
+                            <span>Profile Perusahaan</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-section-nav__item mb-5">
+                        <a class="sidebar-section-nav__link" href="<?= route_to('logout'); ?>">
+                            <span class="sidebar-section-nav__item-icon ua-icon-view-all"></span>
+                            <span>Logout</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-section-nav__item">
+                        <a class="sidebar-section-nav__link" href="#">
+                            <span class="sidebar-section-nav__item-icon"></span>
+                            <span></span>
+                        </a>
+                    </li>
+                    <li class="sidebar-section-nav__item">
+                        <a class="sidebar-section-nav__link" href="#">
+                            <span class="sidebar-section-nav__item-icon"></span>
+                            <span></span>
+                        </a>
+                    </li>
+                </ul>
+            <?php elseif ($session->get('role') == 'pencaker') : ?>
+                <div class="sidebar-user-a">
+                    <img src="<?= base_url() ?>/img/users/<?= $session->get('user_image') ?>" alt="" class="sidebar-user-a__avatar rounded-circle">
+                    <div class="sidebar-user-a__name"><?= $session->get('username') ?></div>
+                </div>
+                <ul class="sidebar-section-nav">
+                    <li class="sidebar-section-nav__item">
+                        <a class="sidebar-section-nav__link" href="<?= route_to('#'); ?>">
+                            <span class="sidebar-section-nav__item-icon ua-icon-user-solid"></span>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+                    <ul class="sidebar-section-nav">
+                        <li class="sidebar-section-nav__item">
+                            <a class="sidebar-section-nav__link" href="<?= route_to('logout'); ?>">
+                                <span class="sidebar-section-nav__item-icon ua-icon-view-all"></span>
+                                <span>Logout</span>
+                            </a>
+                        </li>
+                    </ul>
+                <?php endif; ?>
         </div>
     </div>
 
     <?= $this->renderSection('content') ?>
 
-    <script src="vendor/echarts/echarts.min.js"></script>
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/popper/popper.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="vendor/select2/js/select2.full.min.js"></script>
-    <script src="vendor/simplebar/simplebar.js"></script>
-    <script src="vendor/text-avatar/jquery.textavatar.js"></script>
-    <script src="vendor/tippyjs/tippy.all.min.js"></script>
-    <script src="vendor/flatpickr/flatpickr.min.js"></script>
-    <script src="vendor/wnumb/wNumb.js"></script>
-    <script src="js/main.js"></script>
+    <script src="<?= base_url() ?>/vendor/echarts/echarts.min.js"></script>
+    <script src="<?= base_url() ?>/vendor/jquery/jquery.min.js"></script>
+    <script src="<?= base_url() ?>/vendor/popper/popper.min.js"></script>
+    <script src="<?= base_url() ?>/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="<?= base_url() ?>/vendor/select2/js/select2.full.min.js"></script>
+    <script src="<?= base_url() ?>/vendor/simplebar/simplebar.js"></script>
+    <script src="<?= base_url() ?>/vendor/text-avatar/jquery.textavatar.js"></script>
+    <script src="<?= base_url() ?>/vendor/tippyjs/tippy.all.min.js"></script>
+    <script src="<?= base_url() ?>/vendor/flatpickr/flatpickr.min.js"></script>
+    <script src="<?= base_url() ?>/vendor/wnumb/wNumb.js"></script>
+    <script src="<?= base_url() ?>/js/main.js"></script>
 
     <!-- datatable javascript -->
-    <script src="vendor/datatables/datatables.min.js"></script>
-    <script src="js/preview/datatables.min.js"></script>
+    <script src="<?= base_url() ?>/vendor/datatables/datatables.min.js"></script>
+    <script src="<?= base_url() ?>/js/preview/datatables.min.js"></script>
 
     <!-- modal javascript -->
-    <script src="js/preview/settings-panel.min.js"></script>
+    <script src="<?= base_url() ?>/js/preview/settings-panel.min.js"></script>
 
-    <script src="vendor/jquery-circle-progress/circle-progress.min.js"></script>
-    <script src="js/preview/default-dashboard.min.js"></script>
+    <script src="<?= base_url() ?>/vendor/jquery-circle-progress/circle-progress.min.js"></script>
+    <script src="<?= base_url() ?>/js/preview/default-dashboard.min.js"></script>
 
     <div class="sidebar-mobile-overlay"></div>
 
+<<<<<<< HEAD
     <div class="settings-panel">
         <div class="settings-panel__header">
             <span class="settings-panel__close ua-icon-modal-close"></span>
@@ -477,6 +469,8 @@
         </div>
     </div>
 
+=======
+>>>>>>> bahri
     <script src="<?= base_url() ?>/js/preview/slide-nav.min.js"></script>
 
     <!-- datatable javasript -->

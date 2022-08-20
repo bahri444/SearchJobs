@@ -4,18 +4,18 @@
 <div class="page-content">
     <div class="mt-3 ml-3 mr-3 mb-0">
         <!-- session gagal simpan -->
-            <?php if(session()->getFlashdata('pesan')): ?>
+        <?php if (session()->getFlashdata('pesan')) : ?>
             <div class="alert alert-danger" role="alert">
-               <?= session()->getFlashdata('pesan')?>
+                <?= session()->getFlashdata('pesan') ?>
             </div>
-    <?php endif; ?>
+        <?php endif; ?>
 
-            <!-- session berhasil simpan -->
-     <?php if(session()->getFlashdata('pesan2')): ?>
+        <!-- session berhasil simpan -->
+        <?php if (session()->getFlashdata('pesan2')) : ?>
             <div class="alert alert-success" role="alert">
-               <?= session()->getFlashdata('pesan2')?>
+                <?= session()->getFlashdata('pesan2') ?>
             </div>
-    <?php endif; ?>
+        <?php endif; ?>
     </div>
     <div class="container-fluid">
         <div class="page-content__header">
@@ -26,16 +26,17 @@
             <!-- modal-tambah data-->
             <div class="row">
                 <div class="col-sm">
-                    <button type="button" class="btn btn-success py-2 btn-block mt-3" data-toggle="modal" data-target="#exampleModal">
+                    <!-- <button type="button" class="btn btn-success py-2 btn-block mt-3" data-toggle="modal" data-target="#exampleModal">
                         <i class="ua-icon-plus-alt mr-3"></i>
                         Tambah
-                    </button>
+                    </button> -->
                     <div id="exampleModal" class="modal fade custom-modal custom-modal-verify-account">
                         <div class="modal-dialog" role="document">
                             <button type="button" class="close custom-modal__close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true" class="ua-icon-modal-close"></span>
                             </button>
-                            <form action="<?= base_url('perusahaan/tambah'); ?>" method="post" enctype="multipart/form-data">
+                            <form action="<?= base_url('/admin/perusahaan/tambah'); ?>" method="post" enctype="multipart/form-data">
+                                <?= csrf_field(); ?>
                                 <div class="modal-content">
                                     <div class="mt-2">
                                         <div class="container">
@@ -45,52 +46,52 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="nm_prshn">Nama Perusahaan</label>
-                                                    <input type="text" name="nm_prshn" placeholder="nama perusahaan" value="<?= old('nm_prshn');?>" class="form-control form-control-md <?= ($validation->hasError('nm_prshn')) ? 'is-invalid' : '';?>" >
-                                               <div class="invalid-feedback">
-                                                <?= $validation->getError('nm_prshn');?>
-                                               </div>
+                                                    <input type="text" name="nm_prshn" placeholder="nama perusahaan" value="<?= old('nm_prshn'); ?>" class="form-control form-control-md <?= ($validation->hasError('nm_prshn')) ? 'is-invalid' : ''; ?>">
+                                                    <div class="invalid-feedback">
+                                                        <?= $validation->getError('nm_prshn'); ?>
+                                                    </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="alamat">Alamat</label>
-                                                    <input type="text" name="alamat" placeholder="alamat" value="<?= old('alamat');?>" class="form-control form-control-md <?= ($validation->hasError('nm_prshn')) ? 'is-invalid' : '';?>" >
+                                                    <input type="text" name="alamat" placeholder="alamat" value="<?= old('alamat'); ?>" class="form-control form-control-md <?= ($validation->hasError('nm_prshn')) ? 'is-invalid' : ''; ?>">
                                                     <div class="invalid-feedback">
-                                                <?= $validation->getError('alamat');?>
-                                               </div>
+                                                        <?= $validation->getError('alamat'); ?>
+                                                    </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="email">E-mail</label><br>
-                                                    <input type="email" name="email" placeholder="email@gmail.com"  value="<?= old('email');?>" class="form-control form-control-md <?= ($validation->hasError('email')) ? 'is-invalid' : '';?>" >
+                                                    <input type="email" name="email" placeholder="email@gmail.com" value="<?= old('email'); ?>" class="form-control form-control-md <?= ($validation->hasError('email')) ? 'is-invalid' : ''; ?>">
                                                     <div class="invalid-feedback">
-                                                <?= $validation->getError('alamat');?>
-                                               </div>
+                                                        <?= $validation->getError('alamat'); ?>
+                                                    </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="tlp">Telepon</label>
-                                                    <input type="text" name="tlp" placeholder="nomor telepon" value="<?= old('tlp');?>" class="form-control form-control-md <?= ($validation->hasError('email')) ? 'is-invalid' : '';?>" >
+                                                    <input type="text" name="tlp" placeholder="nomor telepon" value="<?= old('tlp'); ?>" class="form-control form-control-md <?= ($validation->hasError('email')) ? 'is-invalid' : ''; ?>">
                                                     <div class="invalid-feedback">
-                                                <?= $validation->getError('tlp');?>
-                                               </div>
+                                                        <?= $validation->getError('tlp'); ?>
+                                                    </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="logo">Logo</label>
-                                                    <input type="file" name="logo" id="logo" class="form-control form-control-md <?= ($validation->hasError('logo')) ? 'is-invalid' : '';?>" >
-                                                <div class="invalid-feedback">
-                                                     <?= $validation->getError('logo');?>
-                                               </div>
+                                                    <input type="file" name="logo" id="logo" class="form-control form-control-md <?= ($validation->hasError('logo')) ? 'is-invalid' : ''; ?>">
+                                                    <div class="invalid-feedback">
+                                                        <?= $validation->getError('logo'); ?>
+                                                    </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="srt_izin">Surat Izin</label>
-                                                    <input type="file" name="srt_izin"  id="srt_izin" class="form-control form-control-md <?= ($validation->hasError('srt_izin')) ? 'is-invalid' : '';?>" >
-                                                <div class="invalid-feedback">
-                                                     <?= $validation->getError('srt_izin');?>
-                                               </div>
+                                                    <input type="file" name="srt_izin" id="srt_izin" class="form-control form-control-md <?= ($validation->hasError('srt_izin')) ? 'is-invalid' : ''; ?>">
+                                                    <div class="invalid-feedback">
+                                                        <?= $validation->getError('srt_izin'); ?>
+                                                    </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="strk_organis">Struktur Organisasi</label>
-                                                    <input type="file" name="strk_organis" placeholder="struktur orgsnisasi" class="form-control form-control-md <?= ($validation->hasError('strk_organis')) ? 'is-invalid' : '';?>" >
-                                                <div class="invalid-feedback">
-                                                     <?= $validation->getError('strk_organis');?>
-                                                </div>
+                                                    <input type="file" name="strk_organis" placeholder="struktur orgsnisasi" class="form-control form-control-md <?= ($validation->hasError('strk_organis')) ? 'is-invalid' : ''; ?>">
+                                                    <div class="invalid-feedback">
+                                                        <?= $validation->getError('strk_organis'); ?>
+                                                    </div>
                                                 </div>
                                                 <div class="form-group">
                                                     <div class="d-flex justify-content-center">
@@ -133,7 +134,7 @@
                                     <div class="row">
                                         <div class="col">
                                             <div class="mt-2 d-flex justify-content-center">
-                                                <img src="<?=base_url('/img2/'.$value['logo']);?>" width="400px" height="200px" alt="404">
+                                                <img width="400px" height="200px" src="<?= base_url() ?>/img2/<?= $value['logo']; ?>" alt="not found">
                                             </div>
                                         </div>
                                     </div>
@@ -145,20 +146,21 @@
                                         </div>
                                     </div>
                                     <!-- <div class="text-center mb-4">
-                                        <a href="mailto:bahrysaipul266@gmail.com?subject=Susd&body=dasda"><?= $value['email'] ?></a>
+                                        <a href="mailto:bahrysaipul266@gmail.com?subject=Susd&body=dasda"><?php //$value['email'] 
+                                                                                                            ?></a>
                                     </div> -->
-                                    <div class="row mb-3 mt-3">
+                                    <!-- <div class="row mb-3 mt-3">
                                         <div class="col">
                                             <div class="d-flex justify-content-center">
                                                 <div class="justify-content-end mr-5">
-                                                    <button type="button" class="btn btn-warning" data-dismiss="modal">Cancel</button>
+                                                    <button type="button" class="btn btn-warning" data-dismiss="model">Cancel</button>
                                                 </div>
                                                 <div class="justify-content-start ml-5">
                                                     <button type="submit" class="btn btn-info">Simpan</button>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -175,7 +177,8 @@
                     <button type="button" class="close custom-modal__close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true" class="ua-icon-modal-close"></span>
                     </button>
-                    <form action="<?= base_url('/perusahaan/edit/' . $row->id_prshn) ?>" method="post">
+                    <form action="<?= base_url('/admin/perusahaan/edit/' . $row->id_prshn) ?>" method="post">
+                        <?= csrf_field(); ?>
                         <div class="modal-content">
                             <div class="mt-2">
                                 <div class="container">
@@ -252,7 +255,7 @@
                                                 <button type="button" class="btn btn-warning" data-dismiss="model">Tidak</button>
                                             </div>
                                             <div class="justify-content-start ml-5">
-                                                <a href="<?= base_url('perusahaan/hapus/' . $row->id_prshn) ?>" class="btn btn-info">Ya</a>
+                                                <a href="<?= base_url('/admin/perusahaan/hapus/' . $row->id_prshn) ?>" class="btn btn-info">Ya</a>
                                             </div>
                                         </div>
                                     </div>
@@ -270,15 +273,15 @@
                 <table id="datatable" class="table table-striped">
                     <thead class="text-center">
                         <tr>
-                            <th scope="col">No</th>
-                            <th scope="col">Nama Perusahaan</th>
-                            <th scope="col">Alamat</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Telepon</th>
-                            <th scope="col">Logo</th>
-                            <th scope="col">Surat Izin</th>
-                            <th scope="col">Struktur</th>
-                            <th scope="col">Aksi</th>
+                            <th scope="col"><b>No</b></th>
+                            <th scope="col"><b>Nama Perusahaan</b></th>
+                            <th scope="col"><b>Alamat</b></th>
+                            <th scope="col"><b>Email</b></th>
+                            <th scope="col"><b>Telepon</b></th>
+                            <th scope="col"><b>Logo</b></th>
+                            <th scope="col"><b>Surat Izin</b></th>
+                            <th scope="col"><b>Struktur</b></th>
+                            <th scope="col"><b>Aksi</b></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -290,14 +293,15 @@
                                 <td><?= $row->alamat ?></td>
                                 <td><?= $row->email ?></td>
                                 <td><?= $row->tlp ?></td>
-                                <td><img src="<?=base_url('/img2/'.$row->logo);?>" width="100"></td>
+                                <td><img src="<?= base_url() ?>/img2/<?= $row->logo; ?>" width="100"></td>
                                 <td><?= $row->srt_izin ?></td>
                                 <td><?= $row->strk_organis ?></td>
                                 <td class="d-flex justify-content-center">
 
                                     <!-- tombol-info data-->
                                     <div class="row">
-                                        <div class="col-sm mr-1">
+                                        <div class="col-sm">
+                                            <!-- mr-1 -->
                                             <button type="button" class="btn btn-warning btn-sm-2" data-toggle="modal" data-target="#modalInfo<?= $row->id_prshn ?>">
                                                 <i class="ua-icon-alert-info"></i>
                                             </button>
@@ -305,23 +309,23 @@
                                     </div>
                                     <!-- end-tombol info data -->
                                     <!-- tombol-edit data-->
-                                    <div class="row">
+                                    <!-- <div class="row">
                                         <div class="col-sm mr-1 ml-1">
                                             <button type="button" class="btn btn-info btn-sm-2" data-toggle="modal" data-target="#modalEdit<?= $row->id_prshn ?>">
                                                 <i class="ua-icon-activity-edit"></i>
                                             </button>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- end-tombol edit data -->
 
                                     <!-- tombol-hapus data-->
-                                    <div class="row">
+                                    <!-- <div class="row">
                                         <div class="col-sm ml-1">
                                             <button type="button" class="btn btn-danger btn-sm-2" data-toggle="modal" data-target="#modalHapus<?= $row->id_prshn ?>">
                                                 <i class="ua-icon-trash"></i>
                                             </button>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- end-tombol hapus data -->
 
                                 </td>

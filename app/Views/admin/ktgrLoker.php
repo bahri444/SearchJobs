@@ -25,7 +25,7 @@
                             <button type="button" class="close custom-modal__close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true" class="ua-icon-modal-close"></span>
                             </button>
-                            <form action="<?= base_url('ktgrLoker/tambah'); ?>" method="POST">
+                            <form action="<?= base_url('admin/ktgrLoker/tambah'); ?>" method="POST">
                                 <?= csrf_field(); ?>
                                 <div class="modal-content">
                                     <div class="mt-2">
@@ -60,13 +60,14 @@
             <!-- end-modal tambah data -->
 
             <!-- modal edit data -->
-            <?php foreach ($ktgr_loker as $row) : ?>
-                <div id="modalEdit<?= $row->id_ktgr ?>" class="modal fade custom-modal custom-modal-verify-account">
+            <?php foreach ($ktgr_loker as $row => $value) : ?>
+                <div id="modalEdit<?= $value->id_ktgr ?>" class="modal fade custom-modal custom-modal-verify-account">
                     <div class="modal-dialog" role="document">
                         <button type="button" class="close custom-modal__close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true" class="ua-icon-modal-close"></span>
                         </button>
-                        <form action="<?= base_url('/ktgrLoker/edit/' . $row->id_ktgr) ?>" method="POST">
+                        <form action="<?= base_url('/admin/ktgrLoker/edit/' . $value->id_ktgr) ?>" method="POST">
+                            <?= csrf_field(); ?>
                             <div class="modal-content">
                                 <div class="mt-2">
                                     <div class="container">
@@ -74,10 +75,10 @@
                                             <div>
                                                 <h2 class="page-content__header-heading text-center">Edit Kategori</h2>
                                             </div>
-                                            <input type="hidden" name="id_ktgr" value="<?= $row->id_ktgr ?>">
+                                            <input type="hidden" name="id_ktgr" value="<?= $value->id_ktgr ?>">
                                             <div class="form-group">
                                                 <label for="nm_ktgr">Nama Kategori</label>
-                                                <input type="text" name="nm_ktgr" value="<?= $row->nm_ktgr ?>" placeholder="maskkan kategori" class="form-control form-control-md">
+                                                <input type="text" name="nm_ktgr" value="<?= $value->nm_ktgr ?>" placeholder="maskkan kategori" class="form-control form-control-md">
                                             </div>
                                             <div class="form-group">
                                                 <div class="d-flex justify-content-center">
@@ -116,7 +117,7 @@
                                                     <button type="button" class="btn btn-warning" data-dismiss="modal">Tidak</button>
                                                 </div>
                                                 <div class="justify-content-start ml-5">
-                                                    <a href="<?= base_url('ktgrLoker/hapus/' . $value->id_ktgr) ?>" class="btn btn-info">Ya</a>
+                                                    <a href="<?= base_url('admin/ktgrLoker/hapus/' . $value->id_ktgr) ?>" class="btn btn-info">Ya</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -134,23 +135,23 @@
                 <table id="datatable" class="table table-striped">
                     <thead class="text-center">
                         <tr>
-                            <th scope="col">No</th>
-                            <th scope="col">Nama Kategori</th>
-                            <th scope="col">Aksi</th>
+                            <th scope="col"><b>No</b></th>
+                            <th scope="col"><b>Nama Kategori</b></th>
+                            <th scope="col"><b>Aksi</b></th>
                         </tr>
                     </thead>
                     <tbody class="text-center">
                         <?php $i = 1; ?>
-                        <?php foreach ($ktgr_loker as $row) : ?>
+                        <?php foreach ($ktgr_loker as $row => $value) : ?>
                             <tr>
                                 <td><?= $i++; ?></td>
-                                <td><?= $row->nm_ktgr ?></td>
+                                <td><?= $value->nm_ktgr ?></td>
                                 <td class="d-flex justify-content-center ">
 
                                     <!-- tombol-edit data-->
                                     <div class="row">
                                         <div class="col-sm mr-1 ml-1">
-                                            <button type="button" class="btn btn-info btn-sm-2" data-toggle="modal" data-target="#modalEdit<?= $row->id_ktgr ?>">
+                                            <button type="button" class="btn btn-info btn-sm-2" data-toggle="modal" data-target="#modalEdit<?= $value->id_ktgr ?>">
                                                 <i class="ua-icon-activity-edit"></i>
                                             </button>
                                         </div>
@@ -160,7 +161,7 @@
                                     <!-- tombol-hapus data-->
                                     <div class="row">
                                         <div class="col-sm ml-1">
-                                            <button type="button" class="btn btn-warning btn-sm-2" data-toggle="modal" data-target="#modalHapus<?= $row->id_ktgr ?>">
+                                            <button type="button" class="btn btn-danger btn-sm-2" data-toggle="modal" data-target="#modalHapus<?= $value->id_ktgr ?>">
                                                 <i class="ua-icon-trash"></i>
                                             </button>
                                         </div>

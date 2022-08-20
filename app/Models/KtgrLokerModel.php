@@ -22,12 +22,6 @@ class KtgrLokerModel extends Model
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
 
-    // Validation
-    // protected $validationRules      = [];
-    // protected $validationMessages   = [];
-    // protected $skipValidation       = false;
-    // protected $cleanValidationRules = true;
-
     public function getKtgrLoker()
     {
         $query = $this->db->table('ktgr_loker');
