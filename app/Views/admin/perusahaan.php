@@ -139,10 +139,33 @@
                                         </div>
                                     </div>
                                     <div class="row mt-5 mb-2">
-                                        <div class="col">
-                                            <p><b>Nama Perusahaan</b> : <?= $value['nm_prshn'] ?> </p>
-                                            <p><b>Alamat</b> : <?= $value['alamat'] ?> </p>
-                                            <p><b>Kontak</b> : <?= $value['tlp'] ?> </p>
+                                        <div class="col mb-4">
+                                            <table>
+                                                <tr>
+                                                    <th>Nama Perusahaan</th>
+                                                    <td><?= ': ', $value['nm_prshn'] ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Alamat</th>
+                                                    <td><?= ': ', $value['alamat'] ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Kontak</th>
+                                                    <td><?= ': ', $value['tlp'] ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Email</th>
+                                                    <td><?= ': ', $value['email'] ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Surat Izin</th>
+                                                    <td><?= ': ', $value['srt_izin'] ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Struktur</th>
+                                                    <td><?= ': ', $value['strk_organis'] ?></td>
+                                                </tr>
+                                            </table>
                                         </div>
                                     </div>
                                     <!-- <div class="text-center mb-4">

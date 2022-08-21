@@ -169,17 +169,52 @@
                                         <h2 class="page-content__header-heading text-center">Detail pencari kerja</h2>
                                     </div>
                                     <div class="form-group">
-                                        <p><b>Nama Lengkap : </b><?= $row->nm_lkp ?></p>
-                                        <p><b>Kelamin : </b><?= $row->jk ?></p>
-                                        <p><b>Tanggal Lahir : </b><?= $row->tgl_lhr ?></p>
-                                        <p><b>Alamat : </b><?= $row->alamat ?></p>
-                                        <p><b>Pendidikan Terakhir : </b><?= $row->pend_ter ?></p>
-                                        <p><b>Telepon : </b><?= $row->tlp ?></p>
-                                        <p><b>Email : </b><?= $row->email ?></p>
-                                        <p><b>Bidang Keahliah : </b><?= $row->bid_keahlian ?></p>
-                                        <p><b>Sertifikat : </b><?= $row->sertifikat ?></p>
-                                        <p><b>Pengalaman Kerja : </b><?= $row->peng_ker ?></p>
-                                        <p><b>Usia : </b><?= $row->usia ?></p>
+                                        <table>
+                                            <tr>
+                                                <th>Nama Lengkap</th>
+                                                <td><?= ': ', $row->nm_lkp ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Jenis Kelamin</th>
+                                                <td><?= ': ', $row->jk ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Tanggal Lahir</th>
+                                                <td><?= ': ', $row->tgl_lhr ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Alamat</th>
+                                                <td><?= ': ', $row->alamat ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Pendidikan Terakhir</th>
+                                                <td><?= ': ', $row->pend_ter ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Telepon</th>
+                                                <td><?= ': ', $row->tlp ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Email</th>
+                                                <td><?= ': ', $row->email ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Bidang Keahliah</th>
+                                                <td><?= ': ', $row->bid_keahlian ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Sertifikat</th>
+                                                <td><?= ': ', $row->sertifikat ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Pengalaman Kerja</th>
+                                                <td><?= ': ', $row->peng_ker ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Usia</th>
+                                                <td><?= ': ', $row->usia ?></td>
+                                            </tr>
+                                        </table>
                                     </div>
                                     <div class="form-group">
                                         <div class="d-flex justify-content-center">

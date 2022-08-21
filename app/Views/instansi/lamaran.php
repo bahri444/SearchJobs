@@ -98,21 +98,35 @@
                                             <h2 class="page-content__header-heading text-center">Detail lowongan kerja</h2>
                                         </div>
                                         <div class="form-group">
-                                            <p><b>Nama Lengkap : </b> <?= $row->nm_lkp ?></p>
-                                            <p><b>Judul Loker : </b><?= $row->judul_loker ?></p>
-                                            <p><b>Berkas Persyaratan : </b><?= $row->berkas ?></p>
-                                            <p><b>Tgl Melamar : </b><?= $row->tgl_lamar ?></p>
+                                            <table>
+                                                <tr>
+                                                    <th>Nama Lengkap</th>
+                                                    <td><?= ': ', $row->nm_lkp ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Judul Loker</th>
+                                                    <td><?= ': ', $row->judul_loker ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Berkas Persyaratan</th>
+                                                    <td><?= ': ', $row->berkas ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Tgl Melamar</th>
+                                                    <td><?= ': ', $row->tgl_lamar ?></td>
+                                                </tr>
+                                            </table>
                                         </div>
-                                        <!-- <div class="form-group">
+                                        <div class="form-group">
                                             <div class="d-flex justify-content-center">
                                                 <div class="justify-content-end mr-5">
-                                                    <button type="button" class="btn btn-warning" data-dismiss="model">Cancel</button>
+                                                    <button type="button" class="btn btn-warning" data-dismiss="model">Abaikan</button>
                                                 </div>
                                                 <div class="justify-content-start ml-5">
-                                                    <button type="button" class="btn btn-info">Simpan</button>
+                                                    <button type="button" class="btn btn-info">Panggil Wawancara</button>
                                                 </div>
                                             </div>
-                                        </div> -->
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -253,23 +267,23 @@
                                     </div>
                                     <!-- end-tombol info data -->
                                     <!-- tombol-edit data-->
-                                    <div class="row">
+                                    <!-- <div class="row">
                                         <div class="col-sm mr-1 ml-1">
                                             <button type="button" class="btn btn-info btn-sm-2" data-toggle="modal" data-target="#modalEdit<?= $row->id_lamaran ?>">
                                                 <i class="ua-icon-activity-edit"></i>
                                             </button>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- end-tombol edit data -->
 
                                     <!-- tombol-hapus data-->
-                                    <div class="row">
+                                    <!-- <div class="row">
                                         <div class="col-sm ml-1">
                                             <button type="button" class="btn btn-danger btn-sm-2" data-toggle="modal" data-target="#modalHapus<?= $row->id_lamaran ?>">
                                                 <i class="ua-icon-trash"></i>
                                             </button>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- end-tombol hapus data -->
                                 </td>
                             </tr>

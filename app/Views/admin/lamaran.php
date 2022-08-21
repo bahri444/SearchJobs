@@ -98,10 +98,24 @@
                                             <h2 class="page-content__header-heading text-center">Detail Pelamar</h2>
                                         </div>
                                         <div class="form-group">
-                                            <p><b>Nama Lengkap : </b> <?= $row->nm_lkp ?></p>
-                                            <p><b>Judul Loker : </b><?= $row->judul_loker ?></p>
-                                            <p><b>Berkas Persyaratan : </b><?= $row->berkas ?></p>
-                                            <p><b>Tgl Melamar : </b><?= $row->tgl_lamar ?></p>
+                                            <table>
+                                                <tr>
+                                                    <th>Nama Lengkap</th>
+                                                    <td><?= ': ', $row->nm_lkp ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Judul Loker</th>
+                                                    <td><?= ': ', $row->judul_loker ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Berkas Persyaratan</th>
+                                                    <td><?= ': ', $row->berkas ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Tgl Melamar</th>
+                                                    <td><?= ': ', $row->tgl_lamar ?></td>
+                                                </tr>
+                                            </table>
                                         </div>
                                         <div class="form-group">
                                             <div class="d-flex justify-content-center">
