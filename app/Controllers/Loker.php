@@ -11,6 +11,7 @@ class Loker extends BaseController
     protected $lokerModel;
     public function __construct()
     {
+
         $this->lokerModel = new LokerModel();
         $this->perusahaanModel = new PerusahaanModel();
         $this->ktgrLokerModel = new KtgrLokerModel();
@@ -26,9 +27,8 @@ class Loker extends BaseController
             "perusahaan" => $perusahaan,
             "ktgrLoker" => $Dt,
             "title" => "Loker",
-            "joinAll" => $Data1
+            "joinAll" => $Data1,
         ];
-        // return view('admin/loker', $data);
         if (session()->get('role') == 'admin') {
             return view('/admin/loker', $data);
         } elseif (session()->get('role') == 'instansi') {

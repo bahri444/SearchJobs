@@ -28,27 +28,6 @@ class UserModel extends Model
     protected $skipValidation       = false;
     protected $cleanValidationRules = true;
 
-<<<<<<< HEAD:app/Models/User.php
-    // Callbacks
-    protected $allowCallbacks = true;
-    protected $beforeInsert   = [];
-    protected $afterInsert    = [];
-    protected $beforeUpdate   = [];
-    protected $afterUpdate    = [];
-    protected $beforeFind     = [];
-    protected $afterFind      = [];
-    protected $beforeDelete   = [];
-    protected $afterDelete    = [];
-
-
-    
-    public function get_data($email, $password)
-        {
-          return $this->db->table('user')
-          ->where(array('user_email' => $email, 'user_pass' => $password))
-          ->get()->getRowArray();
-        }
-=======
 
     public function getUser()
     {
@@ -59,5 +38,4 @@ class UserModel extends Model
     {
         return $this->db->table('users')->update(array('user_id' => $user_id));
     }
->>>>>>> bahri:app/Models/UserModel.php
 }

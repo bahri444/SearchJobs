@@ -163,43 +163,6 @@ class Lamaran extends BaseController
         session();
         $data = [
             "lamaran" => $datalamaran,
-<<<<<<< HEAD
-            "dataLoker"=> $this->lokerModel->findAll(),
-            "dataPencaker"=>$this->pencakerModel->findAll(),
-            "title" => "lamaran",
-            'info' => $this->lamaranModel->findAll(),
-            'validation'=> \config\Services::validation()
-        ];
-        return view('lamaran', $data);
-        // dd($pr);
-    }
-
-    // func for insert data
-
-    public function tambah()
-    {
-
-        if(!$this->validate([
-            'berkas'=>[
-                'rules'=>'uploaded[berkas]|mime_in[berkas,application/pdf,application/mword]',
-                'errors' =>[
-                    'uploaded'=>'pilih File terlebih dahulu',
-                    'mime_in'=>'yang anda masukkan bukan file'
-                ]
-            ],
-            'tgl_lamar'=>[
-                'rules'=>'required',
-                'errors'=>[
-                    'required'=>'Nama perusahaan harus di isi '
-                    ]
-                ], 
-        ])){
-            session()->setFlashdata('pesan', 'Data Belum Lengkap !');
-            return redirect()->to(base_url('lamaran'))->withInput();
-        }
-        // ambil gambar
-        $fileBerkas=$this->request->getFile('berkas');
-=======
             "dataLoker" => $this->lokerModel->findAll(),
             "dataPencaker" => $this->pencakerModel->findAll(),
             "title" => "lamaran",
@@ -245,23 +208,12 @@ class Lamaran extends BaseController
         }
         // ambil gambar
         $fileBerkas = $this->request->getFile('berkas');
->>>>>>> bahri
 
         // pindahkan file
         $fileBerkas->move('berkas');
 
         // ambil nama file
         $namaberkas = $fileBerkas->getName();
-<<<<<<< HEAD
-        
-        $data = [
-            'id_lamaran'=>$this->request->getPost('id_lamaran'),
-            'id_pencaker'=>$this->request->getPost('id_pencaker'),
-            'id_loker'=>$this->request->getPost('id_loker'),
-            'tgl_lamar' =>$this->request->getPost('tgl_lamar'),
-            'berkas' => $namaberkas,
-        ]; 
-=======
 
         $data = [
             'id_lamaran' => $this->request->getPost('id_lamaran'),
@@ -270,17 +222,11 @@ class Lamaran extends BaseController
             'tgl_lamar' => $this->request->getPost('tgl_lamar'),
             'berkas' => $namaberkas,
         ];
->>>>>>> bahri
         // dd($data);
 
         $success = $this->lamaranModel->tambah($data);
         if ($success) {
             session()->setFlashdata('pesan2', 'Data Berhasil Ditambah !');
-<<<<<<< HEAD
-            return redirect()->to(base_url('/lamaran'));
-        }
-        
-=======
             if (session()->get('role') == 'admin') {
                 return redirect()->to(base_url('/admin/lamaran'));
             } elseif (session()->get('role') == 'instansi') {
@@ -289,18 +235,11 @@ class Lamaran extends BaseController
                 return redirect()->to(base_url('/pencaker/lamaran'));
             }
         }
->>>>>>> bahri
     }
 
     // func edit
     public function edit($id_lamaran)
     {
-<<<<<<< HEAD
-        try{
-            $this->lamaranModel->update($id_lamaran,$this->request->getPost());
-            return redirect()->to(base_url('lamaran'));
-        }catch(Exception $e){
-=======
         try {
             $this->lamaranModel->update($id_lamaran, $this->request->getPost());
             if (session()->get('role') == 'admin') {
@@ -311,7 +250,6 @@ class Lamaran extends BaseController
                 return redirect()->to(base_url('/pencaker/lamaran'));
             }
         } catch (Exception $e) {
->>>>>>> bahri
             dd($e);
         }
     }
@@ -319,12 +257,6 @@ class Lamaran extends BaseController
     // func hapus
     public function hapus($id_lamaran)
     {
-<<<<<<< HEAD
-        try{
-            $this->lamaranModel->delete($id_lamaran);
-            return redirect()->to(base_url('lamaran'));
-        }catch(Exception $e){
-=======
         try {
             $this->lamaranModel->delete($id_lamaran);
             if (session()->get('role') == 'admin') {
@@ -335,7 +267,6 @@ class Lamaran extends BaseController
                 return redirect()->to(base_url('/pencaker/lamaran'));
             }
         } catch (Exception $e) {
->>>>>>> bahri
             dd($e);
         }
     }

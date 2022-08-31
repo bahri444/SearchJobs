@@ -36,12 +36,12 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="nm_ktgr">Nama Kategori</label>
-                                                    <input type="text" name="nm_ktgr" placeholder="maskkan kategori" class="form-control form-control-md" required>
+                                                    <input type="text" name="nm_ktgr" placeholder="maskkan kategori" class="form-control form-control-md">
                                                 </div>
                                                 <div class="form-group">
                                                     <div class="d-flex justify-content-center">
                                                         <div class="justify-content-end mr-5">
-                                                            <button type="button" class="btn btn-warning" data-dismiss="modal">Cancel</button>
+                                                            <button type="button" class="btn btn-warning">Cancel</button>
                                                         </div>
                                                         <div class="justify-content-start ml-5">
                                                             <button type="submit" class="btn btn-info">Simpan</button>
@@ -114,7 +114,7 @@
                                         <div class="form-group">
                                             <div class="d-flex justify-content-center">
                                                 <div class="justify-content-end mr-5">
-                                                    <button type="button" class="btn btn-warning" data-dismiss="modal">Tidak</button>
+                                                    <button type="button" class="btn btn-warning">Tidak</button>
                                                 </div>
                                                 <div class="justify-content-start ml-5">
                                                     <a href="<?= base_url('admin/ktgrLoker/hapus/' . $value->id_ktgr) ?>" class="btn btn-info">Ya</a>

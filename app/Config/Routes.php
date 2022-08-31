@@ -31,20 +31,23 @@ $routes->set404Override();
  * --------------------------------------------------------------------
  * Route Definitions
  * --------------------------------------------------------------------
- */
+*/
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
+
+// route for view before login to system
 $routes->get('/', 'Home::index');
 $routes->get('/tentang', 'Home::tentang');
 $routes->get('/login', 'UserController::login');
 $routes->post('/login', 'UserController::login');
 $routes->post('/register', 'UserController::register');
 $routes->get('/register', 'UserController::register');
+// end route for view before login to system
 
 // routes for admin
-// $routes->get("admin/dashboard", "AdminController::index", ['filter' => 'admin']);
 $routes->get("admin/dashboard", "AdminController::index");
+$routes->get("admin/dashboard/countPrs", "AdminController::countPrs");
 
 $routes->get('/admin/ktgrLoker', 'KtgrLoker::ktgrLoker');
 $routes->post('/admin/ktgrLoker/tambah', 'KtgrLoker::tambah');
@@ -73,9 +76,7 @@ $routes->add('/admin/perusahaan/hapus/(:num)', 'Perusahaan::hapus/$1');
 
 $routes->get('/admin/user', 'User::user');
 $routes->add('/admin/user/hapus/(:num)', 'User::hapus/$1');
-// $routes->get('/admin/users', 'Users::users');
 // end-routes for admin
-
 
 //routes for instansi
 $routes->get('/instansi/dashboard', 'InstansiController::index');
@@ -101,6 +102,7 @@ $routes->add('/instansi/lamaran/hapus/(:num)', 'Lamaran::hapus/$1');
 
 // routes for pencaker
 $routes->get('pencaker/dashboard', 'PencakerController::index');
+$routes->get('kartu', 'Kartu::index');
 
 // end-routes for pencaker
 
@@ -127,7 +129,6 @@ $routes->add('/user/hapus/(:num)', 'User::hapus/$1');
 
 $routes->get('/lamaran', 'Lamaran::lamaran');
 $routes->post('/lamaran/tambah', 'Lamaran::tambah');
-$routes->get('/lamaran/tambah', 'Lamaran::tambah');
 $routes->post('/lamaran/edit/(:num)', 'Lamaran::edit/$1');
 $routes->add('/lamaran/hapus/(:num)', 'Lamaran::hapus/$1');
 
@@ -151,6 +152,10 @@ $routes->get('/ktgrLoker', 'KtgrLoker::ktgrLoker');
 $routes->post('/ktgrLoker/tambah', 'KtgrLoker::tambah');
 $routes->post('/ktgrLoker/edit/(:num)', 'KtgrLoker::edit/$1');
 $routes->add('/ktgrLoker/hapus/(:num)', 'KtgrLoker::hapus/$1');
+$routes->get('/pencaker/printpdf/(:segment)', 'Pencaker::printpdf/$1');
+
+$routes->get('/pencaker/download/(:segment)','pencaker::download/$1');
+$routes->get('/logout','UserController/logout::download/$1');
 //...
 
 /*

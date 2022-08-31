@@ -115,24 +115,40 @@
                                             <h2 class="page-content__header-heading text-center">Detail lowongan kerja</h2>
                                         </div>
                                         <div class="form-group">
-                                            <p><b>Nama Perusahaan : </b> <?= $value['nm_prshn'] ?></p>
-                                            <p><b>Nama Kategori : </b><?= $value['nm_ktgr'] ?></p>
-                                            <p><b>Posisi : </b><?= $value['posisi'] ?></p>
-                                            <p><b>Syarat Pendidikan : </b><?= $value['syrt_pend'] ?></p>
-                                            <p><b>Deskripsi : </b><?= $value['detail_loker'] ?></p>
-                                            <p><b>TGL Buka : </b><?= $value['tgl_buka'] ?></p>
-                                            <p><b>TGL Tutup : </b><?= $value['tgl_tutup'] ?></p>
-                                            <p><b>Di Posting : </b><?= $value['created_at'] ?></p>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="d-flex justify-content-center">
-                                                <div class="justify-content-end mr-5">
-                                                    <button type="button" class="btn btn-warning" data-dismiss="model">Cancel</button>
-                                                </div>
-                                                <div class="justify-content-start ml-5">
-                                                    <button type="button" class="btn btn-info">Simpan</button>
-                                                </div>
-                                            </div>
+                                            <table border="0">
+                                                <tr>
+                                                    <th>Nama Kategori</th>
+                                                    <td><?= ': ', $value['nm_ktgr'] ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Nama Perusahaan</th>
+                                                    <td><?= ': ', $value['nm_prshn'] ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Posisi</th>
+                                                    <td><?= ': ', $value['posisi'] ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Syarat Pendidikan</th>
+                                                    <td><?= ': ', $value['syrt_pend'] ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Deskripsi</th>
+                                                    <td><?= ': ', $value['detail_loker'] ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Tgl Buka</th>
+                                                    <td><?= ': ', $value['tgl_buka'] ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Tgl Tutup</th>
+                                                    <td><?= ': ', $value['tgl_tutup'] ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Di Posting</th>
+                                                    <td><?= ': ', $value['created_at'] ?></td>
+                                                </tr>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>

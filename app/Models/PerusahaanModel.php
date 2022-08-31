@@ -35,7 +35,6 @@ class PerusahaanModel extends Model
     public function tambah($data)
     {
         return $this->db->table('perusahaan')->insert($data);
-        
     }
 
     // info
@@ -63,5 +62,12 @@ class PerusahaanModel extends Model
     {
         return $this->db->table('perusahaan')->delete(array('id_prshn' => $id_prshn));
         // return $this->db->table('perusahaan')->update(array('id_prshn' => $id_prshn));
+    }
+
+    // function for count data to dashboard
+    public function countData()
+    {
+        $data = $this->db->table('perusahaan')->countAllResults();
+        return $data;
     }
 }
