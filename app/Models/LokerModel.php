@@ -18,8 +18,11 @@ class LokerModel extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        "id_ktgr",    "id_prshn",    "judul_loker",    "posisi",    "tgl_buka",    "tgl_tutup",    "syrt_pend",    "gaji",    "detail_loker"
+        "id_ktgr", "user_id",    "id_prshn",    "judul_loker",    "posisi",    "tgl_buka",    "tgl_tutup",    "syrt_pend",    "gaji",    "detail_loker"
     ];
+
+    protected $useTimestamps = true;
+    protected $dateFormat    = 'datetime';
     protected $createdField = 'created_at';
     protected $updatedField = 'updated_at';
 
@@ -35,16 +38,35 @@ class LokerModel extends Model
         return $query->get();
     }
 
+    // func for read data pencaker
+    public function getPencaker()
+    {
+        $builder = $this->db->table('pencaker');
+        return $builder->get();
+    }
+    public function getLamaran()
+    {
+        $query = $this->db->table('lamaran');
+        return $query->get();
+    }
+
+
     public function getLoker()
     {
         $builder = $this->db->table('loker');
         $builder->join('perusahaan', 'perusahaan.id_prshn = loker.id_prshn');
         $builder->join('ktgr_loker', 'ktgr_loker.id_ktgr = loker.id_ktgr');
-        $query = $builder->get();
-        return $query->getResultArray();
+        // $builder->join('pencaker', 'pencaker.id_pencaker = pencaker.id_pencaker');
+        //$builder->join('pencaker', 'perusahaan.user_id = perusahaan.user_id');//mengembalikan data double
 
-        // 
-        // return $query->getFieldCount();
+
+        // $builder->join('', 'pencaker.user_id = perusahaan.user_id');
+
+
+        // $builder->join('pencaker', 'pencaker.user_id = perusahaan.user_id'); hanya mengambil id_pencaker 2
+        // $builder->join('pencaker', 'perusahaan.user_id = pencaker.id_pencaker'); hanya mengambil id_pencaker 3
+        // $builder->join('pencaker', 'pencaker.user_id = pencaker.user_id'); data double
+        return $builder->get()->getResultArray();
     }
 
     // function tambah data

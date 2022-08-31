@@ -15,7 +15,7 @@ class PencakerModel extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        "nm_lkp", "tgl_lhr", "jk", "usia", "alamat", "email", "pend_ter", "peng_ker", "bid_keahlian", "sertifikat", "created_at", "updated_at"
+        "user_id", "nm_lkp", "tgl_lhr", "jk", "usia", "alamat", "email", "pend_ter", "peng_ker", "bid_keahlian", "sertifikat", "created_at", "updated_at"
     ];
 
     // Dates
@@ -24,11 +24,20 @@ class PencakerModel extends Model
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
 
-    // func for read data
+    // func for read data user
+    public function getUser()
+    {
+        $query = $this->db->table('users');
+        return $query->get();
+    }
+
+    // func for read data pencaker
     public function getPencaker()
     {
-        $query = $this->db->table('pencaker');
-        return $query->get();
+        $builder = $this->db->table('pencaker');
+        $builder->join('users', 'users.user_id = pencaker.user_id');
+        $query = $builder->get();
+        return $query->getResult();
     }
 
     // func for insert data
@@ -61,7 +70,6 @@ class PencakerModel extends Model
     public function hapus($id_pencaker)
     {
         return $this->db->table('pencaker')->delete(array('id_pencaker' => $id_pencaker));
-        // return $this->db->table('perusahaan')->update(array('id_prshn' => $id_prshn));
     }
 
     // function for count data to dashboard

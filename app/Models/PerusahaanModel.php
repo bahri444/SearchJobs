@@ -15,20 +15,28 @@ class PerusahaanModel extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        "nm_prshn",    "alamat",    "email",    "no_tlp	logo",    "srt_izin",    "strk_organis",    "created_at",    "updated_at"
+        "nm_prshn", "user_id",    "alamat",    "email",    "no_tlp	logo",    "srt_izin",    "strk_organis",    "created_at",    "updated_at"
     ];
 
     // Dates
-    protected $useTimestamps = false;
+    protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
 
     // func for read data
+    public function getUser()
+    {
+        $query = $this->db->table('users');
+        return $query->get();
+    }
+    // func for read data
     public function getPerusahaan()
     {
-        $query = $this->db->table('perusahaan');
-        return $query->get();
+        $builder = $this->db->table('perusahaan');
+        $builder->join('users', 'users.user_id = perusahaan.user_id');
+        $query = $builder->get();
+        return $query->getResult();
     }
 
     // func for insert data

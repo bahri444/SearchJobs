@@ -9,14 +9,14 @@ class LamaranModel extends Model
 {
     protected $DBGroup          = 'default';
     protected $table            = 'lamaran';
-    protected $primaryKey       = 'id_lamaran';
-    protected $useAutoIncrement = true;
+    protected $primaryKey       = 'id_loker';
+    protected $useAutoIncrement = false;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        "id_lamaran", "id_pencaker", "id_loker", "berkas", "tgl_lamar", "created_at", "updated_at"
+        "id_loker", "id_pencaker", "berkas", "tgl_lamar", "created_at", "updated_at"
 
     ];
 
@@ -37,8 +37,8 @@ class LamaranModel extends Model
     {
         $query = $this->db->table('lamaran');
         $query->join('pencaker', 'lamaran.id_pencaker = pencaker.id_pencaker');
-        $query->join('loker', 'lamaran.id_loker=loker.id_loker');
-        $query->join('perusahaan', 'loker.id_prshn=perusahaan.id_prshn');
+        $query->join('loker', 'lamaran.id_loker = loker.id_loker');
+        $query->join('perusahaan', 'loker.id_prshn = perusahaan.id_prshn');
         return $query->get();
     }
 

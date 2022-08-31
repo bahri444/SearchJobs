@@ -22,13 +22,14 @@ class Loker extends BaseController
     {
         $perusahaan = $this->perusahaanModel->findAll();
         $Dt = $this->ktgrLokerModel->findAll();
-        $Data1 = $this->lokerModel->getLoker();
+        $dtLok = $this->lokerModel->getLoker();
         $data = [
             "perusahaan" => $perusahaan,
             "ktgrLoker" => $Dt,
             "title" => "Loker",
-            "joinAll" => $Data1,
+            "joinAll" => $dtLok,
         ];
+        // dd($data);
         if (session()->get('role') == 'admin') {
             return view('/admin/loker', $data);
         } elseif (session()->get('role') == 'instansi') {

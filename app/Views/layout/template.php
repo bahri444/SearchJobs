@@ -52,6 +52,7 @@ $session = \Config\Services::session();
     </div>
 
     <!-- navbar atau menu Atas -->
+
     <!-- tombol hidden sidebar -->
     <div class="navbar navbar-light navbar-expand-lg">
         <button class="sidebar-toggler" type="button">
@@ -86,7 +87,7 @@ $session = \Config\Services::session();
             </div>
 
             <!-- menu Notifikasi -->
-            <div class="dropdown navbar-dropdown no-arrow navbar-notify-dropdown">
+            <!-- <div class="dropdown navbar-dropdown no-arrow navbar-notify-dropdown">
                 <a class="dropdown-toggle navbar-dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                     <span class="navbar-notify navbar-notify--notifications">
                         <span>
@@ -132,7 +133,7 @@ $session = \Config\Services::session();
                         <span>View all</span>
                     </a>
                 </div>
-            </div>
+            </div> -->
 
             <!-- menu navbar profile -->
             <div class="dropdown navbar-dropdown">
@@ -144,15 +145,10 @@ $session = \Config\Services::session();
                     <div class="navbar-dropdown-user-content">
                         <div class="dropdown-user__avatar"><img src="<?= base_url() ?>/img/users/<?= $session->get('user_image') ?>" alt="" /></div>
                         <div class="dropdown-info">
-                            <div class="dropdown-info__name"></div>
-                            <div class="dropdown-info__job"></div>
-                            <div class="dropdown-info-buttons">
-                                <a class="dropdown-info__viewprofile" href="#">View Profile</a>
-                                <a class="dropdown-info__addaccount" href="#">Add account</a>
-                            </div>
+                            <div class="dropdown-info__name"><?= $session->get('username') ?></div>
                         </div>
                     </div>
-                    <a class="dropdown-item navbar-dropdown__item" href="#">
+                    <a class="dropdown-item navbar-dropdown__item" href="<?= route_to('logout') ?>">
                         <span class="ua-icon-view-all"></span>
                         <span>Logout</span>
                     </a>
@@ -247,9 +243,15 @@ $session = \Config\Services::session();
                         </a>
                     </li>
                     <li class="sidebar-section-nav__item mb-2">
-                        <a class="sidebar-section-nav__link" href="<?= route_to('instansi/perusahaan'); ?>">
+                        <a class="sidebar-section-nav__link" href="<?= route_to('instansi/lengkapiPrshn'); ?>">
+                            <span class="sidebar-section-nav__item-icon ua-icon-edit-outline"></span>
+                            <span>Lengkapi Data</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-section-nav__item mb-2">
+                        <a class="sidebar-section-nav__link" href="<?= route_to('instansi/profilePrshn'); ?>">
                             <span class="sidebar-section-nav__item-icon ua-icon-user-solid"></span>
-                            <span>Profile Perusahaan</span>
+                            <span>Profile</span>
                         </a>
                     </li>
                     <li class="sidebar-section-nav__item mb-5">
@@ -276,21 +278,66 @@ $session = \Config\Services::session();
                     <img src="<?= base_url() ?>/img/users/<?= $session->get('user_image') ?>" alt="" class="sidebar-user-a__avatar rounded-circle">
                     <div class="sidebar-user-a__name"><?= $session->get('username') ?></div>
                 </div>
-                <ul class="sidebar-section-nav">
+                <ul class="sidebar-section-nav mt-auto">
                     <li class="sidebar-section-nav__item">
-                        <a class="sidebar-section-nav__link" href="<?= route_to('#'); ?>">
+                        <a class="sidebar-section-nav__link" href="<?= route_to('pencaker/dashboard'); ?>">
+                            <span class="sidebar-section-nav__item-icon ua-icon-document"></span>
+                            <span>Cari Loker</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-section-nav__item">
+                        <a class="sidebar-section-nav__link" href="<?= route_to('pencaker/lengkapiData'); ?>">
+                            <span class="sidebar-section-nav__item-icon ua-icon-edit-outline"></span>
+                            <span>Lengkapi Data</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-section-nav__item">
+                        <a class="sidebar-section-nav__link" href="<?= route_to('pencaker/profile'); ?>">
                             <span class="sidebar-section-nav__item-icon ua-icon-user-solid"></span>
                             <span>Profile</span>
                         </a>
                     </li>
-                    <ul class="sidebar-section-nav">
-                        <li class="sidebar-section-nav__item">
-                            <a class="sidebar-section-nav__link" href="<?= route_to('logout'); ?>">
-                                <span class="sidebar-section-nav__item-icon ua-icon-view-all"></span>
-                                <span>Logout</span>
-                            </a>
-                        </li>
-                    </ul>
+                    <li class="sidebar-section-nav__item">
+                        <a class="sidebar-section-nav__link" href="<?= route_to('logout'); ?>">
+                            <span class="sidebar-section-nav__item-icon ua-icon-view-all"></span>
+                            <span>Logout</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-section-nav__item">
+                        <a class="sidebar-section-nav__link" href="#">
+                            <span class="sidebar-section-nav__item-icon"></span>
+                            <span></span>
+                        </a>
+                    </li>
+                    <li class="sidebar-section-nav__item">
+                        <a class="sidebar-section-nav__link" href="#">
+                            <span class="sidebar-section-nav__item-icon"></span>
+                            <span></span>
+                        </a>
+                    </li>
+                    <li class="sidebar-section-nav__item">
+                        <a class="sidebar-section-nav__link" href="#">
+                            <span class="sidebar-section-nav__item-icon"></span>
+                            <span></span>
+                        </a>
+                    </li>
+                    <li class="sidebar-section-nav__item">
+                        <a class="sidebar-section-nav__link" href="#">
+                            <span class="sidebar-section-nav__item-icon"></span>
+                            <span></span>
+                        </a>
+                    <li class="sidebar-section-nav__item">
+                        <a class="sidebar-section-nav__link" href="#">
+                            <span class="sidebar-section-nav__item-icon"></span>
+                            <span></span>
+                        </a>
+                    <li class="sidebar-section-nav__item">
+                        <a class="sidebar-section-nav__link" href="#">
+                            <span class="sidebar-section-nav__item-icon"></span>
+                            <span></span>
+                        </a>
+                    </li>
+
                 <?php endif; ?>
         </div>
     </div>

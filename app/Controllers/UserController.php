@@ -4,6 +4,9 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\UserModel;
+use App\Models\PencakerModel;
+
+use Config\Services;
 
 class UserController extends BaseController
 {
@@ -11,39 +14,57 @@ class UserController extends BaseController
     public function __construct()
     {
         $this->session = \Config\Services::session();
+        $this->PencakerModel = new PencakerModel();
+        $this->validation = \Config\Services::validation();
+        $this->userModel = new UserModel();
     }
     public function index()
     {
         helper(['form']);
-        $data = [];
+        $data = [
+            'validation' => $this->validation
+        ];
         echo view('auth/register', $data);
     }
 
     public function register()
     {
-        helper(['form']);
-        $rules = [
-            'username'          => 'required|min_length[2]|max_length[50]',
-            'email'         => 'required|min_length[4]|max_length[100]|valid_email|is_unique[users.email]',
-            'password'      => 'required|min_length[8]|max_length[50]',
-            'confirmpassword'  => 'matches[password]',
-            'role'          => 'required|min_length[6]|max_length[50]'
+        $data = [
+            'validation' => $this->validation
         ];
+        echo view('auth/register', $data);
+    }
 
-        if ($this->validate($rules)) {
-            $userModel = new UserModel();
-            $data = [
-                'username'     => $this->request->getVar('username'),
-                'email'    => $this->request->getVar('email'),
-                'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
-                'role'    => $this->request->getVar('role'),
-            ];
-            $userModel->save($data);
-            return redirect()->to('login');
-        } else {
-            $data['validation'] = $this->validator;
-            echo view('auth/register', $data);
+    public function validreg()
+    {
+        $dataForm = $this->request->getPost();
+        if (!$this->validate([
+            'username' => [
+                'rules' => 'required',
+                'errors' => [
+                    'require' => '{field} harus diisi'
+                ]
+            ],
+            'email' => [
+                'rules' => 'is_unique[users.email]|required',
+                'errors' => [
+                    'is_unique' => 'Data yang anda masukkan sudah ada',
+                    'require' => '{field} harus diisi'
+
+                ]
+            ]
+        ])) {
+            return redirect()->to('register')->withInput();
         }
+
+
+        $this->userModel->save([
+            "username" => $dataForm['username'],
+            "email"    => $dataForm['email'],
+            "password" => password_hash($dataForm['password'], PASSWORD_DEFAULT),
+            "role"     => $dataForm['role']
+        ]);
+        return redirect()->to('login');
     }
 
     private function setUserSession($user)
@@ -66,7 +87,7 @@ class UserController extends BaseController
         if ($this->request->getMethod() == 'post') {
             $rules = [
                 'email' => 'required|min_length[6]|max_length[50]|valid_email',
-                'password' => 'required|min_length[8]|max_length[255]|validateUser[email,password]',
+                'password' => 'required|min_length[8]|max_length[255]',
             ];
 
             $errors = [
@@ -77,23 +98,15 @@ class UserController extends BaseController
 
             if (!$this->validate($rules, $errors)) {
 
-                return view('login', [
+                return view('auth/login', [
                     "validation" => $this->validator,
                 ]);
             } else {
                 $model = new UserModel();
 
-                $user = $model->where('email', $this->request->getVar('email'))
+                $user = $model->where('email', $this->request->getPost('email'))
                     ->first();
 
-                // $sess = [
-                //     'id' => $user->user_id,
-                //     'username' => $user->username,
-                //     'email' => $user->email,
-                //     'user_image' => $user->user_image,
-                //     'role' => $user->role,
-
-                // ];
 
                 // Stroing session values
                 $this->setUserSession($user);
@@ -114,6 +127,11 @@ class UserController extends BaseController
     public function logout()
     {
         session()->destroy();
-        return redirect()->to('/login');
+        return redirect()->to('/');
+    }
+
+    public function profile()
+    {
+        return view('pencaker/profile');
     }
 }

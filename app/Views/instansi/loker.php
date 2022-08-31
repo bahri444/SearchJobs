@@ -115,7 +115,14 @@
                                             <h2 class="page-content__header-heading text-center">Detail lowongan kerja</h2>
                                         </div>
                                         <div class="form-group">
-                                            <table border="0">
+                                            <table>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div class="mt-2 d-flex justify-content-center">
+                                                            <img src="<?= base_url() ?>/img2/<?= $value['logo'] ?>" alt="404" width="200px" height="200px">
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <tr>
                                                     <th>Nama Kategori</th>
                                                     <td><?= ': ', $value['nm_ktgr'] ?></td>
@@ -284,6 +291,7 @@
                             <th scope="col"><b>No</b></th>
                             <th scope="col"><b>Nama Kategori</b></th>
                             <th scope="col"><b>Nama Perusahaan</b></th>
+                            <th scope="col"><b>Logo</b></th>
                             <th scope="col"><b>Nama Loker</b></th>
                             <th scope="col"><b>Posisi</b></th>
                             <th scope="col"><b>Tgl Buka</b></th>
@@ -301,6 +309,7 @@
                                 <td><?= $i++; ?></td>
                                 <td><?= $value['nm_ktgr']; ?></td>
                                 <td><?= $value['nm_prshn'] ?></td>
+                                <td><img src="<?= base_url() ?>/img2/<?= $value['logo'] ?>" alt="" width="80 px" height="80 px"></td>
                                 <td><?= $value['judul_loker'] ?></td>
                                 <td><?= $value['posisi'] ?></td>
                                 <td><?= $value['tgl_buka'] ?></td>
@@ -330,13 +339,13 @@
                                     <!-- tombol edit data -->
 
                                     <!-- tombol-hapus data-->
-                                    <!-- <div class="row">
+                                    <div class="row">
                                         <div class="col-sm ml-1">
                                             <button type="button" class="btn btn-danger btn-sm-2" data-toggle="modal" data-target="#modalHapus<?= $value['id_loker'] ?>">
                                                 <i class="ua-icon-trash"></i>
                                             </button>
                                         </div>
-                                    </div> -->
+                                    </div>
                                     <!-- end-tombol hapus data -->
                                 </td>
                             </tr>

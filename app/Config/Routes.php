@@ -20,6 +20,7 @@ $routes->setDefaultNamespace('App\Controllers');
 $routes->setDefaultController('Home');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
+
 $routes->set404Override();
 // The Auto Routing (Legacy) is very dangerous. It is easy to create vulnerable apps
 // where controller filters or CSRF protection are bypassed.
@@ -43,6 +44,7 @@ $routes->get('/login', 'UserController::login');
 $routes->post('/login', 'UserController::login');
 $routes->post('/register', 'UserController::register');
 $routes->get('/register', 'UserController::register');
+$routes->post('/validreg', 'UserController::validreg');
 // end route for view before login to system
 
 // routes for admin
@@ -81,11 +83,10 @@ $routes->add('/admin/user/hapus/(:num)', 'User::hapus/$1');
 //routes for instansi
 $routes->get('/instansi/dashboard', 'InstansiController::index');
 
-$routes->get('/instansi/loker', 'Loker::loker');
-
-$routes->get('/instansi/perusahaan', 'Perusahaan::perusahaan');
-$routes->post('/instansi/perusahaan/tambah', 'Perusahaan::tambah');
-$routes->post('/instansi/perusahaan/edit/(:num)', 'Perusahaan::edit/$1');
+$routes->get('/instansi/lengkapiPrshn', 'LengkapiPrshn::index');
+$routes->get('/instansi/profilePrshn', 'ProfilePrshn::index');
+$routes->post('/instansi/lengkapiPrshn/tambah', 'LengkapiPrshn::tambah');
+// $routes->post('/instansi/perusahaan/tambah', 'Perusahaan::tambah');
 
 $routes->get('/instansi/loker', 'Loker::loker');
 $routes->post('/instansi/loker/tambah', 'Loker::tambah');
@@ -102,55 +103,19 @@ $routes->add('/instansi/lamaran/hapus/(:num)', 'Lamaran::hapus/$1');
 
 // routes for pencaker
 $routes->get('pencaker/dashboard', 'PencakerController::index');
+$routes->get('pencaker/dashboard', 'Pencaker::pencaker');
+$routes->get('pencaker/profile', 'Profile::index');
+$routes->get('pencaker/lamarKerja/(:num)', 'LamarKerjaController::index/$1');
+$routes->get('pencaker/lengkapiData', 'LengkapiData::index');
+$routes->post('pencaker/lengkapiData', 'LengkapiData::tambah');
+$routes->post('pencaker/dashboard/tambah', 'PencakerController::tambah');
 
 // end-routes for pencaker
 
-// $routes->match(['get', 'post'], 'login', 'UserController::login', ["filter" => "noauth"]);
-// // Admin routes
-// $routes->group("admin", ["filter" => "auth"], function ($routes) {
-//     $routes->get("admin/dashboard", "AdminController::index");
-// });
-// // Editor routes
-// $routes->group("/instansi", ["filter" => "auth"], function ($routes) {
-//     $routes->get("instansi/dashboard", "InstansiController::index");
-// });
-// $routes->group("/pencaker", ["filter" => "auth"], function ($routes) {
-//     $routes->get("pencaker/dashboard", "PencakerController::index");
-// });
+// routes for logout
 $routes->get('logout', 'UserController::logout');
+// end-routes for logout
 
-
-
-$routes->get('/user', 'User::user');
-$routes->post('/user/tambah', 'User::tambah');
-$routes->post('/user/edit/(:num)', 'User::edit/$1');
-$routes->add('/user/hapus/(:num)', 'User::hapus/$1');
-
-$routes->get('/lamaran', 'Lamaran::lamaran');
-$routes->post('/lamaran/tambah', 'Lamaran::tambah');
-$routes->post('/lamaran/edit/(:num)', 'Lamaran::edit/$1');
-$routes->add('/lamaran/hapus/(:num)', 'Lamaran::hapus/$1');
-
-$routes->get('/pencaker', 'Pencaker::pencaker');
-$routes->post('/pencaker/tambah', 'Pencaker::tambah');
-$routes->post('/pencaker/edit/(:num)', 'Pencaker::edit/$1');
-$routes->add('/pencaker/hapus/(:num)', 'Pencaker::hapus/$1');
-
-$routes->get('/loker', 'Loker::loker');
-$routes->post('/loker/tambah', 'Loker::tambah');
-$routes->post('/loker/edit/(:num)', 'Loker::edit/$1');
-$routes->get('/loker/hapus/(:num)', 'Loker::hapus/$1');
-
-$routes->get('/perusahaan', 'Perusahaan::perusahaan');
-$routes->post('/perusahaan/tambah', 'Perusahaan::tambah');
-$routes->post('/perusahaan/edit/(:num)', 'Perusahaan::edit/$1');
-$routes->add('/perusahaan/hapus/(:num)', 'Perusahaan::hapus/$1');
-
-
-$routes->get('/ktgrLoker', 'KtgrLoker::ktgrLoker');
-$routes->post('/ktgrLoker/tambah', 'KtgrLoker::tambah');
-$routes->post('/ktgrLoker/edit/(:num)', 'KtgrLoker::edit/$1');
-$routes->add('/ktgrLoker/hapus/(:num)', 'KtgrLoker::hapus/$1');
 //...
 
 /*
