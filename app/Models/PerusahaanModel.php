@@ -15,11 +15,11 @@ class PerusahaanModel extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        "nm_prshn", "user_id",    "alamat",    "email",    "no_tlp	logo",    "srt_izin",    "strk_organis",    "created_at",    "updated_at"
+        "user_id", "nm_prshn", "alamat",    "tlp", "logo",    "srt_izin",    "strk_organis", "stts_prshn"
     ];
 
     // Dates
-    protected $useTimestamps = true;
+    protected $useTimestamps = false;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
@@ -77,5 +77,11 @@ class PerusahaanModel extends Model
     {
         $data = $this->db->table('perusahaan')->countAllResults();
         return $data;
+    }
+
+    // function status persetujuan perusahaan
+    public function sttsPrshn($id_prshn, $data)
+    {
+        return $this->db->table('perusahaan')->update($id_prshn, $data);
     }
 }

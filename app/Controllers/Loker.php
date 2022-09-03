@@ -102,4 +102,27 @@ class Loker extends BaseController
         }
         // return redirect()->to(base_url('admin/loker'));
     }
+
+    public function validasi($id_loker)
+    {
+        $datafrm = $this->request->getPost('validasi');
+        $res = $this->lokerModel->where('id_loker', $id_loker)->get()->getResultArray();
+        $dataLok = [
+            'id_loker' => $id_loker,
+            'id_ktgr' => $res[0]["id_ktgr"],
+            'id_prshn' => $res[0]["id_prshn"],
+            'judul_loker' => $res[0]["judul_loker"],
+            'posisi' => $res[0]["posisi"],
+            'tgl_buka' => $res[0]["tgl_buka"],
+            'tgl_tutup' => $res[0]["tgl_tutup"],
+            'syrt_pend' => $res[0]["syrt_pend"],
+            'gaji' => $res[0]["gaji"],
+            'detail_loker' => $res[0]["detail_loker"],
+            'status' => $datafrm
+        ];
+        // dd($dataLok);
+        $this->lokerModel->save($dataLok);
+        // dd($this->lokerModel->save($dataLok));
+        return redirect()->to('/admin/loker');
+    }
 }

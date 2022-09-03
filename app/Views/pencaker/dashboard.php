@@ -42,7 +42,7 @@
                                                 <label for="id_pencaker">Nama Pencaker</label>
                                                 <select name="id_pencaker" class="form-select form-control form-control-md" aria-label="Default select example">
                                                     <?php foreach ($pnckr as $r) : ?>
-                                                        <option selected value="<?= $r['id_pencaker'] ?>"><?= $r['id_pencaker'], ':', $r['nm_lkp'], ',', $r['user_id'], ':', session()->get('username') ?></option>
+                                                        <option selected value="<?= $r['id_pencaker'] ?>"><?= $r['id_pencaker'], '-', $r['nm_lkp'], ',', $r['user_id'], '-', session()->get('username') ?></option>
                                                     <?php endforeach; ?>
                                                 </select>
                                             </div>

@@ -9,14 +9,15 @@ class LamaranModel extends Model
 {
     protected $DBGroup          = 'default';
     protected $table            = 'lamaran';
-    protected $primaryKey       = 'id_loker';
-    protected $useAutoIncrement = false;
+    protected $primaryKey       = 'id_lamaran';
+    protected $foreignKey = true;
+    protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        "id_loker", "id_pencaker", "berkas", "tgl_lamar", "created_at", "updated_at"
+        "id_loker", "id_pencaker", "berkas", "tgl_lamar", "s_lamaran", "respons"
 
     ];
 
@@ -89,5 +90,14 @@ class LamaranModel extends Model
     {
         $data = $this->db->table('lamaran')->countAllResults();
         return $data;
+    }
+
+    public function status($id_lamaran, $data)
+    {
+        return $this->db->table('lamaran')->update($id_lamaran, $data);
+    }
+    public function responsInstansi($id_lam, $datas)
+    {
+        return $this->db->table('lamaran')->update($id_lam, $datas);
     }
 }

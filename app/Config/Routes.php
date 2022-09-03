@@ -71,6 +71,13 @@ $routes->post('/admin/lamaran/tambah', 'Lamaran::tambah');
 $routes->post('/admin/lamaran/edit/(:num)', 'Lamaran::edit/$1');
 $routes->add('/admin/lamaran/hapus/(:num)', 'Lamaran::hapus/$1');
 
+//admin validasi
+$routes->post('/admin/lamaran/validasi/(:num)', 'Lamaran::validasi/$1'); //route for validation lamaran lengkapi
+$routes->post('/admin/lamaran/rekomendasi/(:num)', 'Lamaran::rekomendasi/$1'); //route for validation lamaran rekomendasi
+$routes->post('admin/loker/validasi/(:num)', 'Loker::validasi/$1'); //route for validation data loker
+$routes->post('admin/perusahaan/sttsPrshn/(:num)', 'Perusahaan::sttsPrshn/$1');
+//end-admin validasi
+
 $routes->get('/admin/perusahaan', 'Perusahaan::perusahaan');
 $routes->post('/admin/perusahaan/tambah', 'Perusahaan::tambah');
 $routes->post('/admin/perusahaan/edit/(:num)', 'Perusahaan::edit/$1');
@@ -86,7 +93,6 @@ $routes->get('/instansi/dashboard', 'InstansiController::index');
 $routes->get('/instansi/lengkapiPrshn', 'LengkapiPrshn::index');
 $routes->get('/instansi/profilePrshn', 'ProfilePrshn::index');
 $routes->post('/instansi/lengkapiPrshn/tambah', 'LengkapiPrshn::tambah');
-// $routes->post('/instansi/perusahaan/tambah', 'Perusahaan::tambah');
 
 $routes->get('/instansi/loker', 'Loker::loker');
 $routes->post('/instansi/loker/tambah', 'Loker::tambah');
@@ -98,6 +104,11 @@ $routes->get('/instansi/lamaran', 'Lamaran::lamaran');
 $routes->post('/instansi/lamaran/tambah', 'Lamaran::tambah');
 $routes->post('/instansi/lamaran/edit/(:num)', 'Lamaran::edit/$1');
 $routes->add('/instansi/lamaran/hapus/(:num)', 'Lamaran::hapus/$1');
+
+// respons instansi
+$routes->post('/instansi/lamaran/responsInstansi/(:num)', 'Lamaran::responsInstansi/$1');
+// end-respons instansi
+
 //end-routes for instansi
 
 
@@ -105,7 +116,6 @@ $routes->add('/instansi/lamaran/hapus/(:num)', 'Lamaran::hapus/$1');
 $routes->get('pencaker/dashboard', 'PencakerController::index');
 $routes->get('pencaker/dashboard', 'Pencaker::pencaker');
 $routes->get('pencaker/profile', 'Profile::index');
-$routes->get('pencaker/lamarKerja/(:num)', 'LamarKerjaController::index/$1');
 $routes->get('pencaker/lengkapiData', 'LengkapiData::index');
 $routes->post('pencaker/lengkapiData', 'LengkapiData::tambah');
 $routes->post('pencaker/dashboard/tambah', 'PencakerController::tambah');

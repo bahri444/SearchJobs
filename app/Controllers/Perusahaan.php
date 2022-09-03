@@ -169,4 +169,24 @@ class Perusahaan extends BaseController
         }
         // return redirect()->to(base_url('/admin/perusahaan'));
     }
+
+    public function sttsPrshn($id_prshn)
+    {
+        $formData = $this->request->getPost('stts_prshn');
+        $res = $this->perusahaanModel->where('id_prshn', $id_prshn)->get()->getResultArray();
+        $data = [
+            'id_prshn' => $id_prshn,
+            'user_id' => $res[0]['user_id'],
+            'nm_prshn' => $res[0]['nm_prshn'],
+            'alamat' => $res[0]['alamat'],
+            'tlp' => $res[0]['tlp'],
+            'logo' => $res[0]['logo'],
+            'srt_izin' => $res[0]['srt_izin'],
+            'strk_organis' => $res[0]['strk_organis'],
+            'stts_prshn' => $formData
+        ];
+        // dd($data);
+        $this->perusahaanModel->save($data);
+        return redirect()->to('/admin/perusahaan');
+    }
 }

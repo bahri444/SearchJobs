@@ -11,14 +11,13 @@ class LokerModel extends Model
     protected $table            = 'loker';
     protected $primaryKey       = 'id_loker';
     protected $foreignKey       = true;
-    // return view('partials/modal');
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        "id_ktgr", "user_id",    "id_prshn",    "judul_loker",    "posisi",    "tgl_buka",    "tgl_tutup",    "syrt_pend",    "gaji",    "detail_loker"
+        "id_ktgr",  "id_prshn",    "judul_loker",    "posisi",    "tgl_buka",    "tgl_tutup",    "syrt_pend",    "gaji",    "detail_loker", "status"
     ];
 
     protected $useTimestamps = true;
@@ -103,5 +102,10 @@ class LokerModel extends Model
     {
         $data = $this->db->table('loker')->countAllResults();
         return $data;
+    }
+
+    public function status($id_loker, $dataLok)
+    {
+        return $this->db->table('loker')->update($id_loker, $dataLok);
     }
 }

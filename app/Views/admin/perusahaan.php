@@ -91,6 +91,28 @@
                                         </table>
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <div class="d-flex justify-content-center">
+                                        <div class="justify-content-end mr-5">
+                                            <form action="<?= base_url('/admin/perusahaan/sttsPrshn/' . $vals->id_prshn) ?>" method="POST">
+                                                <?= csrf_field() ?>
+                                                <input type="hidden" name="stts_prshn" value="belum lengkap">
+                                                <?php if ($vals->stts_prshn == "pending") : ?>
+                                                    <button type="submit" class="btn btn-warning">Belum Lengkap</button>
+                                                <?php endif; ?>
+                                            </form>
+                                        </div>
+                                        <div class="justify-content-start ml-5">
+                                            <form action="<?= base_url('/admin/perusahaan/sttsPrshn/' . $vals->id_prshn) ?>" method="POST">
+                                                <?= csrf_field() ?>
+                                                <input type="hidden" name="stts_prshn" value="di setujui">
+                                                <?php if ($vals->stts_prshn == "pending") : ?>
+                                                    <button type="submit" class="btn btn-primary">Setujui</button>
+                                                <?php endif; ?>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -112,6 +134,7 @@
                             <th scope="col"><b>Logo Perusahaan</b></th>
                             <th scope="col"><b>Surat Izin</b></th>
                             <th scope="col"><b>Struktur</b></th>
+                            <th scope="col"><b>Status</b></th>
                             <th scope="col"><b>Aksi</b></th>
                         </tr>
                     </thead>
@@ -127,6 +150,7 @@
                                 <td><img src="<?= base_url() ?>/img2/<?= $row->logo; ?>" width="100"></td>
                                 <td><?= $row->srt_izin ?></td>
                                 <td><?= $row->strk_organis ?></td>
+                                <td><?= $row->stts_prshn ?></td>
                                 <td class="d-flex justify-content-center">
 
                                     <!-- tombol-info data-->

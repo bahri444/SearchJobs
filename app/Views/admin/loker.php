@@ -65,16 +65,19 @@
                                             </tr>
                                         </table>
                                     </div>
-                                    <div class="form-group">
-                                        <div class="d-flex justify-content-center">
-                                            <!-- <div class="justify-content-end mr-5">
-                                                <button type="button" class="btn btn-warning" data-dismiss="model">Cancel</button>
-                                            </div> -->
-                                            <div class="justify-content-start">
-                                                <button type="button" class="btn btn-info">Validasi</button>
+                                    <form action="<?= base_url('/admin/loker/validasi/' . $value['id_loker']) ?>" method="post">
+                                        <?= csrf_field() ?>
+                                        <div class="form-group">
+                                            <div class="d-flex justify-content-center">
+                                                <div class="justify-content-start">
+                                                    <input type="text" value="valid" name="validasi" hidden>
+                                                    <?php if ($value['status'] != 'valid') : ?>
+                                                        <button type="submit" class="btn btn-info">Validasi</button>
+                                                    <?php endif ?>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -99,6 +102,7 @@
                             <th scope="col"><b>Syarat Pendidikan</b></th>
                             <th scope="col"><b>Gaji</b></th>
                             <th scope="col"><b>Detail</b></th>
+                            <th scope="col"><b>Status</b></th>
                             <th scope="col"><b>Aksi</b></th>
                         </tr>
                     </thead>
@@ -117,6 +121,7 @@
                                 <td><?= $value['syrt_pend'] ?></td>
                                 <td><?= $value['gaji'] ?></td>
                                 <td><?= $value['detail_loker'] ?></td>
+                                <td><?= $value['status'] ?></td>
                                 <td class="d-flex justyify-content-center ">
                                     <!-- tombol Info -->
                                     <div class="row">
