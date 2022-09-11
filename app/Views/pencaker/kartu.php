@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <script src="<?= base_url('vendor/jquery/jquery.min.js') ?>"></script>
 </head>
 <style>
     * {
@@ -63,7 +64,7 @@
 
 <body>
     <br><br><br>
-    <div class="card">
+    <div class="card" id="kartu">
         <div class="kop">
              <img src="<?= base_url('img/R.png')?>" alt="" width="50px" height="50px" />
             <div>
@@ -78,13 +79,14 @@
             </div>
             <div class="row">
                 <div style="width: 100px;">
-                    <img src="<?=base_url('img/R.png')?>" alt="" width="50px" height="50px" />
+                    <img src="<?= base_url('img/R.png')?>" alt="" width="50px" height="50px" />
                 </div>
                 <div>
                     <table>
                         <tr>
                             <td> <label for="">No pencaker </label></td>
-                            <td>:<input disabled type="text" value="<?= $no['id_pencaker']?>"</td>
+                            <td>:<?= $no['id_pencaker']?>
+                        </td>
                         </tr>
                         <tr>
                             <th>Keterangan</th>
@@ -98,16 +100,23 @@
                 ttd pencaker
             </div>
         </div><br><br><br><br>
-        <?php
-        $kartu = false;
-        if (strpos(current_url(),"printpdf")) {
-            $kartu = true;
-        }
-        if ($kartu == false) {
-            ?>
-        <input type="button" value="download" onclick="window.open('<?= base_url('pencaker/printpdf/'. $no['id_pencaker']) ?>','blank')"/>
-   <?php } ?>
+        <button type="button" id="download" >download</button>
     </div>
+    <script src="<?= base_url('js/html2canva.js') ?>"></script>
+    <script>
+        $(document).ready(function(){
+            $('#download').click(function(){
+                html2canvas(document.getElementById('kartu')).then(function(canvas){
+                    var a=document.createElement('a')
+                    document.body.appendChild(a)
+                    a.download="kartu.png"
+                    a.href=canvas.toDataURL()
+                    a.target="_blank"
+                    a.click()
+                })
+            })
+        })
+    </script>
 </body>
 
 </html>

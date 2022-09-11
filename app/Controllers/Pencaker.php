@@ -176,21 +176,21 @@ class Pencaker extends BaseController
         // dd($datapencaker);
         // $id_pencaker = $this->request->getVar('id_pencaker');
         $data =[
-            'no' => $datapencaker
-            
+            'no' => $datapencaker,   
         ];
         return view('pencaker/kartu' ,$data);
     }
 
     public function printpdf($id_pencaker){
 
+        // $opt = new Options();
+        // $opt->setIsRemoteEnabled(true);
         $dompdf = new Dompdf();
         $datapencaker = $this->PencakerModel->where(['id_pencaker' => $id_pencaker])->first();
         // dd($datapencaker);
         // $id_pencaker = $this->request->getVar('id_pencaker');
         $data =[
-            'no' => $datapencaker
-            
+            'no' => $datapencaker,
         ];
         $dompdf->loadHtml(view('pencaker/kartu' ,$data));
 
@@ -203,7 +203,7 @@ class Pencaker extends BaseController
         // Output the generated PDF to Browser
         // $dompdf->stream();
         $dompdf->stream('kartu.pdf', array(
-            "Attacchment" => false
+            "Attachment" => false
         ));
     }
 }
