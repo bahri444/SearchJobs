@@ -23,6 +23,7 @@ class Loker extends BaseController
         $perusahaan = $this->perusahaanModel->findAll();
         $Dt = $this->ktgrLokerModel->findAll();
         $dtLok = $this->lokerModel->getLoker();
+        // $dtLok['sorting'] = $this->lokerModel->where('status', 'pending')->orderBy('id_loker', 'DESC')->findAll();
         $data = [
             "perusahaan" => $perusahaan,
             "ktgrLoker" => $Dt,

@@ -31,6 +31,9 @@ class PencakerController extends BaseController
         $pnckr = $this->pencakerModel->findAll();
         // $lamar = $this->lamaranModel->findAll();
 
+        // $lokers = $this->lokerModel->where('status', 'pending')->orderBy('id_loker', 'DESC')->get();
+        // $lokers['sorting'] = $this->lokerModel->where('status', 'pending')->orderBy('id_loker', 'DESC')->findAll();
+        // $lokers = $this->lokerModel->where('status', 'valid')->orderBy('id_loker', 'DESC')->findAll();
         $lokers = $this->lokerModel->getLoker();
         $data = [
             // 'perusahaan' => $prs,
