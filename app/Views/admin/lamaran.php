@@ -31,18 +31,18 @@
                                                     <h2 class="page-content__header-heading text-center">Tambah lamaran</h2>
                                                 </div>
                                                 <div class="form-group mt-3">
-                                                    <select name="id_pencaker" id="id_pencaker" class="form-select form-control form-control-md" aria-label="Default select example">
+                                                <select name="id_pencaker" id="id_pencaker" class="custom-select is-invalid" aria-describedby="validationServer04Feedback" required>
                                                         <label for="id_pencaker">Nama Pelamar Kerja</label>
-                                                        <option selected>---pilih pencari kerja---</option>
+                                                        <option selected disabled value="">---pilih pencari kerja---</option>
                                                         <?php foreach ($dataPencaker as $pencaker) : ?>
                                                             <option value="<?= $pencaker['id_pencaker'] ?>"><?= $pencaker['nm_lkp'] ?></option>
                                                         <?php endforeach; ?>
                                                     </select>
                                                 </div>
                                                 <div class="form-group">
-                                                    <select name="id_loker" id="id_loker" class="form-select form-control form-control-md" aria-label="Default select example">
+                                                <select name="id_loker" id="id_loker" class="custom-select is-invalid" aria-describedby="validationServer04Feedback" required>
                                                         <label for="id_loker">Judul Loker</label>
-                                                        <option selected>---pilih lowongan kerja---</option>
+                                                        <option selected disabled value="">---pilih lowongan kerja---</option>
                                                         <?php foreach ($dataLoker as $loker) : ?>
                                                             <option value="<?= $loker['id_loker'] ?>"><?= $loker['judul_loker'] ?>one</option>
                                                         <?php endforeach; ?>
@@ -153,18 +153,18 @@
                                                 <h2 class="page-content__header-heading text-center">Edit lamaran</h2>
                                             </div>
                                             <div class="form-group mt-3">
-                                                <select name="id_pencaker" class="form-select form-control form-control-md" aria-label="Default select example">
+                                            <select name="id_pencaker"  class="custom-select is-invalid" aria-describedby="validationServer04Feedback" required>
                                                     <label for="id_pencaker">Nama Pelamar Kerja</label>
-                                                    <option selected value="<?= $row->id_pencaker ?>"><?= $row->nm_lkp ?></option>
+                                                    <option selected disabled value="<?= $row->id_pencaker ?>"><?= $row->nm_lkp ?></option>
                                                     <?php foreach ($dataPencaker as $pencaker) : ?>
                                                         <option value="<?= $pencaker['id_pencaker'] ?>"><?= $pencaker['nm_lkp'] ?></option>
                                                     <?php endforeach; ?>
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <select name="id_loker" class="form-select form-control form-control-md" aria-label="Default select example">
+                                            <select name="id_loker" class="custom-select is-invalid" aria-describedby="validationServer04Feedback" required>
                                                     <label for="id_loker">Judul Loker</label>
-                                                    <option selected value="<?= $row->id_loker ?>"><?= $row->judul_loker ?></option>
+                                                    <option selected disabled value="<?= $row->id_loker ?>"><?= $row->judul_loker ?></option>
                                                     <?php foreach ($dataLoker as $loker) : ?>
                                                         <option value="<?= $loker['id_loker'] ?>"><?= $loker['judul_loker'] ?></option>
                                                     <?php endforeach; ?>

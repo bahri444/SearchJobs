@@ -109,9 +109,9 @@
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <select name="id_loker" class="form-select form-control form-control-md" aria-label="Default select example">
+                                            <select name="id_loker" class="custom-select is-invalid" aria-describedby="validationServer04Feedback" required>
                                                 <label for="id_loker">Judul Loker</label>
-                                                <option selected value="<?= $row->id_loker ?>"><?= $row->judul_loker ?></option>
+                                                <option selected disabled value="<?= $row->id_loker ?>"><?= $row->judul_loker ?></option>
                                                 <?php foreach ($dataLoker as $loker) : ?>
                                                     <option value="<?= $loker['id_loker'] ?>"><?= $loker['judul_loker'] ?></option>
                                                 <?php endforeach; ?>

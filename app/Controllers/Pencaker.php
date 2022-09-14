@@ -182,9 +182,6 @@ class Pencaker extends BaseController
     }
 
     public function printpdf($id_pencaker){
-
-        // $opt = new Options();
-        // $opt->setIsRemoteEnabled(true);
         $dompdf = new Dompdf();
         $datapencaker = $this->PencakerModel->where(['id_pencaker' => $id_pencaker])->first();
         // dd($datapencaker);

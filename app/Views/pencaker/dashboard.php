@@ -2,7 +2,7 @@
 
 <?= $this->section('content'); ?>
 
-// content ISI
+<!-- // content ISI -->
 <div class="page-content">
     <div class="container-fluid">
         <div class="page-content__header">

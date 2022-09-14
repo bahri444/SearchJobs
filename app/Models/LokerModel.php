@@ -20,6 +20,7 @@ class LokerModel extends Model
     protected $allowedFields    = [
         "id_ktgr",    "id_prshn",    "judul_loker",    "posisi",    "tgl_buka",    "tgl_tutup",    "syrt_pend",    "gaji",    "detail_loker"
     ];
+    protected $useTimestamps = true;
     protected $createdField = 'created_at';
     protected $updatedField = 'updated_at';
 

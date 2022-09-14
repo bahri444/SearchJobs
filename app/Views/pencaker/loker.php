@@ -30,8 +30,8 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="id_prshn">Id Perusahaan</label>
-                                                    <select name="id_prshn" class="form-select form-control form-control-md" aria-label="Default select example">
-                                                        <option selected>---pilih perusahaan---</option>
+                                                    <select name="id_prshn"  class="custom-select is-invalid" aria-describedby="validationServer04Feedback" required>
+                                                        <option selected disabled value="">---pilih perusahaan---</option>
                                                         <!-- loop perusahaan id -->
                                                         <?php foreach ($perusahaan as $prs) : ?>
                                                             <option value="<?= $prs['id_prshn']; ?>"><?= $prs['nm_prshn']; ?></option>
@@ -41,8 +41,8 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="id_ktgr">Kategori Loker</label>
-                                                    <select name="id_ktgr" class="form-select form-control form-control-md" aria-label="Default select example">
-                                                        <option selected>---pilih kategori loker---</option>
+                                                    <select name="id_ktgr"  class="custom-select is-invalid" aria-describedby="validationServer04Feedback" required>
+                                                        <option selected disabled value="">---pilih kategori loker---</option>
                                                         <!-- loop kategori loker id -->
                                                         <?php foreach ($ktgrLoker as $ktgr) : ?>
                                                             <option value="<?= $ktgr['id_ktgr']; ?>"><?= $ktgr['nm_ktgr']; ?></option>
@@ -164,8 +164,8 @@
                                             <input type="hidden" name="id_loker" value="<?= $value['id_loker'] ?>">
                                             <div class="form-group">
                                                 <label for="id_prshn">Id Perusahaan</label>
-                                                <select name="id_prshn" class="form-select form-control form-control-md" aria-label="Default select example">
-                                                    <option selected>---pilih perusahaan---</option>
+                                                <select name="id_prshn"  class="custom-select is-invalid" aria-describedby="validationServer04Feedback" required>
+                                                    <option selected disabled value="">---pilih perusahaan---</option>
                                                     <?php foreach ($perusahaan as $prs => $val) : ?>
                                                         <option value="<?= $val['id_prshn'] ?>"><?= $val['nm_prshn']; ?></option>
                                                     <?php endforeach; ?>
@@ -173,8 +173,8 @@
                                             </div>
                                             <div class="form-group">
                                                 <label for="id_ktgr">Kategori Loker</label>
-                                                <select name="id_ktgr" class="form-select form-control form-control-md" aria-label="Default select example">
-                                                    <option selected>---pilih kategori loker---</option>
+                                                <select name="id_ktgr"  class="custom-select is-invalid" aria-describedby="validationServer04Feedback" required>
+                                                    <option selected disabled value="">---pilih kategori loker---</option>
                                                     <?php foreach ($ktgrLoker as $ktgr => $val) : ?>
                                                         <option value="<?= $val['id_ktgr'] ?>"><?= $val['nm_ktgr']; ?></option>
                                                     <?php endforeach; ?>

@@ -100,7 +100,7 @@
                 ttd pencaker
             </div>
         </div><br><br><br><br>
-        <button type="button" id="download" >download</button>
+        <button type="button" id="download">download</button>
     </div>
     <script src="<?= base_url('js/html2canva.js') ?>"></script>
     <script>
@@ -110,7 +110,7 @@
                     var a=document.createElement('a')
                     document.body.appendChild(a)
                     a.download="kartu.png"
-                    a.href=canvas.toDataURL()
+                    a.href=canvas.toDataURL(q)
                     a.target="_blank"
                     a.click()
                 })

@@ -106,8 +106,8 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="pend_ter">Pendidikan Terakhir</label>
-                                                    <select name="pend_ter" id="pend_ter" class="form-select form-control form-control-md" aria-label="Default select example">
-                                                        <option selected>---pilih pendidikan---</option>
+                                                    <select name="pend_ter" id="pend_ter" class="custom-select is-invalid" aria-describedby="validationServer04Feedback" required>
+                                                        <option selected disabled value="">---pilih pendidikan---</option>
                                                         <option value="SMK">SMK/Sederajat</option>
                                                         <option value="D1">D1</option>
                                                         <option value="D2">D2</option>
