@@ -66,7 +66,6 @@ class UserController extends BaseController
         ]);
         return redirect()->to('login');
     }
-
     private function setUserSession($user)
     {
         $data = [

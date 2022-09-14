@@ -145,8 +145,8 @@
                                         </div>
                                     </div>
                                 </div>
+                            </form>
                         </div>
-                        </form>
                     </div>
                 </div>
             </div>
@@ -282,7 +282,7 @@
         <?php endforeach; ?>
         <!-- end-modal hapus -->
 
-        <div class="table-responsive">
+        <<<<<<< HEAD <div class="table-responsive">
             <div class="m-datatable">
                 <div class="table-responsive">
                     <table id="datatable" class="table table-striped">
@@ -357,13 +357,100 @@
                     </table>
                 </div>
             </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+        $('#example').DataTable();
+    });
+</script>
+
+<?= $this->endSection(); ?>
+=======
+<div class="table-responsive">
+    <div class="m-datatable">
+        <div class="table-responsive">
+            <table id="datatable" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">No</th>
+                        <th scope="col">Nama Lengkap</th>
+                        <th scope="col">Kelamin</th>
+                        <th scope="col">Tgl Lahir</th>
+                        <th scope="col">Alamat</th>
+                        <th scope="col">Pendidikan Terakhir</th>
+                        <th scope="col">Telepon</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Keahlian</th>
+                        <th scope="col">Sertifikat Keahlian</th>
+                        <th scope="col">Pengalaman</th>
+                        <th scope="col">Usia</th>
+                        <th scope="col">Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php $i = 1; ?>
+                    <?php foreach ($pencaker as $row) : ?>
+                        <tr>
+                            <td><?= $i++; ?></td>
+                            <td><?= $row->nm_lkp ?></td>
+                            <td><?= $row->jk ?></td>
+                            <td><?= $row->tgl_lhr ?></td>
+                            <td><?= $row->alamat ?></td>
+                            <td><?= $row->pend_ter ?></td>
+                            <td><?= $row->tlp ?></td>
+                            <td><?= $row->email ?></td>
+                            <td><?= $row->bid_keahlian ?></td>
+                            <td><?= $row->sertifikat ?></td>
+                            <td><?= $row->peng_ker ?></td>
+                            <td><?= $row->usia ?></td>
+                            <td class="d-flex justify-content-center">
+
+
+                                <!-- tombol-info data-->
+                                <div class="row">
+                                    <div class="col-sm mr-1">
+                                        <button type="button" class="btn btn-warning btn-sm-2" data-toggle="modal" data-target="#modalInfo<?= $row->id_pencaker ?>">
+                                            <i class="ua-icon-alert-info"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <!-- end-tombol info data -->
+                                <!-- tombol-edit data-->
+                                <div class="row">
+                                    <div class="col-sm mr-1 ml-1">
+                                        <button type="button" class="btn btn-info btn-sm-2" data-toggle="modal" data-target="#modalEdit<?= $row->id_pencaker ?>">
+                                            <i class="ua-icon-activity-edit"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <!-- end-tombol edit data -->
+
+                                <!-- tombol-hapus data-->
+                                <div class="row">
+                                    <div class="col-sm ml-1">
+                                        <button type="button" class="btn btn-danger btn-sm-2" data-toggle="modal" data-target="#modalHapus<?= $row->id_pencaker ?>">
+                                            <i class="ua-icon-trash"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <!-- end-tombol hapus data -->
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
         </div>
     </div>
+</div>
+</div>
 
-    <script>
-        $(document).ready(function() {
-            $('#example').DataTable();
-        });
-    </script>
+<script>
+    $(document).ready(function() {
+        $('#example').DataTable();
+    });
+</script>
 
-    <?= $this->endSection(); ?>
+<?= $this->endSection(); ?>
+>>>>>>> 5e90f3588e8d9ab2ba4b3929b77b32adbce0b2fd

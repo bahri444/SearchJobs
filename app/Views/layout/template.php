@@ -52,7 +52,6 @@ $session = \Config\Services::session();
     </div>
 
     <!-- navbar atau menu Atas -->
-
     <!-- tombol hidden sidebar -->
     <div class="navbar navbar-light navbar-expand-lg">
         <button class="sidebar-toggler" type="button">
@@ -292,6 +291,12 @@ $session = \Config\Services::session();
                         </a>
                     </li>
                     <li class="sidebar-section-nav__item">
+                        <a class="sidebar-section-nav__link" href="<?= route_to('pencaker/kartu'); ?>">
+                            <span class="sidebar-section-nav__item-icon ua-icon-file-pdf"></span>
+                            <span>Cetak kartu</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-section-nav__item">
                         <a class="sidebar-section-nav__link" href="<?= route_to('pencaker/profile'); ?>">
                             <span class="sidebar-section-nav__item-icon ua-icon-user-solid"></span>
                             <span>Profile</span>
@@ -301,12 +306,6 @@ $session = \Config\Services::session();
                         <a class="sidebar-section-nav__link" href="<?= route_to('logout'); ?>">
                             <span class="sidebar-section-nav__item-icon ua-icon-view-all"></span>
                             <span>Logout</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-section-nav__item">
-                        <a class="sidebar-section-nav__link" href="#">
-                            <span class="sidebar-section-nav__item-icon"></span>
-                            <span></span>
                         </a>
                     </li>
                     <li class="sidebar-section-nav__item">

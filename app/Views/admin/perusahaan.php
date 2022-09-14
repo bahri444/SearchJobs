@@ -100,6 +100,9 @@
                                                 <?php if ($vals->stts_prshn == "pending") : ?>
                                                     <button type="submit" class="btn btn-warning">Belum Lengkap</button>
                                                 <?php endif; ?>
+                                                <?php if ($vals->stts_prshn == "belum lengkap") : ?>
+                                                    <button type="submit" class="btn btn-warning">Belum Lengkap</button>
+                                                <?php endif; ?>
                                             </form>
                                         </div>
                                         <div class="justify-content-start ml-5">
@@ -107,7 +110,10 @@
                                                 <?= csrf_field() ?>
                                                 <input type="hidden" name="stts_prshn" value="di setujui">
                                                 <?php if ($vals->stts_prshn == "pending") : ?>
-                                                    <button type="submit" class="btn btn-primary">Setujui</button>
+                                                    <button type="submit" class="btn btn-info">Setujui</button>
+                                                <?php endif; ?>
+                                                <?php if ($vals->stts_prshn == "belum lengkap") : ?>
+                                                    <button type="submit" class="btn btn-info">Setujui</button>
                                                 <?php endif; ?>
                                             </form>
                                         </div>

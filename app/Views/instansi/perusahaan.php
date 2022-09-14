@@ -134,7 +134,11 @@
                                     <div class="row">
                                         <div class="col">
                                             <div class="mt-2 d-flex justify-content-center">
+<<<<<<< HEAD
                                                 <img width="400px" height="200px" src="<?= base_url() ?>/img2/<?= $value->logo; ?>" alt="not found">
+=======
+                                                <img width="400px" height="200px" src="<?= base_url() ?>/img2/<?= $value['logo']; ?>" alt="not found">
+>>>>>>> 5e90f3588e8d9ab2ba4b3929b77b32adbce0b2fd
                                             </div>
                                         </div>
                                     </div>
@@ -143,6 +147,7 @@
                                             <table>
                                                 <tr>
                                                     <th>Nama Perusahaan</th>
+<<<<<<< HEAD
                                                     <td><?= ': ', $value->nm_prshn ?></td>
                                                 </tr>
                                                 <tr>
@@ -166,8 +171,48 @@
                                                     <td><?= ': ', $value->strk_organis ?></td>
                                                 </tr>
                                             </table>
+=======
+                                                    <td><?= ': ', $value['nm_prshn'] ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Alamat</th>
+                                                    <td><?= ': ', $value['alamat'] ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Kontak</th>
+                                                    <td><?= ': ', $value['tlp'] ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Email</th>
+                                                    <td><?= ': ', $value['email'] ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Surat Izin</th>
+                                                    <td><?= ': ', $value['srt_izin'] ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Struktur</th>
+                                                    <td><?= ': ', $value['strk_organis'] ?></td>
+                                                </tr>
+                                            </table>
                                         </div>
                                     </div>
+                                    <!-- <div class="text-center mb-4">
+                                        <a href="mailto:bahrysaipul266@gmail.com?subject=Susd&body=dasda"><?= $value['email'] ?></a>
+                                    </div> -->
+                                    <!-- <div class="row mb-3 mt-3">
+                                        <div class="col">
+                                            <div class="d-flex justify-content-center">
+                                                <div class="justify-content-end mr-5">
+                                                    <button type="button" class="btn btn-warning" data-dismiss="model">Cancel</button>
+                                                </div>
+                                                <div class="justify-content-start ml-5">
+                                                    <button type="submit" class="btn btn-info">Simpan</button>
+                                                </div>
+                                            </div>
+>>>>>>> 5e90f3588e8d9ab2ba4b3929b77b32adbce0b2fd
+                                        </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>

@@ -168,4 +168,14 @@ class Pencaker extends BaseController
             dd($e);
         }
     }
+
+    public function download($id_pencaker)
+    {
+
+        $datapencaker = $this->PencakerModel->where(['id_pencaker' => $id_pencaker])->first();
+        $data = [
+            'no' => $datapencaker,
+        ];
+        return view('pencaker/kartu', $data);
+    }
 }

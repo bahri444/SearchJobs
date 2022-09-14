@@ -32,7 +32,7 @@ $routes->set404Override();
  * --------------------------------------------------------------------
  * Route Definitions
  * --------------------------------------------------------------------
- */
+*/
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
@@ -126,8 +126,8 @@ $routes->post('pencaker/dashboard/tambah', 'PencakerController::tambah');
 $routes->get('logout', 'UserController::logout');
 // end-routes for logout
 
-//...
-
+$routes->get('/pencaker/download/(:segment)', 'pencaker::download/$1');
+$routes->get('/pencaker/kartu', 'Kartu::index');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
