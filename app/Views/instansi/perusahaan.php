@@ -115,8 +115,8 @@
             <!-- end-modal tambah data -->
 
             <!-- modal-info -->
-            <?php foreach ($info as $k => $value) : ?>
-                <div id="modalInfo<?= $value['id_prshn'] ?>" class="modal fade custom-modal custom-modal-verify-account">
+            <?php foreach ($prshn_join as $k => $value) : ?>
+                <div id="modalInfo<?= $value->id_prshn ?>" class="modal fade custom-modal custom-modal-verify-account">
                     <div class="modal-dialog" role="document">
                         <button type="button" class="close custom-modal__close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true" class="ua-icon-modal-close"></span>
@@ -134,7 +134,11 @@
                                     <div class="row">
                                         <div class="col">
                                             <div class="mt-2 d-flex justify-content-center">
+<<<<<<< HEAD
+                                                <img width="400px" height="200px" src="<?= base_url() ?>/img2/<?= $value->logo; ?>" alt="not found">
+=======
                                                 <img width="400px" height="200px" src="<?= base_url() ?>/img2/<?= $value['logo']; ?>" alt="not found">
+>>>>>>> 5e90f3588e8d9ab2ba4b3929b77b32adbce0b2fd
                                             </div>
                                         </div>
                                     </div>
@@ -143,6 +147,31 @@
                                             <table>
                                                 <tr>
                                                     <th>Nama Perusahaan</th>
+<<<<<<< HEAD
+                                                    <td><?= ': ', $value->nm_prshn ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Alamat</th>
+                                                    <td><?= ': ', $value->alamat ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Kontak</th>
+                                                    <td><?= ': ', $value->tlp ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Email</th>
+                                                    <td><?= ': ', $value->email ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Surat Izin</th>
+                                                    <td><?= ': ', $value->srt_izin ?></td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Struktur</th>
+                                                    <td><?= ': ', $value->strk_organis ?></td>
+                                                </tr>
+                                            </table>
+=======
                                                     <td><?= ': ', $value['nm_prshn'] ?></td>
                                                 </tr>
                                                 <tr>
@@ -181,6 +210,7 @@
                                                     <button type="submit" class="btn btn-info">Simpan</button>
                                                 </div>
                                             </div>
+>>>>>>> 5e90f3588e8d9ab2ba4b3929b77b32adbce0b2fd
                                         </div>
                                     </div> -->
                                 </div>
@@ -193,7 +223,7 @@
         <!-- end-modal-info -->
 
         <!-- modal-edit -->
-        <?php foreach ($perusahaan as $row) : ?>
+        <?php foreach ($prshn_join as $row) : ?>
             <div id="modalEdit<?= $row->id_prshn ?>" class="modal fade custom-modal custom-modal-verify-account">
                 <div class="modal-dialog" role="document">
                     <button type="button" class="close custom-modal__close" data-dismiss="modal" aria-label="Close">
@@ -258,7 +288,7 @@
         <!-- end-modal-edit -->
 
         <!-- modal-hapus -->
-        <?php foreach ($perusahaan as $row) : ?>
+        <?php foreach ($prshn_join as $row) : ?>
             <div id="modalHapus<?= $row->id_prshn ?>" class="modal fade custom-modal custom-modal-verify-account">
                 <div class="modal-dialog" role="document">
                     <button type="button" class="close custom-modal__close" data-dismiss="modal" aria-label="Close">
@@ -308,7 +338,7 @@
                     </thead>
                     <tbody>
                         <?php $i = 1; ?>
-                        <?php foreach ($perusahaan as $row) : ?>
+                        <?php foreach ($prshn_join as $row) : ?>
                             <tr>
                                 <td><?= $i++; ?></td>
                                 <td><?= $row->nm_prshn ?></td>

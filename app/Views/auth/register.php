@@ -9,14 +9,14 @@
                     <h2 class="p-signin__form-heading">Register</h2>
                     <div class="p-signin__form-content">
                         <div class="panel-body">
-                            <?php if (!isset($validation)) : ?>
+                            <?php if ($validation) : ?>
                                 <div class="col-12">
                                     <div class="alert alert-danger" role="alert">
                                         <?= $validation->listErrors() ?>
                                     </div>
                                 </div>
                             <?php endif; ?>
-                            <form class="" action="<?= base_url('register') ?>" method="post">
+                            <form class="" action="<?= base_url('validreg') ?>" method="post">
                                 <?= csrf_field() ?>
                                 <div class="row">
                                     <div class="form-group col-md-12">

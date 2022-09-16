@@ -8,65 +8,75 @@ class Pencaker extends Migration
 {
     public function up()
     {
-        
+
         $this->forge->addField([
-            'id_pencaker'=>[
-                'type'=>'INT',
-                'constraint'=>11,
-                'unsigned'=>true,
-                'auto_increment'=>true,
+            'id_pencaker' => [
+                'type' => 'INT',
+                'constraint' => 11,
+                'unsigned' => true,
+                'auto_increment' => true,
 
             ],
-            'nm_lkp'=>[
-                'type'=>'VARCHAR',
-                'constraint'=>50,
+            'user_id' => [
+                'type' => 'INT',
+                'unsigned' => true,
+                'constraint' => 11,
             ],
-            'tgl_lhr'=>[
-                'type'=>'DATE'
+            'nm_lkp' => [
+                'type' => 'VARCHAR',
+                'constraint' => 50,
             ],
-            'jk'=>[
-                'type'=>'ENUM',
-                'constraint'=>['laki-laki','perempuan']
+            'fas_foto' => [
+                'type' => 'VARCHAR',
+                'constraint' => 40,
             ],
-            'usia'=>[
-                'type'=>'INT',
-                'constraint'=>2
+            'tgl_lhr' => [
+                'type' => 'DATE'
             ],
-            'alamat'=>[
-                'type'=>'VARCHAR',
-                'constraint'=>50,
+            'jk' => [
+                'type' => 'ENUM',
+                'constraint' => ['laki-laki', 'perempuan']
             ],
-            'email'=>[
-                'type'=>'VARCHAR',
-                'constraint'=>35,
+            'usia' => [
+                'type' => 'INT',
+                'constraint' => 2
             ],
-            'pend_ter'=>[
-                'type'=>'VARCHAR',
-                'constraint'=>20,
+            'tlp' => [
+                'type' => 'CHAR',
+                'constraint' => 14,
             ],
-            'peng_ker'=>[
-                'type'=>'TEXT',
+            'alamat' => [
+                'type' => 'VARCHAR',
+                'constraint' => 50,
             ],
-            'bid_keahlian'=>[
-                'type'=>'VARCHAR',
-                'constraint'=>20,
+            'pend_ter' => [
+                'type' => 'VARCHAR',
+                'constraint' => 20,
             ],
-            'sertifikat'=>[
-                'type'=>'VARCHAR',
-                'constraint'=>20,
+            'peng_ker' => [
+                'type' => 'TEXT',
             ],
-            'created_at'=>[
-                'type'=>'DATETIME'
+            'bid_keahlian' => [
+                'type' => 'VARCHAR',
+                'constraint' => 20,
+            ],
+            'sertifikat' => [
+                'type' => 'VARCHAR',
+                'constraint' => 20,
+            ],
+            'created_at' => [
+                'type' => 'DATETIME'
 
             ],
-            'updated_at'=>[
-                'type'=>'DATETIME'
+            'updated_at' => [
+                'type' => 'DATETIME'
 
             ],
         ]);
 
         // create primary key
-        $this->forge->addKey('id_pencaker',TRUE);
+        $this->forge->addKey('id_pencaker', TRUE);
+        $this->forge->addForeignKey('user_id', 'users', 'user_id', 'cascade', 'cascade');
 
         // create table perusahaan
         $this->forge->createTable('pencaker');

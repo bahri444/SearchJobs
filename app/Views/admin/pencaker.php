@@ -21,6 +21,7 @@
             <div>
                 <h2 class="page-content__header-heading">Data pencari kerja</h2>
             </div>
+<<<<<<< HEAD
 
             <!-- modal-tambah data-->
             <div class="row">
@@ -151,11 +152,11 @@
                     </div>
                 </div>
             </div>
+=======
+>>>>>>> bahri
         </div>
-        <!-- end-modal tambah data -->
-
         <!-- modal info peencaker -->
-        <?php foreach ($pencaker as $row) : ?>
+        <?php foreach ($Joins as $row) : ?>
             <div id="modalInfo<?= $row->id_pencaker ?>" class="modal fade custom-modal custom-modal-verify-account">
                 <div class="modal-dialog" role="document">
                     <button type="button" class="close custom-modal__close" data-dismiss="modal" aria-label="Close">
@@ -167,6 +168,15 @@
                                 <div class="col-sm">
                                     <div>
                                         <h2 class="page-content__header-heading text-center">Detail pencari kerja</h2>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="mt-2 d-flex justify-content-around">
+                                                <div>
+                                                    <img width="200px" height="200px" src="<?= base_url() ?>/img2/<?= $row->fas_foto; ?>" alt="not found">
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="form-group">
                                         <table>
@@ -212,8 +222,7 @@
                                             </tr>
                                             <tr>
                                                 <th>Usia</th>
-                                                <td><?= ': ', $row->usia ?> </td>
-                                                <td><input type="hidden" value="<?= $row->id_pencaker ;?>"></td>
+                                                <td><?= ': ', $row->usia ?></td>
                                             </tr>
                                         </table>
                                     </div>
@@ -223,7 +232,8 @@
                                                 <button type="button" class="btn btn-warning" data-dismiss="model">Cancel</button>
                                             </div> -->
                                             <div class="justify-content-start">
-                                            <a class="btn btn-success" href="<?= base_url('pencaker/download/'. $row->id_pencaker) ?>">Cetak Kartu</a>                                            </div>
+                                                <button type="button" class="btn btn-info">Cetak kartu kuning</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -235,136 +245,6 @@
         <?php endforeach; ?>
         <!-- end-modal info peencaker -->
 
-        <!-- modal-edit data -->
-        <?php foreach ($pencaker as $row) : ?>
-            <div id="modalEdit<?= $row->id_pencaker ?>" class="modal fade custom-modal custom-modal-verify-account">
-                <div class="modal-dialog" role="document">
-                    <button type="button" class="close custom-modal__close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true" class="ua-icon-modal-close"></span>
-                    </button>
-                    <form action="<?= base_url('/admin/pencaker/edit/' . $row->id_pencaker) ?>" method="post">
-                        <?= csrf_field(); ?>
-                        <div class="modal-content">
-                            <div class="mt-2">
-                                <div class="container">
-                                    <div class="col-sm">
-                                        <div>
-                                            <h2 class="page-content__header-heading text-center">Tambah lowongan kerja</h2>
-                                        </div>
-                                        <div class="form-group mt-3">
-                                            <label for="nm_lkp">Nama</label>
-                                            <input type="text" name="nm_lkp" placeholder="nama lengkap" value="<?= $row->nm_lkp ?>" class="form-control form-control-md" autofocus>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="tgl_lhr">Tgl Lahir</label>
-                                            <input name="tgl_lhr" type="date" placeholder="tanggal lahir" value="<?= date("Y-m-d", strtotime($row->tgl_lhr)) ?>" class="form-control form-control-md">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="jk">Jenis Kelamin</label><br>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="jk" id="inlineRadio1" value="laki-laki">
-                                                <label class="form-check-label" for="jk">Pria</label>
-                                            </div>
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="radio" name="jk" id="inlineRadio2" value="perempuan">
-                                                <label class="form-check-label" for="jk">Wanita</label>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="usia">Usia</label>
-                                            <input name="usia" type="text" placeholder="usia" value="<?= $row->usia ?>" class="form-control form-control-md">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="alamat">Alamat</label>
-                                            <input name="alamat" type="text" placeholder="alamat" value="<?= $row->alamat ?> " class="form-control form-control-md">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="tlp">Telepon</label>
-                                            <input name="tlp" type="text" placeholder="tlp" value="<?= $row->tlp ?> " class="form-control form-control-md">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="email">Email</label>
-                                            <input name="email" type="email" placeholder="email@gmail.com" value="<?= $row->email ?> " class="form-control form-control-md">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="peng_ker">Pengalaman Kerja</label>
-                                            <input name="peng_ker" type="text" placeholder="pengalaman kerja" value="<?= $row->peng_ker ?>" class="form-control form-control-md">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="pend_ter">Pendidikan Terakhir</label>
-                                            <select name="pend_ter" class="form-select form-control form-control-md" aria-label="Default select example">
-                                                <option selected value="<?= $row->pend_ter ?>"><?= $row->pend_ter ?></option>
-                                                <option value="SMK">SMK/Sederajat</option>
-                                                <option value="D1">D1</option>
-                                                <option value="D2">D2</option>
-                                                <option value="D3">D3</option>
-                                                <option value="D4">D4</option>
-                                                <option value="S1">S1</option>
-                                                <option value="S2">S2</option>
-                                                <option value="S3">S3</option>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="bid_keahlian">Bidang Keahlian</label>
-                                            <input name="bid_keahlian" type="text" placeholder="bidang keahlian" value="<?= $row->bid_keahlian ?>" class="form-control form-control-md">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="sertifikat">Sertifikat Keahlian</label>
-                                            <input name="sertifikat" type="file" placeholder="posisi atau kedudukan" value="<?= $row->sertifikat ?>" class="form-control form-control-md">
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="d-flex justify-content-center">
-                                                <div class="justify-content-end mr-5">
-                                                    <button type="button" class="btn btn-warning" data-dismiss="modal">Cancel</button>
-                                                </div>
-                                                <div class="justify-content-start ml-5">
-                                                    <button type="submit" class="btn btn-info">Simpan</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        <?php endforeach; ?>
-        <!-- end-modal edit -->
-
-        <!-- modal-hapus data -->
-        <?php foreach ($pencaker as $row) : ?>
-            <div id="modalHapus<?= $row->id_pencaker ?>" class="modal fade custom-modal custom-modal-verify-account">
-                <div class="modal-dialog" role="document">
-                    <button type="button" class="close custom-modal__close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true" class="ua-icon-modal-close"></span>
-                    </button>
-                    <div class="modal-content">
-                        <div class="mt-2">
-                            <div class="container">
-                                <div class="col-sm-50">
-                                    <div class="form-group">
-                                        <p class="text-center mt-2">Anda Yakin ingin Menghapus Data Ini?</p>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="d-flex justify-content-center">
-                                            <div class="justify-content-end mr-5">
-                                                <button type="button" class="btn btn-warning" data-dismiss="modal">Tidak</button>
-                                            </div>
-                                            <div class="justify-content-start ml-5">
-                                                <a href="<?= base_url('/admin/pencaker/hapus/' . $row->id_pencaker) ?>" class="btn btn-info">Ya</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        <?php endforeach; ?>
-        <!-- end-modal hapus -->
-
         <div class="table-responsive">
             <div class="m-datatable">
                 <div class="table-responsive">
@@ -372,6 +252,7 @@
                         <thead class="text-center">
                             <tr>
                                 <th scope="col"><b>No</b></th>
+                                <th scope="col"><b>Username</b></th>
                                 <th scope="col"><b>Nama Lengkap</b></th>
                                 <th scope="col"><b>Kelamin</b></th>
                                 <th scope="col"><b>Tgl Lahir</b></th>
@@ -386,11 +267,12 @@
                                 <th scope="col"><b>Aksi</b></th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody class="text-center">
                             <?php $i = 1; ?>
-                            <?php foreach ($pencaker as $row) : ?>
+                            <?php foreach ($Joins as $row) : ?>
                                 <tr>
                                     <td><?= $i++; ?></td>
+                                    <td><?= $row->username ?></td>
                                     <td><?= $row->nm_lkp ?></td>
                                     <td><?= $row->jk ?></td>
                                     <td><?= $row->tgl_lhr ?></td>
@@ -415,23 +297,23 @@
                                         </div>
                                         <!-- end-tombol info data -->
                                         <!-- tombol-edit data-->
-                                        <div class="row">
+                                        <!-- <div class="row">
                                             <div class="col-sm mr-1 ml-1">
                                                 <button type="button" class="btn btn-info btn-sm-2" data-toggle="modal" data-target="#modalEdit<?= $row->id_pencaker ?>">
                                                     <i class="ua-icon-activity-edit"></i>
                                                 </button>
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <!-- end-tombol edit data -->
 
                                         <!-- tombol-hapus data-->
-                                        <div class="row">
+                                        <!-- <div class="row">
                                             <div class="col-sm ml-1">
                                                 <button type="button" class="btn btn-danger btn-sm-2" data-toggle="modal" data-target="#modalHapus<?= $row->id_pencaker ?>">
                                                     <i class="ua-icon-trash"></i>
                                                 </button>
                                             </div>
-                                        </div>
+                                        </div> -->
                                         <!-- end-tombol hapus data -->
                                     </td>
                                 </tr>

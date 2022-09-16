@@ -22,13 +22,15 @@ class Loker extends BaseController
     {
         $perusahaan = $this->perusahaanModel->findAll();
         $Dt = $this->ktgrLokerModel->findAll();
-        $Data1 = $this->lokerModel->getLoker();
+        $dtLok = $this->lokerModel->getLoker();
+        // $dtLok['sorting'] = $this->lokerModel->where('status', 'pending')->orderBy('id_loker', 'DESC')->findAll();
         $data = [
             "perusahaan" => $perusahaan,
             "ktgrLoker" => $Dt,
             "title" => "Loker",
-            "joinAll" => $Data1,
+            "joinAll" => $dtLok,
         ];
+        // dd($data);
         if (session()->get('role') == 'admin') {
             return view('/admin/loker', $data);
         } elseif (session()->get('role') == 'instansi') {
@@ -100,5 +102,28 @@ class Loker extends BaseController
             return redirect()->to(base_url('/pencaker/loker'));
         }
         // return redirect()->to(base_url('admin/loker'));
+    }
+
+    public function validasi($id_loker)
+    {
+        $datafrm = $this->request->getPost('validasi');
+        $res = $this->lokerModel->where('id_loker', $id_loker)->get()->getResultArray();
+        $dataLok = [
+            'id_loker' => $id_loker,
+            'id_ktgr' => $res[0]["id_ktgr"],
+            'id_prshn' => $res[0]["id_prshn"],
+            'judul_loker' => $res[0]["judul_loker"],
+            'posisi' => $res[0]["posisi"],
+            'tgl_buka' => $res[0]["tgl_buka"],
+            'tgl_tutup' => $res[0]["tgl_tutup"],
+            'syrt_pend' => $res[0]["syrt_pend"],
+            'gaji' => $res[0]["gaji"],
+            'detail_loker' => $res[0]["detail_loker"],
+            'status' => $datafrm
+        ];
+        // dd($dataLok);
+        $this->lokerModel->save($dataLok);
+        // dd($this->lokerModel->save($dataLok));
+        return redirect()->to('/admin/loker');
     }
 }

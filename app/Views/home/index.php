@@ -8,10 +8,17 @@
 </div>
 <div class="row ml-2 mr-2">
   <?php foreach ($loker as $row) : ?>
-    <div class="col-xl-4 col-md-6">
+    <div class="col-lg-5 col-md-6">
       <div class="main-container">
         <h3 class="text-center"><b><?= $row['judul_loker'] ?></b></h3>
-        <table border="0">
+        <table>
+          <div class="row">
+            <div class="col">
+              <div class="mt-2 d-flex justify-content-center">
+                <img src="<?= base_url() ?>/img2/<?= $row['logo'] ?>" alt="404" width="170px" height="170px">
+              </div>
+            </div>
+          </div>
           <tr>
             <th>Nama Kategori</th>
             <td><?= ': ', $row['nm_ktgr'] ?></td>
@@ -29,16 +36,16 @@
             <td><?= ': ', $row['syrt_pend'] ?></td>
           </tr>
           <tr>
-            <th>Deskripsi</th>
-            <td><?= ': ', $row['detail_loker'] ?></td>
-          </tr>
-          <tr>
             <th>Tgl Buka</th>
             <td><?= ': ', $row['tgl_buka'] ?></td>
           </tr>
           <tr>
             <th>Tgl Tutup</th>
             <td><?= ': ', $row['tgl_tutup'] ?></td>
+          </tr>
+          <tr>
+            <th>Deskripsi</th>
+            <td><?= ': ', $row['detail_loker'] ?></td>
           </tr>
           <tr>
             <th>Di Posting</th>

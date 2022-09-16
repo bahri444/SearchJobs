@@ -2,32 +2,39 @@
 
 namespace App\Controllers;
 
-use App\Models\PencakerModel;
 use CodeIgniter\HTTP\Files\UploadedFile;
-use Dompdf\Dompdf;
-use Dompdf\Options;
 use Exception;
+use App\Models\UserModel;
+use App\Models\PencakerModel;
 
 class Pencaker extends BaseController
 {
     public function __construct()
     {
-        $this->PencakerModel = new PencakerModel();
+        $this->userModel = new UserModel();
+        $this->pencakerModel = new PencakerModel();
+        $this->session = \Config\Services::session();
     }
-    public function Pencaker()
+    public function pencaker()
     {
-        $datapencaker = $this->PencakerModel->getPencaker()->getResult();
-        // $pr = $this->perusahaanModel->findAll();
-        // dd($datapencaker);
+        $datausers = $this->userModel->findAll();
+        $datapencaker = $this->pencakerModel->getPencaker();
         session();
         $data = [
-            "pencaker" => $datapencaker,
+            "user" => $datausers,
+            "Joins" => $datapencaker,
             "title" => "pencaker",
-            'info' => $this->PencakerModel->findAll(),
+            'info' => $this->pencakerModel->findAll(),
             'validation' => \config\Services::validation()
         ];
-        return view('/admin/pencaker', $data);
-        // dd($pr);
+        // dd($data);
+        if (session()->get('role') == 'admin') {
+            return view('/admin/pencaker', $data);
+        } elseif (session()->get('role') == 'instansi') {
+            return view('/instansi/pencaker', $data);
+        } elseif (session()->get('role') == 'pencaker') {
+            return view('/pencaker/dashboard', $data);
+        }
     }
 
     // func for insert data
@@ -114,7 +121,6 @@ class Pencaker extends BaseController
             'peng_ker' => $this->request->getPost('peng_ker'),
             'bid_keahlian' => $this->request->getPost('bid_keahlian'),
             'sertifikat' => $namaSertifikat,
-            // 'id_prshn' =>$this->request->getPost()
         ];
         // dd($data);
         $success = $this->PencakerModel->tambah($data);
@@ -123,13 +129,6 @@ class Pencaker extends BaseController
             return redirect()->to(base_url('/admin/pencaker'));
             // dd($data);
         }
-        // print_r($data);
-        // try{
-        //     $this->PencakerModel->tambah($data);
-        //         return redirect()->to(base_url('pencaker'));
-        // }catch(Exception $e){
-        //     dd($e);
-        // }
     }
 
     // func edit
@@ -170,37 +169,13 @@ class Pencaker extends BaseController
         }
     }
 
-    public function download($id_pencaker){
-   
-        $datapencaker = $this->PencakerModel->where(['id_pencaker' => $id_pencaker])->first();
-        // dd($datapencaker);
-        // $id_pencaker = $this->request->getVar('id_pencaker');
-        $data =[
-            'no' => $datapencaker,   
-        ];
-        return view('pencaker/kartu' ,$data);
-    }
+    public function download($id_pencaker)
+    {
 
-    public function printpdf($id_pencaker){
-        $dompdf = new Dompdf();
         $datapencaker = $this->PencakerModel->where(['id_pencaker' => $id_pencaker])->first();
-        // dd($datapencaker);
-        // $id_pencaker = $this->request->getVar('id_pencaker');
-        $data =[
+        $data = [
             'no' => $datapencaker,
         ];
-        $dompdf->loadHtml(view('pencaker/kartu' ,$data));
-
-        // (Optional) Setup the paper size and orientation
-        $dompdf->setPaper('A4', 'landscape');
-
-        // Render the HTML as PDF
-        $dompdf->render();
-
-        // Output the generated PDF to Browser
-        // $dompdf->stream();
-        $dompdf->stream('kartu.pdf', array(
-            "Attachment" => false
-        ));
+        return view('pencaker/kartu', $data);
     }
 }

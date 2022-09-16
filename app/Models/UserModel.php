@@ -16,6 +16,7 @@ class UserModel extends Model
     protected $protectFields    = true;
     protected $allowedFields    = ["username", "email", "password", "user_image", "role"];
 
+<<<<<<< HEAD
     // Dates
     protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
@@ -29,6 +30,8 @@ class UserModel extends Model
     protected $cleanValidationRules = true;
 
 
+=======
+>>>>>>> bahri
     public function getUser()
     {
         $query = $this->db->table('users');

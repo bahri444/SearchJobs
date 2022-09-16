@@ -2,27 +2,33 @@
 
 namespace App\Controllers;
 
-use App\Models\PerusahaanModel;
 use CodeIgniter\HTTP\Files\UploadedFile;
 use Exception;
+use App\Models\UserModel;
+use App\Models\PerusahaanModel;
 
 class Perusahaan extends BaseController
 {
     public function __construct()
     {
+        $this->userModel = new UserModel();
         $this->perusahaanModel = new PerusahaanModel();
+        $this->session = \Config\Services::session();
     }
     public function perusahaan()
     {
-        $dataPerusahaan = $this->perusahaanModel->getPerusahaan()->getResult();
-        // $pr = $this->perusahaanModel->findAll();
+        $dataUser = $this->userModel->findAll();
+        $dataPerusahaan = $this->perusahaanModel->getPerusahaan();
         session();
         $data = [
-            "perusahaan" => $dataPerusahaan,
+            'users' => $dataUser,
+            "prshn_join" => $dataPerusahaan,
             "title" => "Perusahaan",
-            'info' => $this->perusahaanModel->findAll(),
+            // 'info' => $this->perusahaanModel->findAll(),
             'validation' => \config\Services::validation()
         ];
+        // dd($data);
+
         if (session()->get('role') == 'admin') {
             return view('/admin/perusahaan', $data);
         } elseif (session()->get('role') == 'instansi') {
@@ -41,12 +47,6 @@ class Perusahaan extends BaseController
                 'rules' => 'required',
                 'errors' => [
                     'required' => 'Nama perusahaan harus di isi '
-                ]
-            ],
-            'email' => [
-                'rules' => 'required',
-                'errors' => [
-                    'required' => 'email harus di isi '
                 ]
             ],
             'tlp' => [
@@ -136,6 +136,7 @@ class Perusahaan extends BaseController
     {
         $this->perusahaanModel->save([
             'id_prshn' => $id_prshn,
+            'user_id' => $this->request->getVar('user_id'),
             'nm_prshn' => $this->request->getVar('nm_prshn'),
             'alamat' => $this->request->getVar('alamat'),
             'email' => $this->request->getVar('email'),
@@ -167,5 +168,25 @@ class Perusahaan extends BaseController
             return redirect()->to(base_url('/pencaker/perusahaan'));
         }
         // return redirect()->to(base_url('/admin/perusahaan'));
+    }
+
+    public function sttsPrshn($id_prshn)
+    {
+        $formData = $this->request->getPost('stts_prshn');
+        $res = $this->perusahaanModel->where('id_prshn', $id_prshn)->get()->getResultArray();
+        $data = [
+            'id_prshn' => $id_prshn,
+            'user_id' => $res[0]['user_id'],
+            'nm_prshn' => $res[0]['nm_prshn'],
+            'alamat' => $res[0]['alamat'],
+            'tlp' => $res[0]['tlp'],
+            'logo' => $res[0]['logo'],
+            'srt_izin' => $res[0]['srt_izin'],
+            'strk_organis' => $res[0]['strk_organis'],
+            'stts_prshn' => $formData
+        ];
+        // dd($data);
+        $this->perusahaanModel->save($data);
+        return redirect()->to('/admin/perusahaan');
     }
 }

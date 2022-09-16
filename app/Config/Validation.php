@@ -45,4 +45,23 @@ class Validation extends BaseConfig
     //--------------------------------------------------------------------
     // Rules
     //--------------------------------------------------------------------
+
+
+
+    // public $signup = [
+    //     'username'     => 'required',
+    //     'email'        => 'required|valid_email',
+    //     'password'     => 'required',
+    //     'confirmpassword'   => 'required|matches[password]',
+    //     'role'              => 'required|min_length[6]|max_length[50]',
+    // ];
+
+    // public $signup_errors = [
+    //     'username' => [
+    //         'required' => 'You must choose a username.',
+    //     ],
+    //     'email' => [
+    //         'valid_email' => 'Please check the Email field. It does not appear to be valid.',
+    //     ],
+    // ];
 }

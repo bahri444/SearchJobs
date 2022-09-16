@@ -9,29 +9,28 @@
             <div>
                 <h2 class="page-content__header-heading">Data User</h2>
             </div>
-
-            <!-- modal-hapus -->
-            <?php foreach ($user as $row => $val) : ?>
-                <div id="modalHapus<?= $val->user_id ?>" class="modal fade custom-modal custom-modal-verify-account">
-                    <div class="modal-dialog" role="document">
-                        <button type="button" class="close custom-modal__close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true" class="ua-icon-modal-close"></span>
-                        </button>
-                        <div class="modal-content">
-                            <div class="mt-2">
-                                <div class="container">
-                                    <div class="col-sm-50">
-                                        <div class="form-group">
-                                            <p class="text-center mt-2">Anda Yakin ingin Menghapus Data Ini?</p>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="d-flex justify-content-center">
-                                                <div class="justify-content-end mr-5">
-                                                    <button type="button" class="btn btn-warning">Tidak</button>
-                                                </div>
-                                                <div class="justify-content-start ml-5">
-                                                    <a href="<?= base_url('admin/user/hapus/' . $val->user_id) ?>" class="btn btn-info">Ya</a>
-                                                </div>
+        </div>
+        <!-- modal-hapus -->
+        <?php foreach ($user as $row => $val) : ?>
+            <div id="modalHapus<?= $val->user_id ?>" class="modal fade custom-modal custom-modal-verify-account">
+                <div class="modal-dialog" role="document">
+                    <button type="button" class="close custom-modal__close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="ua-icon-modal-close"></span>
+                    </button>
+                    <div class="modal-content">
+                        <div class="mt-2">
+                            <div class="container">
+                                <div class="col-sm-50">
+                                    <div class="form-group">
+                                        <p class="text-center mt-2">Anda Yakin ingin Menghapus Data Ini?</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="d-flex justify-content-center">
+                                            <div class="justify-content-end mr-5">
+                                                <button type="button" class="btn btn-warning">Tidak</button>
+                                            </div>
+                                            <div class="justify-content-start ml-5">
+                                                <a href="<?= base_url('admin/user/hapus/' . $val->user_id) ?>" class="btn btn-info">Ya</a>
                                             </div>
                                         </div>
                                     </div>
@@ -40,9 +39,9 @@
                         </div>
                     </div>
                 </div>
-            <?php endforeach; ?>
-            <!-- end-modal-hapus -->
-        </div>
+            </div>
+        <?php endforeach; ?>
+        <!-- end-modal-hapus -->
         <div class="table-responsive">
             <div class="m-datatable">
                 <table id="datatable" class="table table-striped">
@@ -57,7 +56,6 @@
                         </tr>
                     </thead>
                     <tbody class="text-center">
-
                         <?php $i = 1; ?>
                         <?php foreach ($user as $user => $val) : ?>
                             <tr>
@@ -67,17 +65,6 @@
                                 <td><?= $val->role ?></td>
                                 <td><img src="<?= base_url() ?>/img/users/<?= $val->user_image ?>" alt=""></td>
                                 <td class="d-flex justify-content-center ">
-
-                                    <!-- modal-edit data-->
-                                    <!-- <div class="row">
-                                        <div class="col-sm mr-1">
-                                            <button type="button" class="btn btn-info btn-sm-2" data-toggle="modal" data-target="#modalEdit">
-                                                <i class="ua-icon-activity-edit"></i>
-                                            </button>
-                                        </div>
-                                    </div> -->
-                                    <!-- end-modal edit data -->
-
                                     <!-- modal-hapus data-->
                                     <div class="row">
                                         <div class="col-sm ml-1">

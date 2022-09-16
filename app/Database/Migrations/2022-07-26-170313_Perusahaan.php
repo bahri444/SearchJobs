@@ -12,52 +12,55 @@ class Perusahaan extends Migration
     {
         //table perusahaan
         $this->forge->addField([
-            'id_prshn'=>[
-                'type'=>'INT',
-                'constraint'=>11,
-                'unsigned'=>true,
-                'auto_increment'=>true,
-            ],
-            'nm_prshn'=>[
-                'type'=>'VARCHAR',
-                'constraint'=>50,
-            ],
-            'alamat'=>[
-                'type'=>'VARCHAR',
-                'constraint'=>50,
-            ],
-            'email'=>[
-                'type'=>'VARCHAR',
-                'constraint'=>35,
-            ],
-            'tlp'=>[
-                'type'=>'CHAR',
-                'constraint'=>14,
-            ],
-            'logo'=>[
-                'type'=>'VARCHAR',
-                'constraint'=>20,
-            ],
-            'srt_izin'=>[
-                'type'=>'VARCHAR',
-                'constraint'=>20,
-            ],
-            'strk_organis'=>[
-                'type'=>'VARCHAR',
-                'constraint'=>20,
-            ],
-            'created_at'=>[
-                'type'=>'DATETIME'
+            'id_prshn' => [
+                'type' => 'INT',
+                'constraint' => 11,
+                'unsigned' => true,
+                'auto_increment' => true,
 
             ],
-            'updated_at'=>[
-                'type'=>'DATETIME'
+            'user_id' => [
+                'type' => 'INT',
+                'unsigned' => true,
+                'constraint' => 11,
+            ],
+            'nm_prshn' => [
+                'type' => 'VARCHAR',
+                'constraint' => 50,
+            ],
+            'alamat' => [
+                'type' => 'VARCHAR',
+                'constraint' => 50,
+            ],
+            'tlp' => [
+                'type' => 'CHAR',
+                'constraint' => 14,
+            ],
+            'logo' => [
+                'type' => 'VARCHAR',
+                'constraint' => 20,
+            ],
+            'srt_izin' => [
+                'type' => 'VARCHAR',
+                'constraint' => 20,
+            ],
+            'strk_organis' => [
+                'type' => 'VARCHAR',
+                'constraint' => 20,
+            ],
+            'created_at' => [
+                'type' => 'DATETIME'
+
+            ],
+            'updated_at' => [
+                'type' => 'DATETIME'
 
             ],
         ]);
 
         // create primary key
-        $this->forge->addKey('id_prshn',TRUE);
+        $this->forge->addKey('id_prshn', TRUE);
+        $this->forge->addForeignKey('user_id', "users", "user_id", "cascade", "cascade");
 
         // create table perusahaan
         $this->forge->createTable('perusahaan');
