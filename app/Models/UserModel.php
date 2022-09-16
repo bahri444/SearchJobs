@@ -16,22 +16,6 @@ class UserModel extends Model
     protected $protectFields    = true;
     protected $allowedFields    = ["username", "email", "password", "user_image", "role"];
 
-<<<<<<< HEAD
-    // Dates
-    protected $useTimestamps = true;
-    protected $dateFormat    = 'datetime';
-    protected $createdField  = 'created_at';
-    protected $updatedField  = 'updated_at';
-
-    // Validation
-    protected $validationRules      = [];
-    protected $validationMessages   = [];
-    protected $skipValidation       = false;
-    protected $cleanValidationRules = true;
-
-
-=======
->>>>>>> bahri
     public function getUser()
     {
         $query = $this->db->table('users');
