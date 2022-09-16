@@ -18,8 +18,8 @@ class UserModel extends Model
 
     public function getUser()
     {
-        $query = $this->db->table('users');
-        return $query->get();
+        $query = $this->db->table('users')->orderBy('user_id', 'DESC');
+        return $query->get()->getResult();
     }
     public function hapus($user_id)
     {

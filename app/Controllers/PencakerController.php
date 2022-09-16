@@ -15,32 +15,19 @@ class PencakerController extends BaseController
 {
     public function __construct()
     {
-        // $this->ktgrLokerModel = new KtgrLokerModel();
-        // $this->perusahaanModel = new PerusahaanModel();
         $this->lokerModel = new LokerModel();
-
         $this->lamaranModel = new LamaranModel();
         $this->pencakerModel = new PencakerModel();
-
         $this->session = \Config\Services::session();
     }
+
     public function index()
     {
-        // $prs = $this->perusahaanModel->findAll();
-        // $ktgr = $this->ktgrLokerModel->findAll();
         $pnckr = $this->pencakerModel->findAll();
-        // $lamar = $this->lamaranModel->findAll();
-
-        // $lokers = $this->lokerModel->where('status', 'pending')->orderBy('id_loker', 'DESC')->get();
-        // $lokers['sorting'] = $this->lokerModel->where('status', 'pending')->orderBy('id_loker', 'DESC')->findAll();
-        // $lokers = $this->lokerModel->where('status', 'valid')->orderBy('id_loker', 'DESC')->findAll();
-        $lokers = $this->lokerModel->getLoker();
+        $lokers = $this->lokerModel->filterData();
         $data = [
-            // 'perusahaan' => $prs,
-            // 'ktgrLoker' => $ktgr,
             'lokersJoin' => $lokers,
             'pnckr' => $pnckr,
-            // 'lamar' => $lamar,
             'title' => 'Data Filter'
         ];
         // dd($data);

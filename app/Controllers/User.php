@@ -13,11 +13,12 @@ class User extends BaseController
     }
     public function user()
     {
-        $dataUser = $this->userModel->getUser()->getResult();
-        $data = array(
+        $dataUser = $this->userModel->getUser();
+        $data = [
             'title' => 'Data All User',
             'user' => $dataUser
-        );
+        ];
+        // dd($data);
         return view('/admin/user', $data);
     }
     public function hapus($user_id)

@@ -25,31 +25,6 @@ class LokerModel extends Model
     protected $createdField = 'created_at';
     protected $updatedField = 'updated_at';
 
-    public function getKtgrLoker()
-    {
-        $query = $this->db->table('ktgr_loker');
-        return $query->get();
-    }
-
-    public function getPerusahaan()
-    {
-        $query = $this->db->table('perusahaan');
-        return $query->get();
-    }
-
-    // func for read data pencaker
-    public function getPencaker()
-    {
-        $builder = $this->db->table('pencaker');
-        return $builder->get();
-    }
-    public function getLamaran()
-    {
-        $query = $this->db->table('lamaran');
-        return $query->get();
-    }
-
-
     public function getLoker()
     {
         $builder = $this->db->table('loker');
@@ -65,6 +40,15 @@ class LokerModel extends Model
         // $builder->join('pencaker', 'pencaker.user_id = perusahaan.user_id'); hanya mengambil id_pencaker 2
         // $builder->join('pencaker', 'perusahaan.user_id = pencaker.id_pencaker'); hanya mengambil id_pencaker 3
         // $builder->join('pencaker', 'pencaker.user_id = pencaker.user_id'); data double
+        return $builder->get()->getResultArray();
+    }
+
+    public function filterData()
+    {
+        $builder = $this->db->table('loker')->where(['status' => 'valid']);
+        $builder->join('perusahaan', 'perusahaan.id_prshn = loker.id_prshn');
+        $builder->join('ktgr_loker', 'ktgr_loker.id_ktgr = loker.id_ktgr');
+        $builder->orderBy('id_loker', 'DESC');
         return $builder->get()->getResultArray();
     }
 

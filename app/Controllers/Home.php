@@ -24,7 +24,7 @@ class Home extends BaseController
     {
         $perusahaan = $this->perusahaanModel->findAll();
         $data = $this->ktgrLokerModel->findAll();
-        $data2 = $this->lokerModel->getLoker();
+        $data2 = $this->lokerModel->filterData();
         $datas = [
             'perusahaan' => $perusahaan,
             'ktgrLoker' => $data,

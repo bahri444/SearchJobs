@@ -25,16 +25,11 @@ class PerusahaanModel extends Model
     protected $updatedField  = 'updated_at';
 
     // func for read data
-    public function getUser()
-    {
-        $query = $this->db->table('users');
-        return $query->get();
-    }
-    // func for read data
     public function getPerusahaan()
     {
         $builder = $this->db->table('perusahaan');
         $builder->join('users', 'users.user_id = perusahaan.user_id');
+        $builder->orderBy('id_prshn', 'DESC');
         $query = $builder->get();
         return $query->getResult();
     }

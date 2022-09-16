@@ -25,6 +25,7 @@ class KtgrLokerModel extends Model
     public function getKtgrLoker()
     {
         $query = $this->db->table('ktgr_loker');
+        $query->orderBy('id_ktgr', 'DESC');
         return $query->get();
     }
     public function tambah($data)

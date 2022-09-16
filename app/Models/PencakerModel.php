@@ -24,18 +24,12 @@ class PencakerModel extends Model
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
 
-    // func for read data user
-    public function getUser()
-    {
-        $query = $this->db->table('users');
-        return $query->get();
-    }
-
     // func for read data pencaker
     public function getPencaker()
     {
         $builder = $this->db->table('pencaker');
         $builder->join('users', 'users.user_id = pencaker.user_id');
+        $builder->orderBy('id_pencaker', 'DESC');
         $query = $builder->get();
         return $query->getResult();
     }

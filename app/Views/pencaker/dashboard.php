@@ -39,12 +39,8 @@
                                                 <h2 class="page-content__header-heading text-center">Lamar Pekerjaan</h2>
                                             </div>
                                             <div class="form-group">
-                                                <label for="id_pencaker">Nama Pencaker</label>
-                                                <select name="id_pencaker" class="form-select form-control form-control-md" aria-label="Default select example">
-                                                    <?php foreach ($pnckr as $r) : ?>
-                                                        <option selected value="<?= $r['id_pencaker'] ?>"><?= $r['id_pencaker'], '-', $r['nm_lkp'], ',', $r['user_id'], '-', session()->get('username') ?></option>
-                                                    <?php endforeach; ?>
-                                                </select>
+                                                <label for="id_pencaker">Nomor Pencaker</label>
+                                                <input type="text" name="id_pencaker" class="form-control">
                                             </div>
                                             <div class="form-group">
                                                 <label for="id_loker">Nama Lowongan</label>

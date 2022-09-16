@@ -27,22 +27,15 @@ class LamaranModel extends Model
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
 
-    // func for read data
-    public function getPencaker()
-    {
-        $query = $this->db->table('pencaker');
-        return $query->get();
-    }
-
     public function getlamaran()
     {
         $query = $this->db->table('lamaran');
         $query->join('pencaker', 'lamaran.id_pencaker = pencaker.id_pencaker');
         $query->join('loker', 'lamaran.id_loker = loker.id_loker');
         $query->join('perusahaan', 'loker.id_prshn = perusahaan.id_prshn');
+        $query->orderBy('id_lamaran', 'DESC');
         return $query->get();
     }
-
 
     // func for insert data
     public function tambah($data)
