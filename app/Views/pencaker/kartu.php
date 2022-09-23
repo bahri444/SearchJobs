@@ -96,6 +96,7 @@
         margin-top: 80px;
     }
 </style>
+<?php $session = \Config\Services::session(); ?>
 
 <body>
     <br><br><br>
@@ -112,23 +113,27 @@
             <div>
                 <h4>KARTU TANDA PENCARI KERJA</h4>
             </div>
-            <div class="row">
-                <div style="width: 100px;">
-                    <img src="<?= base_url('img/R.png') ?>" alt="" width="50px" height="50px" />
-                </div>
-                <div>
-                    <table>
-                        <tr>
-                            <td> <label for="">No pencaker</label></td>
-                            <td><?= ': ', session()->get('user_id', 'id_pencaker') ?></td>
-                        </tr>
-                        <tr>
-                            <th>Keterangan :</th>
-                            <td> Lorem ipsum dolor sit, amet Lorem ipsum dolor sit amet.</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
+            <?php foreach ($pnckr as $val) : ?>
+                <?php if ($session->get('user_id') == $val->user_id) : ?>
+                    <div class="row">
+                        <div style="width: 100px;">
+                            <img src="<?= base_url('img2/' . $val->fas_foto) ?>" alt="404" width="80px" height="100px" />
+                        </div>
+                        <div>
+                            <table>
+                                <tr>
+                                    <td><label for="">No pencaker</label></td>
+                                    <td><?= ': pnckr00', $val->id_pencaker ?></td>
+                                </tr>
+                                <tr>
+                                    <th>Keterangan </th>
+                                    <td>: Lorem ipsum dolor sit, amet Lorem ipsum dolor sit amet.</td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                <?php endif; ?>
+            <?php endforeach; ?>
             <br /><br />
             <div class="bawah">
                 ttd pencaker

@@ -1,12 +1,12 @@
 <?= $this->extend('layout/template'); ?>
-
 <?= $this->section('content'); ?>
+<?php $session = \Config\Services::session() ?>
 
 <div class="page-content">
     <div class="container-fluid">
         <div class="page-content__header">
             <div>
-                <h2 class="page-content__header-heading">Data Lamaran</h2>
+                <h2 class="page-content__header-heading">Data pelamar kerja</h2>
             </div>
 
             <!-- modal-tambah data-->
@@ -288,7 +288,6 @@
                             <th scope="col"><b>Nama Lowongan</b></th>
                             <th scope="col"><b>Berkas Persyaratan</b></th>
                             <th scope="col"><b>Tgl Melamar</b></th>
-                            <th scope="col"><b>Status</b></th>
                             <th scope="col"><b>Persetujuan</b></th>
                             <th scope="col"><b>Aksi</b></th>
                         </tr>
@@ -296,46 +295,47 @@
                     <tbody>
                         <?php $i = 1; ?>
                         <?php foreach ($lamaran as $row) : ?>
-                            <tr>
-                                <td><?= $i++; ?></td>
-                                <td><?= $row['nm_lkp'] ?></td>
-                                <td><?= $row['judul_loker'] ?></td>
-                                <td><?= $row['berkas'] ?></td>
-                                <td><?= $row['tgl_lamar'] ?></td>
-                                <td><?= $row['s_lamaran'] ?></td>
-                                <td><?= $row['respons'] ?></td>
-                                <td class="d-flex justify-content-center">
+                            <?php if ($row['s_lamaran'] == 'rekomendasi') : ?>
+                                <tr>
+                                    <td><?= $i++; ?></td>
+                                    <td><?= $row['nm_lkp'] ?></td>
+                                    <td><?= $row['judul_loker'] ?></td>
+                                    <td><?= $row['berkas'] ?></td>
+                                    <td><?= $row['tgl_lamar'] ?></td>
+                                    <td><?= $row['respons'] ?></td>
+                                    <td class="d-flex justify-content-center">
 
-                                    <!-- tombol-info data-->
-                                    <div class="row">
-                                        <div class="col-sm mr-1">
-                                            <button type="button" class="btn btn-warning btn-sm-2" data-toggle="modal" data-target="#modalInfo<?= $row['id_lamaran'] ?>">
-                                                <i class="ua-icon-alert-info"></i>
-                                            </button>
+                                        <!-- tombol-info data-->
+                                        <div class="row">
+                                            <div class="col-sm mr-1">
+                                                <button type="button" class="btn btn-warning btn-sm-2" data-toggle="modal" data-target="#modalInfo<?= $row['id_lamaran'] ?>">
+                                                    <i class="ua-icon-alert-info"></i>
+                                                </button>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <!-- end-tombol info data -->
-                                    <!-- tombol-edit data-->
-                                    <!-- <div class="row">
+                                        <!-- end-tombol info data -->
+                                        <!-- tombol-edit data-->
+                                        <!-- <div class="row">
                                         <div class="col-sm mr-1 ml-1">
                                             <button type="button" class="btn btn-info btn-sm-2" data-toggle="modal" data-target="#modalEdit<?= $row['id_lamaran'] ?>">
                                                 <i class="ua-icon-activity-edit"></i>
                                             </button>
                                         </div>
                                     </div> -->
-                                    <!-- end-tombol edit data -->
+                                        <!-- end-tombol edit data -->
 
-                                    <!-- tombol-hapus data-->
-                                    <!-- <div class="row">
+                                        <!-- tombol-hapus data-->
+                                        <!-- <div class="row">
                                         <div class="col-sm ml-1">
                                             <button type="button" class="btn btn-danger btn-sm-2" data-toggle="modal" data-target="#modalHapus<?= $row['id_lamaran'] ?>">
                                                 <i class="ua-icon-trash"></i>
                                             </button>
                                         </div>
                                     </div> -->
-                                    <!-- end-tombol hapus data -->
-                                </td>
-                            </tr>
+                                        <!-- end-tombol hapus data -->
+                                    </td>
+                                </tr>
+                            <?php endif; ?>
                         <?php endforeach; ?>
                     </tbody>
                 </table>

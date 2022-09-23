@@ -119,15 +119,14 @@ $routes->get('pencaker/profile', 'Profile::index');
 $routes->get('pencaker/lengkapiData', 'LengkapiData::index');
 $routes->post('pencaker/lengkapiData', 'LengkapiData::tambah');
 $routes->post('pencaker/dashboard/tambah', 'PencakerController::tambah');
-
+$routes->get('/pencaker/download/(:segment)', 'pencaker::download/$1');
+$routes->get('/pencaker/kartu', 'Kartu::index');
 // end-routes for pencaker
 
 // routes for logout
 $routes->get('logout', 'UserController::logout');
 // end-routes for logout
 
-$routes->get('/pencaker/download/(:segment)', 'pencaker::download/$1');
-$routes->get('/pencaker/kartu', 'Kartu::index');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

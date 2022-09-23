@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\UserModel;
 use App\Models\PencakerModel;
+use App\Models\KtgrLokerModel;
 
 class LengkapiData extends BaseController
 {
@@ -12,6 +13,7 @@ class LengkapiData extends BaseController
     {
         $this->userModel = new UserModel();
         $this->pencakerModel = new PencakerModel();
+        $this->ktgrLokerModel = new KtgrLokerModel();
         $this->session = \Config\Services::session();
     }
 
@@ -19,12 +21,15 @@ class LengkapiData extends BaseController
     {
         $user = $this->userModel->findAll();
         $pencaker = $this->pencakerModel->findAll();
+        $ktgrLoks = $this->ktgrLokerModel->getKtgrLoker()->getResult();
         $data = [
             'user' => $user,
             'pencaker' => $pencaker,
+            'ktgr' => $ktgrLoks,
             'title' => 'Pencaker Profile',
             'validation' => \Config\Services::validation()
         ];
+        // dd($data);
         if (session()->get('role') == 'pencaker') {
             return view('pencaker/lengkapiData', $data);
         } else {

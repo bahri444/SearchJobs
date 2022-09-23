@@ -1,11 +1,13 @@
 <?= $this->extend('layout/template'); ?>
 
 <?= $this->section('content'); ?>
+<?php $session = \Config\Services::session() ?>
+
 <div class="page-content">
     <div class="container-fluid">
         <div class="page-content__header">
             <div>
-                <h2 class="page-content__header-heading">Data Lowongan Kerja</h2>
+                <h2 class="page-content__header-heading">Data lowongan kerja</h2>
             </div>
             <!-- modal-tambah data-->
             <div class="row">
@@ -305,50 +307,54 @@
                     <tbody>
                         <?php $i = 1; ?>
                         <?php foreach ($joinAll as $lok => $value) : ?>
-                            <tr>
-                                <td><?= $i++; ?></td>
-                                <td><?= $value['nm_ktgr']; ?></td>
-                                <td><?= $value['nm_prshn'] ?></td>
-                                <td><img src="<?= base_url() ?>/img2/<?= $value['logo'] ?>" alt="" width="80 px" height="80 px"></td>
-                                <td><?= $value['judul_loker'] ?></td>
-                                <td><?= $value['posisi'] ?></td>
-                                <td><?= $value['tgl_buka'] ?></td>
-                                <td><?= $value['tgl_tutup'] ?></td>
-                                <td><?= $value['syrt_pend'] ?></td>
-                                <td><?= $value['gaji'] ?></td>
-                                <td><?= $value['detail_loker'] ?></td>
-                                <td class="d-flex justyify-content-center ">
-                                    <!-- tombol Info -->
-                                    <div class="row">
-                                        <div class="col-sm mr-1">
-                                            <button type="button" class="btn btn-warning btn-sm-2" data-toggle="modal" data-target="#modalInfo<?= $value['id_loker'] ?>">
-                                                <i class="ua-icon-alert-info"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <!-- end-tombol Info -->
+                            <?php if ($value['id_prshn'] == $value['id_prshn']) : ?>
+                                <?php if ($value['status'] == 'valid') : ?>
+                                    <tr>
+                                        <td><?= $i++; ?></td>
+                                        <td><?= $value['nm_ktgr']; ?></td>
+                                        <td><?= $value['nm_prshn'] ?></td>
+                                        <td><img src="<?= base_url() ?>/img2/<?= $value['logo'] ?>" alt="" width="80 px" height="80 px"></td>
+                                        <td><?= $value['judul_loker'] ?></td>
+                                        <td><?= $value['posisi'] ?></td>
+                                        <td><?= $value['tgl_buka'] ?></td>
+                                        <td><?= $value['tgl_tutup'] ?></td>
+                                        <td><?= $value['syrt_pend'] ?></td>
+                                        <td><?= $value['gaji'] ?></td>
+                                        <td><?= $value['detail_loker'] ?></td>
+                                        <td class="d-flex justyify-content-center ">
+                                            <!-- tombol Info -->
+                                            <div class="row">
+                                                <div class="col-sm mr-1">
+                                                    <button type="button" class="btn btn-warning btn-sm-2" data-toggle="modal" data-target="#modalInfo<?= $value['id_loker'] ?>">
+                                                        <i class="ua-icon-alert-info"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <!-- end-tombol Info -->
 
-                                    <!-- tombol-edit data-->
-                                    <div class="row">
-                                        <div class="col-sm mr-1 ml-1">
-                                            <button type="button" class="btn btn-info btn-sm-2" data-toggle="modal" data-target="#modalEdit<?= $value['id_loker'] ?>">
-                                                <i class="ua-icon-activity-edit"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <!-- tombol edit data -->
+                                            <!-- tombol-edit data-->
+                                            <div class="row">
+                                                <div class="col-sm mr-1 ml-1">
+                                                    <button type="button" class="btn btn-info btn-sm-2" data-toggle="modal" data-target="#modalEdit<?= $value['id_loker'] ?>">
+                                                        <i class="ua-icon-activity-edit"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <!-- tombol edit data -->
 
-                                    <!-- tombol-hapus data-->
-                                    <div class="row">
-                                        <div class="col-sm ml-1">
-                                            <button type="button" class="btn btn-danger btn-sm-2" data-toggle="modal" data-target="#modalHapus<?= $value['id_loker'] ?>">
-                                                <i class="ua-icon-trash"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <!-- end-tombol hapus data -->
-                                </td>
-                            </tr>
+                                            <!-- tombol-hapus data-->
+                                            <div class="row">
+                                                <div class="col-sm ml-1">
+                                                    <button type="button" class="btn btn-danger btn-sm-2" data-toggle="modal" data-target="#modalHapus<?= $value['id_loker'] ?>">
+                                                        <i class="ua-icon-trash"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <!-- end-tombol hapus data -->
+                                        </td>
+                                    </tr>
+                                <?php endif; ?>
+                            <?php endif; ?>
                         <?php endforeach; ?>
                     </tbody>
                 </table>

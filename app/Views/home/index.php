@@ -8,7 +8,7 @@
 </div>
 <div class="row ml-2 mr-2">
   <?php foreach ($loker as $row) : ?>
-    <div class="col-lg-5 col-md-6">
+    <div class="col-lg-4 col-md-6">
       <div class="main-container">
         <h3 class="text-center"><b><?= $row['judul_loker'] ?></b></h3>
         <table>

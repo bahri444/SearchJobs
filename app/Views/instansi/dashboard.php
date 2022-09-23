@@ -1,7 +1,7 @@
 <?= $this->extend('layout/template'); ?>
 
 <?= $this->section('content'); ?>
-
+<?php $session = \Config\Services::session() ?>
 // content ISI
 <div class="page-content">
     <div class="container-fluid">

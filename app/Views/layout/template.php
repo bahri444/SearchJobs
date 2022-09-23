@@ -216,7 +216,6 @@ $session = \Config\Services::session();
                         </a>
                     </li>
                 </ul>
-
             <?php elseif ($session->get('role') == 'instansi') : ?>
                 <div class="sidebar-user-a">
                     <img src="<?= base_url() ?>/img/users/<?= $session->get('user_image') ?>" alt="" class="sidebar-user-a__avatar rounded-circle">
@@ -230,6 +229,12 @@ $session = \Config\Services::session();
                         </a>
                     </li>
                     <li class="sidebar-section-nav__item mb-2">
+                        <a class="sidebar-section-nav__link" href="<?= route_to('instansi/lengkapiPrshn'); ?>">
+                            <span class="sidebar-section-nav__item-icon ua-icon-edit-outline"></span>
+                            <span>Lengkapi Data</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-section-nav__item mb-2">
                         <a class="sidebar-section-nav__link" href="<?= route_to('instansi/loker'); ?>">
                             <span class="sidebar-section-nav__item-icon ua-icon-widget-paper"></span>
                             <span>Lowongan Kerja</span>
@@ -238,13 +243,7 @@ $session = \Config\Services::session();
                     <li class="sidebar-section-nav__item mb-2">
                         <a class="sidebar-section-nav__link" href="<?= route_to('instansi/lamaran'); ?>">
                             <span class="sidebar-section-nav__item-icon ua-icon-widget-users"></span>
-                            <span>Data Lamaran</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-section-nav__item mb-2">
-                        <a class="sidebar-section-nav__link" href="<?= route_to('instansi/lengkapiPrshn'); ?>">
-                            <span class="sidebar-section-nav__item-icon ua-icon-edit-outline"></span>
-                            <span>Lengkapi Data</span>
+                            <span>Data Pelamar</span>
                         </a>
                     </li>
                     <li class="sidebar-section-nav__item mb-2">
@@ -325,19 +324,21 @@ $session = \Config\Services::session();
                             <span class="sidebar-section-nav__item-icon"></span>
                             <span></span>
                         </a>
-                    <li class="sidebar-section-nav__item">
-                        <a class="sidebar-section-nav__link" href="#">
-                            <span class="sidebar-section-nav__item-icon"></span>
-                            <span></span>
-                        </a>
+                    </li>
                     <li class="sidebar-section-nav__item">
                         <a class="sidebar-section-nav__link" href="#">
                             <span class="sidebar-section-nav__item-icon"></span>
                             <span></span>
                         </a>
                     </li>
-
-                <?php endif; ?>
+                    <li class="sidebar-section-nav__item">
+                        <a class="sidebar-section-nav__link" href="#">
+                            <span class="sidebar-section-nav__item-icon"></span>
+                            <span></span>
+                        </a>
+                    </li>
+                </ul>
+            <?php endif; ?>
         </div>
     </div>
 

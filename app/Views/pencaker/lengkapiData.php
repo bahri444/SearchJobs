@@ -98,7 +98,6 @@
                                         <option value="D1">D1</option>
                                         <option value="D2">D2</option>
                                         <option value="D3">D3</option>
-                                        <option value="D4">D4</option>
                                         <option value="S1">S1</option>
                                         <option value="S2">S2</option>
                                         <option value="S3">S3</option>
@@ -106,10 +105,12 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="bid_keahlian">Bidang Keahlian</label>
-                                    <input type="text" name="bid_keahlian" class="form-control" value="<?= old('bid_keahlian') ?>">
-                                    <div class="invalid-feedback">
-                                        <?= $validation->getError('bid_keahlian'); ?>
-                                    </div>
+                                    <select name="bid_keahlian" id="">
+                                        <option selected>--pilih bidang keahlian--</option>
+                                        <?php foreach ($ktgr as $k) : ?>
+                                            <option value="<?= $k->nm_ktgr ?>"><?= $k->nm_ktgr ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="sertifikat">Sertifikat</label>
