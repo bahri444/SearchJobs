@@ -15,7 +15,7 @@ class PencakerModel extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        "user_id", "nm_lkp", "tgl_lhr", "jk", "usia", "alamat", "email", "pend_ter", "peng_ker", "bid_keahlian", "sertifikat", "created_at", "updated_at"
+        "user_id", "nm_lkp", "fas_foto", "tgl_lhr", "jk", "usia", "alamat", "email", "pend_ter", "peng_ker", "bid_keahlian", "stts_akun", "created_at", "updated_at"
     ];
 
     // Dates
@@ -71,5 +71,9 @@ class PencakerModel extends Model
     {
         $data = $this->db->table('pencaker')->countAllResults();
         return $data;
+    }
+    public function sttsAkun($id_pencaker, $data)
+    {
+        return $this->db->table('pencaker')->update($id_pencaker, $data);
     }
 }

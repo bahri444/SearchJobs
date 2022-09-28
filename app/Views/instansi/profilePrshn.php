@@ -10,17 +10,17 @@
                 <!-- content side -->
                 <div class="main-container mt-2">
                     <?php foreach ($join_prs as $row) : ?>
-                        <div class="row ml-1 mr-1 d-inline-block">
-                            <?php if ($session->get('user_id') == $row->user_id) : ?>
-                                <?php if ($row->stts_prshn == 'pending') : ?>
-                                    <div class="col">
-                                        <h4 class="text-info text-center">Sedang dalam proses persetujuan</h4>
-                                    </div>
-                                <?php elseif ($row->stts_prshn == 'di setujui') : ?>
+                        <?php if ($session->get('user_id') == $row->user_id) : ?>
+                            <?php if ($row->stts_prshn == 'pending') : ?>
+                                <div class="col">
+                                    <h4 class="btn btn-info text-center">Sedang dalam proses persetujuan</h4>
+                                </div>
+                            <?php elseif ($row->stts_prshn == 'di setujui') : ?>
+                                <div class="row ml-1 mr-1 d-inline-block">
                                     <!-- border border-info -->
                                     <div class="col mt-1 mb-1">
                                         <div class="mt-2 d-flex justify-content-center">
-                                            <img width="150px" height="150px" src="<?= base_url() ?>/img/users/<?= $session->get('user_image'); ?>" alt="not found" class="border rounded-circle shadow-none">
+                                            <img width="150px" height="150px" src="<?= base_url() ?>/img2/<?= $row->logo ?>" alt="not found" class="border rounded-circle shadow-none">
                                         </div>
                                     </div>
                                     <table>
@@ -56,10 +56,18 @@
                                             <th>Struktur Organisasi</th>
                                             <td><?= ': ', $row->strk_organis ?></td>
                                         </tr>
+                                        <tr>
+                                            <th>Status Perusahaan</th>
+                                            <td class="btn btn-success ml-3"><?= $row->stts_prshn ?></td>
+                                        </tr>
                                     </table>
-                                <?php endif; ?>
+                                </div>
+                            <?php elseif ($row->stts_prshn == 'belum lengkap') : ?>
+                                <div class="col">
+                                    <h4 class="btn btn-warning">data kurang lengkap</h4>
+                                </div>
                             <?php endif; ?>
-                        </div>
+                        <?php endif; ?>
                     <?php endforeach; ?>
                 </div>
             </div>

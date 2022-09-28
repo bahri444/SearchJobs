@@ -136,24 +136,20 @@
                                                     </tr>
                                                 </table>
                                                 <!-- tombol Lamar Pekerjaan -->
-                                                <div class="form-group  d-flex justify-content-center mt-3">
-                                                    <div class=" d-flex justify-content-center">
-                                                        <!-- tombol tambah data-->
-                                                        <div class="row">
-                                                            <div class="col-sm mr-1 ml-1">
-                                                                <button type="button" class="btn btn-success btn-sm-2" data-toggle="modal" data-target="#modalLamar<?= $row['id_loker'] ?>">
-                                                                    Lamar Sekarang
-                                                                </button>
+                                                <?php if ($val['stts_akun'] == 'valid') : ?>
+                                                    <div class="form-group  d-flex justify-content-center mt-3">
+                                                        <div class=" d-flex justify-content-center">
+                                                            <!-- tombol tambah data-->
+                                                            <div class="row">
+                                                                <div class="col-sm mr-1 ml-1">
+                                                                    <button type="button" class="btn btn-success btn-sm-2" data-toggle="modal" data-target="#modalLamar<?= $row['id_loker'] ?>">
+                                                                        Lamar Sekarang
+                                                                    </button>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                        <!-- end-tombol tambah data -->
-
-                                                        <!-- <a href=" base_url('pencaker/lamarKerja/' . ) ?>" class="btn btn-success btn-sm-2 ">
-                                                        <span>Lamar Sekarang</span>
-                                                    </a> -->
                                                     </div>
-                                                </div>
-
+                                                <?php endif; ?>
                                             </div>
                                         </div>
                                     </div>

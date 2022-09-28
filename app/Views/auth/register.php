@@ -11,7 +11,7 @@
                         <div class="panel-body">
                             <?php if ($validation) : ?>
                                 <div class="col-12">
-                                    <div class="alert alert-danger" role="alert">
+                                    <div role="alert">
                                         <?= $validation->listErrors() ?>
                                     </div>
                                 </div>
@@ -31,11 +31,11 @@
                                 <div class="row">
                                     <div class="form-group col-md-6">
                                         <label for="p-signin-set-password">Password</label>
-                                        <input type="password" name="password" class="form-control" placeholder="password">
+                                        <input type="password" name="password" class="form-control" placeholder="min 8 karakter">
                                     </div>
                                     <div class="form-group col-md-6">
                                         <label for="p-signin-set-password">Konfirmasi</label>
-                                        <input type="password" name="confirmpassword" placeholder="Confirm Password" class="form-control">
+                                        <input type="password" name="confirmpassword" placeholder="confirm Password" class="form-control">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -43,7 +43,7 @@
                                         <label for="role">Level</label>
                                         <select name="role" class="form-select form-control form-control-md" aria-label="Default select example">
                                             <option selected>---pilih level---</option>
-                                            <option value="admin">Admin</option>
+                                            <!-- <option value="admin">Admin</option> -->
                                             <option value="instansi">Perusahaan</option>
                                             <option value="pencaker">Pencari Kerja</option>
                                         </select>
@@ -55,7 +55,7 @@
                             </form>
                             <hr>
                             <div class="p-signin__form-links mt-0 mb-0">
-                                <a href="#">Buat akun</a>
+                                <a href="<?= base_url('/login') ?>">Login</a>
                             </div>
                         </div>
                     </div>

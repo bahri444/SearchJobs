@@ -25,7 +25,7 @@
                                     </div>
                                     <div class="form-group col-md-12">
                                         <label for="password">Password</label>
-                                        <input type="password" name="password" class="form-control" placeholder="password">
+                                        <input type="password" name="password" class="form-control" placeholder="password minimal 8 karakter">
                                     </div>
                                     <div class="form-group col-sm">
                                         <button type="submit" class="btn btn-info btn-block btn-lg p-signin__form-submit">Login</button>
@@ -34,7 +34,7 @@
                             </form>
                             <hr>
                             <div class="p-signin__form-links mt-0 mb-0">
-                                <a href="#">Buat akun</a>
+                                <a href="<?= base_url('/register') ?>">Buat akun</a>
                             </div>
                         </div>
                     </div>

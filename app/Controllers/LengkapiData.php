@@ -52,6 +52,15 @@ class LengkapiData extends BaseController
                     'required' => 'nama lengkap harus di isi'
                 ]
             ],
+            'fas_foto' => [
+                'rules' => 'uploaded[fas_foto]|max_size[fas_foto,5000]|is_image[fas_foto]|mime_in[fas_foto,image/jpg,image/png,image/jpeg]',
+                'errors' => [
+                    'uploaded' => 'pilih logo terlebih dahulu',
+                    'max_size' => 'ukuran logo terlalu besar',
+                    'is_image' => 'yang anda pilihh bukan logo',
+                    'mime-in' => 'yang anda pilihh bukan logo'
+                ]
+            ],
             'tgl_lhr' => [
                 'rules' => 'required',
                 'errors' => [
@@ -88,25 +97,19 @@ class LengkapiData extends BaseController
                     'required' => 'bidang keahlian harus di isi'
                 ]
             ],
-            'sertifikat' => [
-                'rules' => 'uploaded[sertifikat]|mime_in[sertifikat,application/pdf,application/mword]',
-                'errors' => [
-                    'uploaded' => 'pilih FIle terlebih dahulu',
-                    'mime_in' => 'yang anda masukkan bukan file'
-                ]
-            ],
         ])) {
             session()->setFlashdata('pesan', 'data tidak lengkap atau anda sudah terdaftar');
             if (session()->get('role') == 'pencaker') {
                 return redirect()->to('/pencaker/lengkapiData')->withInput(); //jika gagal akan di kembalikan ke dalam form lengkapi data
             }
         }
-        $Sertifikat = $this->request->getFile('sertifikat'); //ambil gambar
-        $Sertifikat->move('sertifikat1'); //pindahkan file
-        $namaSertifikat = $Sertifikat->getName(); //mengambil nama file
+        $fasFoto = $this->request->getFile('fas_foto'); //ambil gambar
+        $fasFoto->move('img2'); //pindahkan file
+        $namaFasFoto = $fasFoto->getName(); //mengambil nama file
         $data = [
             'user_id' => $this->request->getPost('user_id'),
             'nm_lkp' => $this->request->getPost('nm_lkp'),
+            'fas_foto' => $namaFasFoto,
             'tgl_lhr' => $this->request->getPost('tgl_lhr'),
             'jk' => $this->request->getPost('jk'),
             'usia' => $this->request->getPost('usia'),
@@ -115,7 +118,6 @@ class LengkapiData extends BaseController
             'pend_ter' => $this->request->getPost('pend_ter'),
             'peng_ker' => $this->request->getPost('peng_ker'),
             'bid_keahlian' => $this->request->getPost('bid_keahlian'),
-            'sertifikat' => $namaSertifikat,
         ];
         $success = $this->pencakerModel->tambah($data);
         if ($success) {

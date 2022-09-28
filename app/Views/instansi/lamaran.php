@@ -129,8 +129,8 @@
                                                         <td><?= ': ', $row['bid_keahlian'] ?></td>
                                                     </tr>
                                                     <tr>
-                                                        <th>Sertifikat</th>
-                                                        <td><?= ': ', $row['sertifikat'] ?></td>
+                                                        <th>Fas Foto</th>
+                                                        <td><?= ': ', $row['fas_foto'] ?></td>
                                                     </tr>
                                                     <tr>
                                                         <th>Berkas Persyaratan</th>

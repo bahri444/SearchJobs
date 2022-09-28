@@ -42,7 +42,7 @@
     .card-body {
         display: flex;
         flex-direction: column;
-        height: 200px;
+        height: 240px;
         justify-content: space-around;
         position: relative;
     }
@@ -93,7 +93,14 @@
         margin: auto;
         display: flex;
         justify-content: space-between;
-        margin-top: 80px;
+        margin-top: 40px;
+    }
+
+    .bawah {
+        width: 150px;
+        height: 80px;
+        border-bottom: solid #212121 2px;
+        text-align: center;
     }
 </style>
 <?php $session = \Config\Services::session(); ?>
@@ -111,23 +118,27 @@
         </div>
         <div class="card-body">
             <div>
-                <h4>KARTU TANDA PENCARI KERJA</h4>
+                <h4 style="margin-top: 5px;">KARTU TANDA PENCARI KERJA</h4>
             </div>
             <?php foreach ($pnckr as $val) : ?>
                 <?php if ($session->get('user_id') == $val->user_id) : ?>
                     <div class="row">
-                        <div style="width: 100px;">
+                        <div style="width: 100px; margin-right: 20px">
                             <img src="<?= base_url('img2/' . $val->fas_foto) ?>" alt="404" width="80px" height="100px" />
                         </div>
                         <div>
                             <table>
                                 <tr>
-                                    <td><label for="">No pencaker</label></td>
-                                    <td><?= ': pnckr00', $val->id_pencaker ?></td>
+                                    <th><label for="">NO PENCAKER</label></th>
+                                    <?php if ($val->stts_akun == 'valid') : ?>
+                                        <td><?= ': PNCKR00', $val->id_pencaker ?></td>
+                                    <?php endif; ?>
                                 </tr>
                                 <tr>
-                                    <th>Keterangan </th>
-                                    <td>: Lorem ipsum dolor sit, amet Lorem ipsum dolor sit amet.</td>
+                                    <th>KETENTUAN</th>
+                                    <td>: Demikian kartu tanda pencaker ini di cetak agar
+                                        <br><?= ':  di gunakan dengan sebagaimana mestinya.' ?>
+                                    </td>
                                 </tr>
                             </table>
                         </div>
@@ -139,14 +150,21 @@
                 ttd pencaker
             </div>
         </div>
-        <div class="tombol">
-            <div class="btn-link">
-                <a href="<?= base_url('pencaker/dashboard') ?>" class="link">Kembali</a>
-            </div>
-            <div>
-                <button type="button" id="download" class="btn">Download</button>
-            </div>
-        </div>
+        <?php foreach ($pnckr as $val) : ?>
+            <?php if ($session->get('user_id') == $val->user_id) : ?>
+                <div class="tombol">
+                    <div class="btn-link">
+                        <a href="<?= base_url('pencaker/dashboard') ?>" class="link">Kembali</a>
+                    </div>
+
+                    <?php if ($val->stts_akun == 'valid') : ?>
+                        <div>
+                            <button type="button" id="download" class="btn">Download</button>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            <?php endif; ?>
+        <?php endforeach; ?>
     </div>
     <script src="<?= base_url('js/html2canva.js') ?>"></script>
     <script>

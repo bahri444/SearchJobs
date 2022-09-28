@@ -80,8 +80,8 @@
                                                 <td><?= ': ', $row->bid_keahlian ?></td>
                                             </tr>
                                             <tr>
-                                                <th>Sertifikat</th>
-                                                <td><?= ': ', $row->sertifikat ?></td>
+                                                <th>Fas Foto</th>
+                                                <td><?= ': ', $row->fas_foto ?></td>
                                             </tr>
                                             <tr>
                                                 <th>Pengalaman Kerja</th>
@@ -99,7 +99,13 @@
                                                 <button type="button" class="btn btn-warning" data-dismiss="model">Cancel</button>
                                             </div> -->
                                             <div class="justify-content-start">
-                                                <button type="button" class="btn btn-info">Cetak kartu kuning</button>
+                                                <form action="<?= base_url('/admin/pencaker/sttsAkun/' . $row->id_pencaker) ?>" method="post">
+                                                    <?= csrf_field() ?>
+                                                    <input type="hidden" name="stts_akun" value="valid">
+                                                    <?php if ($row->stts_akun == 'pending') : ?>
+                                                        <button type="submit" class="btn btn-info">Validasi</button>
+                                                    <?php endif; ?>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
@@ -121,6 +127,7 @@
                                 <th scope="col"><b>No</b></th>
                                 <th scope="col"><b>Username</b></th>
                                 <th scope="col"><b>Nama Lengkap</b></th>
+                                <th scope="col"><b>Fas Foto</b></th>
                                 <th scope="col"><b>Kelamin</b></th>
                                 <th scope="col"><b>Tgl Lahir</b></th>
                                 <th scope="col"><b>Alamat</b></th>
@@ -128,9 +135,9 @@
                                 <th scope="col"><b>Telepon</b></th>
                                 <th scope="col"><b>Email</b></th>
                                 <th scope="col"><b>Keahlian</b></th>
-                                <th scope="col"><b>Sertifikat Keahlian</b></th>
                                 <th scope="col"><b>Pengalaman</b></th>
                                 <th scope="col"><b>Usia</b></th>
+                                <th scope="col"><b>Status Pencaker</b></th>
                                 <th scope="col"><b>Aksi</b></th>
                             </tr>
                         </thead>
@@ -141,6 +148,7 @@
                                     <td><?= $i++; ?></td>
                                     <td><?= $row->username ?></td>
                                     <td><?= $row->nm_lkp ?></td>
+                                    <td><img src="<?= base_url() ?>/img2/<?= $row->fas_foto ?>" alt="404" width="50px;" height="50px"></td>
                                     <td><?= $row->jk ?></td>
                                     <td><?= $row->tgl_lhr ?></td>
                                     <td><?= $row->alamat ?></td>
@@ -148,9 +156,9 @@
                                     <td><?= $row->tlp ?></td>
                                     <td><?= $row->email ?></td>
                                     <td><?= $row->bid_keahlian ?></td>
-                                    <td><?= $row->sertifikat ?></td>
                                     <td><?= $row->peng_ker ?></td>
                                     <td><?= $row->usia ?></td>
+                                    <td><?= $row->stts_akun ?></td>
                                     <td class="d-flex justify-content-center">
 
 

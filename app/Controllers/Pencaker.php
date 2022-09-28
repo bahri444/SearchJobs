@@ -32,9 +32,9 @@ class Pencaker extends BaseController
             return view('/admin/pencaker', $data);
         } elseif (session()->get('role') == 'instansi') {
             return view('/instansi/pencaker', $data);
-        } elseif (session()->get('role') == 'pencaker') {
-            return view('/pencaker/dashboard', $data);
-        }
+        } //elseif (session()->get('role') == 'pencaker') {
+        //     return view('/pencaker/dashboard', $data);
+        // }
     }
 
     // func for insert data
@@ -177,5 +177,28 @@ class Pencaker extends BaseController
             'no' => $datapencaker,
         ];
         return view('pencaker/kartu', $data);
+    }
+    public function sttsAkun($id_pencaker)
+    {
+        $frmDt = $this->request->getPost('stts_akun');
+        $result = $this->pencakerModel->where('id_pencaker', $id_pencaker)->get()->getResultArray();
+        $data = [
+            'id_pencaker' => $id_pencaker,
+            'user_id' => $result[0]['user_id'],
+            'nm_lkp' => $result[0]['nm_lkp'],
+            'fas_foto' => $result[0]['fas_foto'],
+            'tgl_lhr' => $result[0]['tgl_lhr'],
+            'jk' => $result[0]['jk'],
+            'usia' => $result[0]['usia'],
+            'tlp' => $result[0]['tlp'],
+            'alamat' => $result[0]['alamat'],
+            'pend_ter' => $result[0]['pend_ter'],
+            'peng_ker' => $result[0]['peng_ker'],
+            'bid_keahlian' => $result[0]['bid_keahlian'],
+            'stts_akun' => $frmDt,
+        ];
+        // dd($data);
+        $this->pencakerModel->save($data);
+        return redirect()->to('admin/pencaker');
     }
 }

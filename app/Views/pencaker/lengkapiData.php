@@ -45,10 +45,17 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="tgl_lhr">Tgl Lahir</label>
-                                    <input type="date" name="tgl_lhr" class="form-control" value="<?= old('jk') ?>">
+                                    <label for="fas_foto">Fas Foto</label>
+                                    <input type="file" name="fas_foto" class="form-control" value="<?= ($validation->hasError('fas_foto')) ? 'is-invalid' : ''; ?>">
                                     <div class="invalid-feedback">
-                                        <?= $validation->getError('jk'); ?>
+                                        <?= $validation->getError('fas_foto'); ?>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="tgl_lhr">Tgl Lahir</label>
+                                    <input type="date" name="tgl_lhr" class="form-control" value="<?= old('tgl_lhr') ?>">
+                                    <div class="invalid-feedback">
+                                        <?= $validation->getError('tgl_lhr'); ?>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -111,13 +118,6 @@
                                             <option value="<?= $k->nm_ktgr ?>"><?= $k->nm_ktgr ?></option>
                                         <?php endforeach; ?>
                                     </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="sertifikat">Sertifikat</label>
-                                    <input type="file" name="sertifikat" class="form-control" value="<?= ($validation->hasError('sertifikat')) ? 'is-invalid' : ''; ?>">
-                                    <div class="invalid-feedback">
-                                        <?= $validation->getError('sertifikat'); ?>
-                                    </div>
                                 </div>
                                 <hr>
                                 <div class="form-group mt-4">

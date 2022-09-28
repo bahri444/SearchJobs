@@ -64,9 +64,6 @@
                         <li class="nav-item navbar__menu-item">
                             <a class="nav-link" href="<?= route_to('register') ?>"><b>Register</b></a>
                         </li>
-                        <li class="nav-item navbar__menu-item">
-                            <a class="nav-link" href="<?= route_to('tentang') ?>"><b>Tentang</b></a>
-                        </li>
                     </ul>
                 </div>
             </div>

@@ -39,7 +39,6 @@ $routes->set404Override();
 
 // route for view before login to system
 $routes->get('/', 'Home::index');
-$routes->get('/tentang', 'Home::tentang');
 $routes->get('/login', 'UserController::login');
 $routes->post('/login', 'UserController::login');
 $routes->post('/register', 'UserController::register');
@@ -76,6 +75,7 @@ $routes->post('/admin/lamaran/validasi/(:num)', 'Lamaran::validasi/$1'); //route
 $routes->post('/admin/lamaran/rekomendasi/(:num)', 'Lamaran::rekomendasi/$1'); //route for validation lamaran rekomendasi
 $routes->post('admin/loker/validasi/(:num)', 'Loker::validasi/$1'); //route for validation data loker
 $routes->post('admin/perusahaan/sttsPrshn/(:num)', 'Perusahaan::sttsPrshn/$1');
+$routes->post('admin/pencaker/sttsAkun/(:num)', 'Pencaker::sttsAkun/$1');
 //end-admin validasi
 
 $routes->get('/admin/perusahaan', 'Perusahaan::perusahaan');
