@@ -114,7 +114,7 @@
                             <tbody class="text-center">
                                 <?php $i = 1; ?>
                                 <?php foreach ($pencaker_join as $pnc) : ?>
-                                    <?php if ($session->get('user_id') == $pnc->id_pencaker) : ?>
+                                    <?php if ($session->get('user_id') == $pnc->user_id) : ?>
                                         <?php foreach ($lamaran as $lm) : ?>
                                             <?php if ($pnc->id_pencaker == $lm['id_pencaker']) : ?>
                                                 <tr>

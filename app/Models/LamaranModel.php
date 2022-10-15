@@ -84,6 +84,17 @@ class LamaranModel extends Model
         $data = $this->db->table('lamaran')->countAllResults();
         return $data;
     }
+    public function countDtFilters()
+    {
+        $query = $this->db->table('lamaran');
+        $query->join('pencaker', 'lamaran.id_pencaker = pencaker.id_pencaker')
+            ->join('loker', 'lamaran.id_loker = loker.id_loker')
+            ->join('perusahaan', 'loker.id_prshn = perusahaan.id_prshn')
+            ->join('users', 'perusahaan.user_id = users.user_id')
+            ->where('users.user_id', session()->get('user_id'));
+        $data = $query->get()->getResult();
+        return $data;
+    }
 
     public function status($id_lamaran, $data)
     {

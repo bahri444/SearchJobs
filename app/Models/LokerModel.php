@@ -87,6 +87,16 @@ class LokerModel extends Model
         $data = $this->db->table('loker')->countAllResults();
         return $data;
     }
+    public function countDtFilters()
+    {
+        $data = $this->db->table('loker');
+        $data->join('perusahaan', 'perusahaan.id_prshn = loker.id_prshn')
+            ->join('ktgr_loker', 'ktgr_loker.id_ktgr = loker.id_ktgr')
+            ->join('users', 'perusahaan.user_id = users.user_id')
+            ->where('users.user_id', session()->get('user_id'));
+        $new = $data->get()->getResult();
+        return $new;
+    }
 
     public function status($id_loker, $dataLok)
     {
