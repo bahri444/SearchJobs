@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\LokerModel; //import LokerModel
 use App\Models\LamaranModel; //import LamaranModel
+use Countable;
 
 class InstansiController extends BaseController
 {
@@ -16,17 +17,21 @@ class InstansiController extends BaseController
         $this->lokerModel = new LokerModel(); //load data loker for count
         $this->lamaranModel = new LamaranModel(); //load data lamaran for count
         $this->session = \Config\Services::session();
-        if ($this->session->get('role') != 'instansi') {
+        $this->session = \Config\Services::count();
+        if (session()->get('role') != 'instansi') {
             echo 'akses di tolak';
             exit;
         }
     }
     public function index()
     {
-        //variable declaration, and fetch the calculated data in models
-        $data['jmlLoker'] = $this->lokerModel->countData();
-        $data['jmlLamaran'] = $this->lamaranModel->countData();
-
+        $loks = $this->lokerModel->countDtFilters();
+        $lam = $this->lamaranModel->countDtFilters();
+        $data = [
+            'lok' => count($loks),
+            'lm' => count($lam),
+        ];
+        // dd($data);
         return view('/instansi/dashboard', $data); //return data to view
     }
 }

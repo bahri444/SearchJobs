@@ -2,6 +2,7 @@
 
 <?= $this->section('content'); ?>
 <?php $session = \Config\Services::session() ?>
+<?php $sum = \Config\Services::count() ?>
 // content ISI
 <div class="page-content">
     <div class="container-fluid">
@@ -15,7 +16,7 @@
             <div class="col-xl-3 col-lg-3 col-md-6">
                 <div class="widget widget-alpha widget-alpha--color-amaranth">
                     <div>
-                        <div class="widget-alpha__amount"><?= $jmlLoker ?></div>
+                        <div class="widget-alpha__amount"><?= $lok ?></div>
                         <div class="widget-alpha__description">Data Lowongan Kerja</div>
                     </div>
                     <span class="widget-alpha__icon ua-icon-document-solid"></span>
@@ -24,7 +25,7 @@
             <div class="col-xl-3 col-lg-3 col-md-6">
                 <div class="widget widget-alpha widget-alpha--color-java widget-alpha--help">
                     <div>
-                        <div class="widget-alpha__amount"><?= $jmlLamaran ?></div>
+                        <div class="widget-alpha__amount"><?= $lm ?></div>
                         <div class="widget-alpha__description">Data Pelamar</div>
                     </div>
                     <span class="widget-alpha__icon ua-icon-widget-user-group"></span>
