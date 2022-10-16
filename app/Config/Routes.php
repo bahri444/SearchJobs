@@ -92,6 +92,8 @@ $routes->get('/instansi/dashboard', 'InstansiController::index');
 
 $routes->get('/instansi/lengkapiPrshn', 'LengkapiPrshn::index');
 $routes->get('/instansi/profilePrshn', 'ProfilePrshn::index');
+$routes->post('/instansi/profilePrshn/edit/(:num)', 'ProfilePrshn::edit/$1');
+$routes->add('/instansi/profilePrshn/hapus/(:num)', 'ProfilePrshn::hapus/$1');
 $routes->post('/instansi/lengkapiPrshn/tambah', 'LengkapiPrshn::tambah');
 
 $routes->get('/instansi/loker', 'Loker::loker');
@@ -116,6 +118,8 @@ $routes->post('/instansi/lamaran/responsInstansi/(:num)', 'Lamaran::responsInsta
 $routes->get('pencaker/dashboard', 'PencakerController::index');
 $routes->get('pencaker/dashboard', 'Pencaker::pencaker');
 $routes->get('pencaker/profile', 'Profile::index');
+$routes->post('pencaker/profile/edit/(:num)', 'Profile::edit/$1');
+$routes->add('pencaker/profile/hapus/(:num)', 'Profile::hapus/$1');
 $routes->get('pencaker/lengkapiData', 'LengkapiData::index');
 $routes->post('pencaker/lengkapiData', 'LengkapiData::tambah');
 $routes->post('pencaker/dashboard/tambah', 'PencakerController::tambah');

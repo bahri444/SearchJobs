@@ -15,7 +15,7 @@ class PencakerModel extends Model
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        "user_id", "nm_lkp", "fas_foto", "tgl_lhr", "jk", "usia", "alamat", "email", "pend_ter", "peng_ker", "bid_keahlian", "stts_akun", "created_at", "updated_at"
+        "user_id", "nm_lkp", "fas_foto", "tgl_lhr", "jk", "usia", "tlp", "alamat", "pend_ter", "peng_ker", "bid_keahlian", "stts_akun", "created_at", "updated_at"
     ];
 
     // Dates
