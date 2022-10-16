@@ -85,6 +85,12 @@ class LengkapiData extends BaseController
                     'required' => 'No telpon harus di isi'
                 ]
             ],
+            'pend_ter' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'pendidikan terakhir harus di isi'
+                ]
+            ],
             'peng_ker' => [
                 'rules' => 'required',
                 'errors' => [
