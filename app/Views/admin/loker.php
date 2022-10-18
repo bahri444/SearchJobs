@@ -94,7 +94,7 @@
                             <th scope="col"><b>No</b></th>
                             <th scope="col"><b>Nama Kategori</b></th>
                             <th scope="col"><b>Nama Perusahaan</b></th>
-                            <th scope="col"><b>Logo</b></th>
+                            <th scope="col"><b>Logo Perusahaan</b></th>
                             <th scope="col"><b>Nama Loker</b></th>
                             <th scope="col"><b>Posisi</b></th>
                             <th scope="col"><b>Tgl Buka</b></th>

@@ -127,7 +127,7 @@
                         <?php if ($session->get('user_id') == $row->user_id) : ?>
                             <?php if ($row->stts_prshn == 'pending') : ?>
                                 <div class="col">
-                                    <h4 class="btn btn-info text-center">Sedang dalam proses persetujuan</h4>
+                                    <h4 class="btn btn-warning text-center">Sedang dalam proses persetujuan</h4>
                                 </div>
                             <?php elseif ($row->stts_prshn == 'di setujui') : ?>
                                 <div class="row ml-1 mr-1 d-inline-block">

@@ -16,7 +16,7 @@
                                     </div>
                                 </div>
                             <?php endif; ?>
-                            <form class="" action="<?= base_url('validreg') ?>" method="post">
+                            <form class="" action="<?= base_url('validreg') ?>" method="post" enctype="multipart/form-data">
                                 <?= csrf_field() ?>
                                 <div class="row">
                                     <div class="form-group col-md-12">
@@ -36,6 +36,12 @@
                                     <div class="form-group col-md-6">
                                         <label for="p-signin-set-password">Konfirmasi</label>
                                         <input type="password" name="confirmpassword" placeholder="confirm Password" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label for="user_image">Profile</label>
+                                        <input type="file" name="user_image" class="form-control">
                                     </div>
                                 </div>
                                 <div class="row">

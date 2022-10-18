@@ -77,10 +77,6 @@
                                                     <th>Berkas</th>
                                                     <td><?= ': ', $row['berkas'] ?></td>
                                                 </tr>
-                                                <tr>
-                                                    <th>Sertifikat Keahlian</th>
-                                                    <td><?= ': ', $row['sertifikat'] ?></td>
-                                                </tr>
                                         </table>
                                     </div>
                                     <div class="form-group">

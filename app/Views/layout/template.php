@@ -84,65 +84,15 @@ $session = \Config\Services::session();
                     </li>
                 </ul>
             </div>
-
-            <!-- menu Notifikasi -->
-            <!-- <div class="dropdown navbar-dropdown no-arrow navbar-notify-dropdown">
-                <a class="dropdown-toggle navbar-dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                    <span class="navbar-notify navbar-notify--notifications">
-                        <span>
-                            <span class="navbar-notify__icon mdi mdi-bell"></span>
-                            <span class="navbar-notify__text">Notifications</span>
-                        </span>
-                    </span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right navbar-dropdown-menu navbar-dropdown-notifications">
-                    <div class="navbar-dropdown-notifications__header">
-                        <span>NOTIFICATIONS</span>
-                        <a href="#" class="navbar-dropdown-notifications__mark-read">
-                            Mark all as read <span class="navbar-dropdown-notifications__mark-read-icon ua-icon-arrow-circle-down"></span>
-                        </a>
-                    </div>
-                    <div class="navbar-dropdown-notifications__body js-scrollable">
-                        <div class="navbar-dropdown-notification is-new">
-                            <div class="navbar-dropdown-notification__user">
-                                <img class="navbar-dropdown-notification__avatar rounded-circle" src="img/users/user-4.png" alt="" width="40" height="40">
-                                <div class="ua-icon-circle-check navbar-dropdown-notification__icon color-success"></div>
-                            </div>
-                            <div class="navbar-dropdown-notification__content">
-                                <a href="#" class="navbar-dropdown-notification__action-name">Antonius in Project X </a>
-                                <div class="navbar-dropdown-notification__action-desc">Added a <strong>Task</strong> to you in <strong>Designer Candidates</strong></div>
-                            </div>
-                            <span class="navbar-dropdown-notification__date">9:49 AM</span>
-                        </div>
-                        <div class="navbar-dropdown-notification__date-separator">Yesterday</div>
-                        <div class="navbar-dropdown-notification">
-                            <div class="navbar-dropdown-notification__user">
-                                <img class="navbar-dropdown-notification__avatar rounded-circle" src="img/users/user-8.png" alt="" width="40" height="40">
-                                <div class="ua-icon-letter-alt navbar-dropdown-notification__icon color-danger navbar-dropdown-notification__icon--letter"></div>
-                            </div>
-                            <div class="navbar-dropdown-notification__content">
-                                <a href="#" class="navbar-dropdown-notification__action-name">Antonius in Project X </a>
-                                <div class="navbar-dropdown-notification__action-desc">Added a <strong>Task</strong> to you in <strong>Designer Candidates</strong></div>
-                            </div>
-                            <span class="navbar-dropdown-notification__date">9:49 AM</span>
-                        </div>
-                    </div>
-                    <a class="navbar-dropdown-notifications__view-all" href="#">
-                        <span class="icon ua-icon-view-all"></span>
-                        <span>View all</span>
-                    </a>
-                </div>
-            </div> -->
-
             <!-- menu navbar profile -->
             <div class="dropdown navbar-dropdown">
                 <a class="dropdown-toggle navbar-dropdown-toggle navbar-dropdown-toggle__user" data-toggle="dropdown" href="#">
-                    <img src="<?= base_url() ?>/img/users/<?= $session->get('user_image') ?>" alt="" class="navbar-dropdown-toggle__user-avatar">
+                    <img src="<?= base_url() ?>/img2/<?= session()->get('user_image') ?>" alt="" class="navbar-dropdown-toggle__user-avatar">
                     <span class="navbar-dropdown__user-name"><?= $session->get('username') ?></span>
                 </a>
                 <div class="dropdown-menu navbar-dropdown-menu navbar-dropdown-menu__user">
                     <div class="navbar-dropdown-user-content">
-                        <div class="dropdown-user__avatar"><img src="<?= base_url() ?>/img/users/<?= $session->get('user_image') ?>" alt="" /></div>
+                        <div class="dropdown-user__avatar"><img src="<?= base_url() ?>/img2/<?= $session->get('user_image') ?>" alt="" /></div>
                         <div class="dropdown-info">
                             <div class="dropdown-info__name"><?= $session->get('username') ?></div>
                         </div>
@@ -161,7 +111,7 @@ $session = \Config\Services::session();
         <div class="sidebar-section__scroll">
             <?php if ($session->get('role') == 'admin') : ?>
                 <div class="sidebar-user-a">
-                    <img src="<?= base_url() ?>/img/users/disnakerNTB.jpeg" alt="" class="sidebar-user-a__avatar rounded-circle">
+                    <img src="<?= base_url() ?>/img2/<?= session()->get('user_image') ?>" alt="" class="sidebar-user-a__avatar rounded-circle">
                     <div class="sidebar-user-a__name">Dinas Tenaga Kerja</div>
                     <div class="sidebar-user-a__name">Dan Transmigrasi</div>
                 </div>
@@ -218,7 +168,7 @@ $session = \Config\Services::session();
                 </ul>
             <?php elseif ($session->get('role') == 'instansi') : ?>
                 <div class="sidebar-user-a">
-                    <img src="<?= base_url() ?>/img/users/<?= $session->get('user_image') ?>" alt="" class="sidebar-user-a__avatar rounded-circle">
+                    <img src="<?= base_url() ?>/img2/<?= $session->get('user_image') ?>" alt="" class="sidebar-user-a__avatar rounded-circle">
                     <div class="sidebar-user-a__name"><?= $session->get('username') ?></div>
                 </div>
                 <ul class="sidebar-section-nav">
@@ -273,7 +223,7 @@ $session = \Config\Services::session();
                 </ul>
             <?php elseif ($session->get('role') == 'pencaker') : ?>
                 <div class="sidebar-user-a">
-                    <img src="<?= base_url() ?>/img/users/<?= $session->get('user_image') ?>" alt="" class="sidebar-user-a__avatar rounded-circle">
+                    <img src="<?= base_url() ?>/img2/<?= $session->get('user_image') ?>" alt="" class="sidebar-user-a__avatar rounded-circle">
                     <div class="sidebar-user-a__name"><?= $session->get('username') ?></div>
                 </div>
                 <ul class="sidebar-section-nav mt-auto">
