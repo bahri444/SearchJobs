@@ -30,16 +30,7 @@ class LokerModel extends Model
         $builder = $this->db->table('loker');
         $builder->join('perusahaan', 'perusahaan.id_prshn = loker.id_prshn');
         $builder->join('ktgr_loker', 'ktgr_loker.id_ktgr = loker.id_ktgr');
-        // $builder->join('pencaker', 'pencaker.id_pencaker = pencaker.id_pencaker');
-        //$builder->join('pencaker', 'perusahaan.user_id = perusahaan.user_id');//mengembalikan data double
-
-
-        // $builder->join('', 'pencaker.user_id = perusahaan.user_id');
-
-
-        // $builder->join('pencaker', 'pencaker.user_id = perusahaan.user_id'); hanya mengambil id_pencaker 2
-        // $builder->join('pencaker', 'perusahaan.user_id = pencaker.id_pencaker'); hanya mengambil id_pencaker 3
-        // $builder->join('pencaker', 'pencaker.user_id = pencaker.user_id'); data double
+        $builder->orderBy('id_loker', 'DESC');
         return $builder->get()->getResultArray();
     }
 

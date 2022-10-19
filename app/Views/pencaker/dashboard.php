@@ -42,7 +42,7 @@
                                                 <label for="id_pencaker">Nomor Pencaker</label>
                                                 <?php foreach ($pnckr as $p) : ?>
                                                     <?php if ($session->get('user_id') == $p['user_id']) : ?>
-                                                        <input type="text" name="id_pencaker" class="form-control" value="<?= $p['id_pencaker'] ?>">
+                                                        <input type="hidden" name="id_pencaker" class="form-control" value="<?= $p['id_pencaker'] ?>">
                                                     <?php endif; ?>
                                                 <?php endforeach; ?>
                                             </div>
@@ -89,7 +89,7 @@
                         <div class="row ml-2 mr-2 mt-3">
                             <?php foreach ($lokersJoin as $row) : ?>
                                 <?php if ($row['nm_ktgr'] == $val['bid_keahlian']) : ?>
-                                    <div class="col-8">
+                                    <div class="col-6">
                                         <div class="main-container">
                                             <div class="col-lg-12 col-md-6">
                                                 <!-- read data loker -->

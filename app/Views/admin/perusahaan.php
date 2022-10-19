@@ -43,12 +43,9 @@
                                 </div>
                                 <div class="row">
                                     <div class="col">
-                                        <div class="mt-2 d-flex justify-content-around">
+                                        <div class="mt-2 d-flex justify-content-center">
                                             <div>
                                                 <img width="200px" height="200px" src="<?= base_url() ?>/img2/<?= $vals->logo; ?>" alt="not found">
-                                            </div>
-                                            <div>
-                                                <img width="200px" height="200px" src="<?= base_url() ?>/img/users/<?= $vals->user_image; ?>" alt="not found">
                                             </div>
                                         </div>
                                     </div>

@@ -52,16 +52,34 @@ class UserController extends BaseController
                     'require' => '{field} harus diisi'
 
                 ]
-            ]
+            ],
+            'user_image' => [
+                'rules' => 'uploaded[user_image]|max_size[user_image,5000]|is_image[user_image]|mime_in[user_image,image/jpg,image/png,image/jpeg]',
+                'errors' => [
+                    'uploaded' => 'pilih foto profile terlebih dahulu',
+                    'max_size' => 'ukuran foto profile terlalu besar',
+                    'is_image' => 'yang anda pilihh bukan foto',
+                    'mime-in' => 'yang anda pilihh bukan foto'
+                ]
+            ],
         ])) {
             return redirect()->to('register')->withInput();
         }
+        // ambil gambar
+        $user_iamge = $this->request->getFile('user_image');
+
+        // pindahkan file
+        $user_iamge->move('img2');
+
+        // ambil nama file
+        $profile = $user_iamge->getName();
 
 
         $this->userModel->save([
             "username" => $dataForm['username'],
             "email"    => $dataForm['email'],
             "password" => password_hash($dataForm['password'], PASSWORD_DEFAULT),
+            "user_image"     => $profile,
             "role"     => $dataForm['role']
         ]);
         return redirect()->to('login');

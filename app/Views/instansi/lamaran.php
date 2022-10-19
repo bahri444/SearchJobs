@@ -295,46 +295,50 @@
                     <tbody>
                         <?php $i = 1; ?>
                         <?php foreach ($lamaran as $row) : ?>
-                            <?php if ($row['s_lamaran'] == 'rekomendasi') : ?>
-                                <tr>
-                                    <td><?= $i++; ?></td>
-                                    <td><?= $row['nm_lkp'] ?></td>
-                                    <td><?= $row['judul_loker'] ?></td>
-                                    <td><?= $row['berkas'] ?></td>
-                                    <td><?= $row['tgl_lamar'] ?></td>
-                                    <td><?= $row['respons'] ?></td>
-                                    <td class="d-flex justify-content-center">
+                            <?php if ($session->get('user_id') == $row['user_id']) : ?>
+                                <?php if ($row['id_prshn'] == $row['id_prshn']) : ?>
+                                    <?php if ($row['s_lamaran'] == 'rekomendasi') : ?>
+                                        <tr>
+                                            <td><?= $i++; ?></td>
+                                            <td><?= $row['nm_lkp'] ?></td>
+                                            <td><?= $row['judul_loker'] ?></td>
+                                            <td><?= $row['berkas'] ?></td>
+                                            <td><?= $row['tgl_lamar'] ?></td>
+                                            <td><?= $row['respons'] ?></td>
+                                            <td class="d-flex justify-content-center">
 
-                                        <!-- tombol-info data-->
-                                        <div class="row">
-                                            <div class="col-sm mr-1">
-                                                <button type="button" class="btn btn-warning btn-sm-2" data-toggle="modal" data-target="#modalInfo<?= $row['id_lamaran'] ?>">
-                                                    <i class="ua-icon-alert-info"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                        <!-- end-tombol info data -->
-                                        <!-- tombol-edit data-->
-                                        <!-- <div class="row">
+                                                <!-- tombol-info data-->
+                                                <div class="row">
+                                                    <div class="col-sm mr-1">
+                                                        <button type="button" class="btn btn-warning btn-sm-2" data-toggle="modal" data-target="#modalInfo<?= $row['id_lamaran'] ?>">
+                                                            <i class="ua-icon-alert-info"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                                <!-- end-tombol info data -->
+                                                <!-- tombol-edit data-->
+                                                <!-- <div class="row">
                                         <div class="col-sm mr-1 ml-1">
                                             <button type="button" class="btn btn-info btn-sm-2" data-toggle="modal" data-target="#modalEdit<?= $row['id_lamaran'] ?>">
                                                 <i class="ua-icon-activity-edit"></i>
                                             </button>
                                         </div>
                                     </div> -->
-                                        <!-- end-tombol edit data -->
+                                                <!-- end-tombol edit data -->
 
-                                        <!-- tombol-hapus data-->
-                                        <!-- <div class="row">
+                                                <!-- tombol-hapus data-->
+                                                <!-- <div class="row">
                                         <div class="col-sm ml-1">
                                             <button type="button" class="btn btn-danger btn-sm-2" data-toggle="modal" data-target="#modalHapus<?= $row['id_lamaran'] ?>">
                                                 <i class="ua-icon-trash"></i>
                                             </button>
                                         </div>
                                     </div> -->
-                                        <!-- end-tombol hapus data -->
-                                    </td>
-                                </tr>
+                                                <!-- end-tombol hapus data -->
+                                            </td>
+                                        </tr>
+                                    <?php endif; ?>
+                                <?php endif; ?>
                             <?php endif; ?>
                         <?php endforeach; ?>
                     </tbody>

@@ -63,7 +63,7 @@
                                 <td><?= $val->email ?></td>
                                 <td><?= $val->username ?></td>
                                 <td><?= $val->role ?></td>
-                                <td><img src="<?= base_url() ?>/img/users/<?= $val->user_image ?>" alt=""></td>
+                                <td><img src="<?= base_url() ?>/img2/<?= $val->user_image ?>" width="70" height="70" alt="404"></td>
                                 <td class="d-flex justify-content-center ">
                                     <!-- modal-hapus data-->
                                     <div class="row">
@@ -74,7 +74,6 @@
                                         </div>
                                     </div>
                                     <!-- end-modal hapus data -->
-
                                 </td>
                             </tr>
                         <?php endforeach; ?>
