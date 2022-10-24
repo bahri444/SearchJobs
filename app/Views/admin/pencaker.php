@@ -80,10 +80,6 @@
                                                 <td><?= ': ', $row->bid_keahlian ?></td>
                                             </tr>
                                             <tr>
-                                                <th>Fas Foto</th>
-                                                <td><?= ': ', $row->fas_foto ?></td>
-                                            </tr>
-                                            <tr>
                                                 <th>Pengalaman Kerja</th>
                                                 <td><?= ': ', $row->peng_ker ?></td>
                                             </tr>

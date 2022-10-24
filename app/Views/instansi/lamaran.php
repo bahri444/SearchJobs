@@ -133,8 +133,13 @@
                                                         <td><?= ': ', $row['fas_foto'] ?></td>
                                                     </tr>
                                                     <tr>
-                                                        <th>Berkas Persyaratan</th>
-                                                        <td><?= ': ', $row['berkas'] ?></td>
+                                                        <th>Berkas Persyaratan :</th>
+                                                        <td>
+                                                            <!-- Button trigger modal -->
+                                                            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalpdf<?= $row['id_lamaran'] ?>">
+                                                                <?= $row['berkas']; ?>
+                                                            </button>
+                                                        </td>
                                                     </tr>
                                                 </table>
                                             </div>
@@ -174,6 +179,22 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal PDF -->
+                <div class="modal fade bd-example-modal-xl" id="modalpdf<?= $row['id_lamaran'] ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" style="max-width: 80%;" role=" document">
+                        <div class="modal-content w-100 bg-dark">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <embed src="<?= base_url('/berkas/' . $row['berkas']) ?>" type="" width="100%" style="height: 500px;">
                             </div>
                         </div>
                     </div>
