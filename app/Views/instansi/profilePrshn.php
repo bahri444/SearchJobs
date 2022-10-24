@@ -164,11 +164,19 @@
                                         </tr>
                                         <tr>
                                             <th>Surat Izin</th>
-                                            <td><?= ': ', $row->srt_izin ?></td>
+                                            <td>
+                                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalPdf<?= $row->id_prshn ?>">
+                                                    <?= $row->srt_izin ?>
+                                                </button>
+                                            </td>
                                         </tr>
                                         <tr>
-                                            <th>Struktur Organisasi</th>
-                                            <td><?= ': ', $row->strk_organis ?></td>
+                                            <th>Struktur</th>
+                                            <td>
+                                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalPdfs<?= $row->id_prshn ?>">
+                                                    <?= $row->strk_organis ?>
+                                                </button>
+                                            </td>
                                         </tr>
                                         <tr>
                                             <th>Status Perusahaan</th>
@@ -204,6 +212,40 @@
                                 </div>
                             <?php endif; ?>
                         <?php endif; ?>
+
+                        <!-- Modal PDF -->
+                        <div class="modal fade bd-example-modal-xl" id="modalPdf<?= $row->id_prshn ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" style="max-width: 80%;" role=" document">
+                                <div class="modal-content w-100 bg-dark">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <embed src="<?= base_url('/surat/' . $row->srt_izin) ?>" type="" width="100%" style="height: 500px;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end-Modal PDF -->
+
+                        <!-- Modal PDF2 -->
+                        <div class="modal fade bd-example-modal-xl" id="modalPdfs<?= $row->id_prshn ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" style="max-width: 80%;" role=" document">
+                                <div class="modal-content w-100 bg-dark">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <embed src="<?= base_url('/strk_organis/' . $row->strk_organis) ?>" type="" width="100%" style="height: 500px;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end-Modal PDF2 -->
                     <?php endforeach; ?>
                 </div>
             </div>
